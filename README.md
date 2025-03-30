@@ -1,4 +1,6 @@
 <h1>Trabajo práctico obligatorio </h1>
+<h2>Desarrollo de una Plataforma de E-commerce</h2>
+
 <h2>Grupo-8</h2>
 <ul>
 <li>Daniela Gangotena:	1185437</li>
@@ -7,34 +9,31 @@
 <li>Pedro Berrotaran:	1176890</li>
 </ul>
 
+<h3>Tecnologías Usadas en el Desarrollo de la Plataforma de E-commerce</h3>
 
-<h1>Desarrollo de una Plataforma de E-commerce</h1>
+<h2>Frontend</h2>
+<ul>
+    <li><strong>HTML5</strong></li>
+    <li><strong>CSS3</strong></li>
+    <li><strong>JavaScript</strong></li>
+    <li><strong>React</strong></li>
+    <li><strong>Redux</strong></li>
+</ul>
 
-<h1>Tecnologías Usadas en el Desarrollo de la Plataforma de E-commerce</h1>
+<h2>Backend</h2>
 
-        <h2>Frontend</h2>
-        <ul>
-            <li><strong>HTML5</strong></li>
-            <li><strong>CSS3</strong></li>
-            <li><strong>JavaScript</strong></li>
-            <li><strong>React</strong></li>
-            <li><strong>Redux</strong></li>
-        </ul>
+    <li><strong>API REST</strong></li>
+    <li><strong>Git</strong></li>
+    <li><strong>JAVA</strong></li>
+  
+</ul>
 
-        <h2>Backend</h2>
-       
-            <li><strong>API REST</strong></li>
-            <li><strong>Git</strong></li>
-            <li><strong>JAVA</strong></li>
-          
-        </ul>
-
-        <h2>Herramientas de Desarrollo</h2>
-        <ul>
-            <li><strong>Visual Studio Code</strong></li>
-            <li><strong>Postman</strong></li>
-            <li><strong>npm</strong></li>
-        </ul>
+<h2>Herramientas de Desarrollo</h2>
+<ul>
+    <li><strong>Visual Studio Code</strong></li>
+    <li><strong>Postman</strong></li>
+    <li><strong>npm</strong></li>
+</ul>
 
 <p>Nos han contratado para desarrollar una plataforma de e-commerce para una empresa local que busca expandir su presencia en el mercado digital. El objetivo es proporcionar una experiencia de compra intuitiva y segura para los usuarios finales, permitiéndoles explorar, seleccionar y comprar productos de manera eficiente. La empresa desea disponer de un sistema que permita a los usuarios vendedores realizar la publicación de su producto, así como también gestionar la misma (eliminar o modificar).</p>
 <p>Debajo encontrarán detallados los requerimientos de la empresa.</p>
