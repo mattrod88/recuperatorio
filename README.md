@@ -72,10 +72,32 @@
       <li>Visualización, búsqueda y filtrado de productos disponibles.</li>
       <li>Gestión de descuentos de productos.</li>
   </ul>
+ 
+<h1>Tecnologías Usadas en el Desarrollo de la Plataforma de E-commerce</h1>
 
-  <h3>Entrega final:</h3>
-  <ul>
-      <li>Aplicación web adaptativa que cumpla con todos los requerimientos del TPO, integrando frontend y backend a través de Redux.</li>
-  </ul>
-</div>
+        <h2>Frontend</h2>
+        <ul>
+            <li><strong>HTML5</strong></li>
+            <li><strong>CSS3</strong></li>
+            <li><strong>JavaScript</strong></li>
+            <li><strong>React</strong></li>
+            <li><strong>Redux</strong></li>
+        </ul>
+
+        <h2>Backend</h2>
+       
+            <li><strong>API REST</strong></li>
+            <li><strong>Git</strong></li>
+            <li><strong>JAVA</strong></li>
+          
+        </ul>
+
+        <h2>Herramientas de Desarrollo</h2>
+        <ul>
+            <li><strong>Visual Studio Code</strong></li>
+            <li><strong>Postman</strong></li>
+            <li><strong>npm</strong></li>
+        </ul>
+    </div>
+
 
