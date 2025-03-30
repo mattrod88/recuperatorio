@@ -33,6 +33,7 @@
     <li><strong>Postman</strong></li>
     <li><strong>npm</strong></li>
 </ul>
+<h2>Consignas</h2>
 
 <p>Nos han contratado para desarrollar una plataforma de e-commerce para una empresa local que busca expandir su presencia en el mercado digital. El objetivo es proporcionar una experiencia de compra intuitiva y segura para los usuarios finales, permitiéndoles explorar, seleccionar y comprar productos de manera eficiente. La empresa desea disponer de un sistema que permita a los usuarios vendedores realizar la publicación de su producto, así como también gestionar la misma (eliminar o modificar).</p>
 <p>Debajo encontrarán detallados los requerimientos de la empresa.</p>
