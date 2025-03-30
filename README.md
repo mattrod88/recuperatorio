@@ -45,7 +45,6 @@
   </ul>
 </div>
 
-<div class="section">
   <h2>Requisitos de entrega</h2>
   <p>El trabajo por realizar es el siguiente:</p>
   <ul>
