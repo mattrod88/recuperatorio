@@ -98,5 +98,7 @@
       <li>Gestión de descuentos de productos.</li>
   </ul>
  
+<h1>Diagrama de Entidad Relación</h1>
+![image](https://github.com/user-attachments/assets/689f2463-01f8-4829-a7f2-673b24311a8f)
 
 
