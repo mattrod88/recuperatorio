@@ -21,16 +21,15 @@
 </ul>
 
 <h2>Backend</h2>
-
-    <li><strong>API REST</strong></li>
-    <li><strong>Git</strong></li>
-    <li><strong>JAVA</strong></li>
-  
+<ul>
+<li><strong>API REST</strong></li>
+<li><strong>Git</strong></li>
+<li><strong>JAVA</strong></li>
 </ul>
 
 <h2>Herramientas de Desarrollo</h2>
 <ul>
-    <li><strong>Visual Studio Code</strong></li>
+    <li><strong>Intellij</strong></li>
     <li><strong>Postman</strong></li>
     <li><strong>npm</strong></li>
 </ul>
