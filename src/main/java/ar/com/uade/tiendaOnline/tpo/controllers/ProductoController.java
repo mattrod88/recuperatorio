@@ -27,33 +27,21 @@ public class ProductoController {
     }
 
     @PostMapping
-    public void agregarProducto(@RequestBody Producto producto) {
-        productoServicio.agregarProducto(producto);
+    public void crearProducto(@RequestBody Producto producto) {
+        productoServicio.crearProducto(producto);
 
     }
 
-    @GetMapping
-    public Producto seleccionarProducto(Producto producto) {
-        if (producto != null) {
-            return productoServicio.mostarProducto();
-        }
-        return productoServicio.mostrarImagenNoHayProductos();
-
-    }
-
-    @GetMapping
-    public void elegirCantidad(Producto producto, int cant) {
-
-        if (productoServicio.getCantidad() != 0 && productoServicio.getCantidad() >= cant) {
-            int cantidad = producto.getCantidad() - cant;
-
-            productoServicio.setCantidad(cantidad);
-        }
-    }
+    @GetMapping("/{id}")
+    public Producto obtenerProducto(@PathVariable Long id) {
+        return productoServicio.obtenerProductoPorId(id);
+}
 
 
-    @DeleteMapping
+
+    @DeleteMapping("delete/productos/{id}")
     public void eliminarProducto(@RequestBody Producto producto) {
+
         productoServicio.eliminarProducto(producto);
         }
 
