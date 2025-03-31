@@ -8,18 +8,12 @@ import java.util.List;
 public interface IProductoServicio {
     List<Producto> obtenerTodosLosProductos();
 
-     void agregarProducto(Producto producto) ;
+     void crearProducto(Producto producto) ;
 
 
     List<Producto> obtenerProductosXCategoria(Categoria categoria);
 
-    Producto mostarProducto();
-
-    Producto mostrarImagenNoHayProductos();
-
-    int getCantidad();
-
-    int setCantidad(int cantidad);
-
     void eliminarProducto(Producto producto);
+
+    Producto obtenerProductoPorId(Long id);
 }
