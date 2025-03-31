@@ -4,6 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 
-@ResponseStatus(code = HttpStatus.BAD_REQUEST, reason = "El producto que buscas no existe")
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "El producto que buscas no existe")
 public class ProductoInexistenteExcepcion extends RuntimeException {
 }
