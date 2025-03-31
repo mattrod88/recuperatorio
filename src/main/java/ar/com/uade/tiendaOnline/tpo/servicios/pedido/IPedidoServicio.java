@@ -1,4 +1,4 @@
-package ar.com.uade.tiendaOnline.tpo.controllers;
+package ar.com.uade.tiendaOnline.tpo.servicios.pedido;
 
-public class IPedidoServicio {
+public interface IPedidoServicio {
 }
