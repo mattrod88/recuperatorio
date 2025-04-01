@@ -1,4 +1,7 @@
 package ar.com.uade.tiendaOnline.tpo.repositorio;
 
-public interface RolRepositorio {
+import ar.com.uade.tiendaOnline.tpo.entidad.Pedido;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RolRepositorio extends JpaRepository<Pedido,Long> {
 }
