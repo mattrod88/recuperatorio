@@ -1,4 +1,4 @@
 package ar.com.uade.tiendaOnline.tpo.repositorio;
 
-public interface UsuarioRepositorio {
+public interface ClienteRepositorio {
 }
