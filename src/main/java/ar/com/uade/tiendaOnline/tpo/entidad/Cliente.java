@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
-public class Usuario {
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,11 +22,11 @@ public class Usuario {
 
     @Column
     private String apellido;
-    @OneToMany(mappedBy= "usuario")
+    @OneToMany(mappedBy= "cliente")
     private List<Pedido> pedidos;
 
     @ManyToMany
-    @JoinTable(name = "rol_usuario", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    @JoinTable(name = "rol_cliente", joinColumns = @JoinColumn(name = "cliente_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private List<Rol> roles;
 
 }
