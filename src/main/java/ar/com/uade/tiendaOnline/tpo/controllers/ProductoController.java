@@ -15,6 +15,7 @@ public class ProductoController {
     @Autowired
     private IProductoServicio productoServicio;
 
+
     @GetMapping
     public List<Producto> listarProductos(@RequestParam(required = false) Categoria categoria) {
         if (categoria != null) {
