@@ -9,5 +9,4 @@ import java.util.List;
 
 public interface IPedidoServicio {
 
-    List<Pedido> obtenerPedidoPorCliente(Cliente cliente);
 }
