@@ -18,5 +18,5 @@ public class Rol {
 
 
     @ManyToMany(mappedBy = "roles")
-    private List<Usuario> usuarios;
+    private List<Cliente> usuarios;
 }
