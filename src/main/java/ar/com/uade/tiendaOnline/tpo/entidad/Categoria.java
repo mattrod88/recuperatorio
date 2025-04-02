@@ -21,6 +21,4 @@ public class Categoria {
     @Column
     private String descripcion;
 
-    @OneToMany(mappedBy = "categoria")
-    private List<Producto> productos;
 }
