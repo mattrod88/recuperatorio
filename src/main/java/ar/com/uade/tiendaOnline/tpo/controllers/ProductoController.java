@@ -17,7 +17,7 @@ public class ProductoController {
 
 
     @GetMapping
-    public List<Producto> listarProductos(@RequestParam(required = false) Categoria categoria) {
+    public List<Producto> listarProductos(@RequestParam(required = false) String categoria) {
         if (categoria != null) {
             return productoServicio.obtenerProductosXCategoria(categoria);
 
