@@ -16,6 +16,7 @@ public class CategoriaServicio implements ICategoriaServicio {
         private CategoriaRepositorio categoriaRepositorio;
 
         public Page<Categoria> getCategorias(PageRequest pageable) {
+
             return categoriaRepositorio.findAll(pageable);
         }
 
