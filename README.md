@@ -100,9 +100,8 @@
   </ul>
  
 <h1>Diagrama de Entidad Relación</h1>
-
-
 ![Alt text](https://github.com/user-attachments/assets/689f2463-01f8-4829-a7f2-673b24311a8f)
+<h1>Diagrama de Clases</h1>
 ![image](https://github.com/user-attachments/assets/13698969-b4e6-4dfa-8c40-7c683f4d5fc1)
 
 <h1>Prototipo Frontend:</h1>
