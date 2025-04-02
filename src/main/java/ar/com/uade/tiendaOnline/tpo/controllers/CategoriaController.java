@@ -31,8 +31,8 @@ public class CategoriaController {
         }
 
         @GetMapping("/{categoriaId}")
-        public ResponseEntity<Categoria> getCategoriaById(@PathVariable Long categoryId) {
-            Optional<Categoria> result = categoriaServicio.getCategoriaById(categoryId);
+        public ResponseEntity<Categoria> getCategoriaById(@PathVariable Long categoriaId) {
+            Optional<Categoria> result = categoriaServicio.getCategoriaById(categoriaId);
             if (result.isPresent())
                 return ResponseEntity.ok(result.get());
 
