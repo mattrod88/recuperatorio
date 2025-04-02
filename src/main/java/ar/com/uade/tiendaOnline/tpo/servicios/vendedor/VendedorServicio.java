@@ -1,4 +1,15 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.vendedor;
 
-public class VendedorServicio {
+
+
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+public class VendedorServicio implements  IVendedorServicio{
+
+
+
+
 }
