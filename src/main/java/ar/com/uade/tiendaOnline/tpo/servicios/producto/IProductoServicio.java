@@ -11,7 +11,7 @@ public interface IProductoServicio {
      void crearProducto(Producto producto) ;
 
 
-    List<Producto> obtenerProductosXCategoria(Categoria categoria);
+    List<Producto> obtenerProductosXCategoria(String categoria);
 
     void eliminarProducto(Producto producto);
 
