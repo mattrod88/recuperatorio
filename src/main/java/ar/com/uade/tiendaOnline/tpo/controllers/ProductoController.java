@@ -35,6 +35,7 @@ public class ProductoController {
 
     @GetMapping("/{id}")
     public Producto obtenerProducto(@PathVariable Long id) {
+
         return productoServicio.obtenerProductoPorId(id);
 }
 
