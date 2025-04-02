@@ -4,10 +4,10 @@
 <h2>Grupo-8</h2>
 <h3>Colaboradores:</h3>
 <ul>
-<li>Daniela Gangotena:	1185437 @dggtn </li>
-<li>Keila Checa:	1177842 @KeilaCheca</li>
-<li>Mathias Rodriguez:	1141510 @mattrod88</li>
-<li>Pedro Berrotaran:	1176890 @pedroberro</li>
+<li>Daniela Gangotena:	1185437 [@dggtn] </li>
+<li>Keila Checa:	1177842 [@KeilaCheca]</li>
+<li>Mathias Rodriguez:	1141510 [@mattrod88]</li>
+<li>Pedro Berrotaran:	1176890 [@pedroberro]</li>
 </ul>
 
 <h3>Tecnologías Usadas en el Desarrollo de la Plataforma de E-commerce</h3>
@@ -106,4 +106,4 @@
 ![image](https://github.com/user-attachments/assets/13698969-b4e6-4dfa-8c40-7c683f4d5fc1)
 
 <h1>Prototipo Frontend:</h1>
-[image](https://www.figma.com/proto/B8AouWPUJ5BPf9mtNIv5mM/frontendTPO?node-id=16-65&p=f&t=vHk96hHvKsKc3nLu-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
+(https://www.figma.com/proto/B8AouWPUJ5BPf9mtNIv5mM/frontendTPO?node-id=16-65&p=f&t=vHk96hHvKsKc3nLu-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
