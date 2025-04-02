@@ -16,13 +16,14 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String imagen;
 
     @Column
     private String descripcion;
 
     @OneToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
 
     public Producto() {
