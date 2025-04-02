@@ -1,9 +1,11 @@
 package ar.com.uade.tiendaOnline.tpo.entidad;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
+@Entity
 public class Vendedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +21,7 @@ public class Vendedor {
     private String nombreEmprendimiento;
     @Column
     private String apellido;
-    @OneToMany(mappedBy= "usuario")
+    @OneToMany(mappedBy= "vendedor")
     private List<Pedido> pedidos;
 
     @ManyToMany
