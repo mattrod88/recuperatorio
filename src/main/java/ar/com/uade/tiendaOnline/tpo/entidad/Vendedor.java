@@ -23,7 +23,19 @@ public class Vendedor {
     private List<Pedido> pedidos;
 
     @ManyToMany
-    @JoinTable(name = "rol_usuario", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    @JoinTable(name = "rol_vendedor", joinColumns = @JoinColumn(name = "vendedor_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private List<Rol> roles;
 
+    public Vendedor(Long id, List<Rol> roles, List<Pedido> pedidos, String apellido, String nombreEmprendimiento, String nombre, String email) {
+        this.id = id;
+        this.roles = roles;
+        this.pedidos = pedidos;
+        this.apellido = apellido;
+        this.nombreEmprendimiento = nombreEmprendimiento;
+        this.nombre = nombre;
+        this.email = email;
+    }
+
+    public Vendedor() {
+    }
 }
