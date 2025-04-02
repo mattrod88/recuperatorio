@@ -27,7 +27,7 @@ public class ProductoServicio implements IProductoServicio {
     }
 
     @Override
-    public List<Producto> obtenerProductosXCategoria(Categoria categoria ) {
+    public List<Producto> obtenerProductosXCategoria(String categoria ) {
         return productoRepositorio.findByCategoria(categoria);
     }
 
