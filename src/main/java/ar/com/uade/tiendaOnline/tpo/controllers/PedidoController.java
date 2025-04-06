@@ -39,5 +39,16 @@ public class PedidoController {
             return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/cliente/{clienteId}")
+    public ResponseEntity<List<Pedido>> getPedidosPorCliente(@PathVariable Long clienteId) {
+        List<Pedido> pedidos = pedidoServicio.getPedidoPorCliente(clienteId);
+
+        if (pedidos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.ok(pedidos);
+    }
+
 
 }
