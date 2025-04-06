@@ -2,7 +2,6 @@ package ar.com.uade.tiendaOnline.tpo.entidad.dto;
 
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
-import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
