@@ -31,5 +31,13 @@ public class PedidoController {
         return ResponseEntity.ok(pedidoServicio.getPedidos(PageRequest.of(page, size)));
     }
 
+    @GetMapping("/{pedidoId}")
+    public ResponseEntity<Pedido> getPedidoById(@PathVariable Long pedidoId) {
+        Optional<Pedido> result = pedidoServicio.getPedidoById(pedidoId);
+            if (result.isPresent())
+                return ResponseEntity.ok(result.get());
+            return ResponseEntity.noContent().build();
+    }
+
 
 }
