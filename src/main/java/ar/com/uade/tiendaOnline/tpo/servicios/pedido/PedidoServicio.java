@@ -6,7 +6,7 @@ import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.repositorio.PedidoRepositorio;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;  // agregue este
+import org.springframework.data.domain.Page; 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +29,26 @@ public class PedidoServicio implements IPedidoServicio{
 
     public List<Pedido> getPedidoPorCliente(Long clienteId) {
         return pedidoRepositorio.obtenerPorCliente(clienteId);
-    }    
-
+    }  
     
+    public Pedido crearPedido(List<Long> productosIds) {
+        List<Producto> productos = productoRepositorio.findAllById(productosIds); // revisar
+        if (productos.isEmpty()) {
+            throw new IllegalArgumentException("El pedido no contiene productos.");  //revisar
+        }
+    
+        double total = productos.stream()
+                            .mapToDouble(Producto::getPrecio)
+                            .sum();
+    
+        Pedido nuevoPedido = new Pedido(); // revisar
+        nuevoPedido.setProductos(productos);        
+        nuevoPedido.setFecha(LocalDate.now());        
+        nuevoPedido.setEstado("PENDIENTE");          
+        nuevoPedido.setTotal(total);                   
+    
+        return pedidoRepositorio.save(nuevoPedido);
+    }
+
+
 }
