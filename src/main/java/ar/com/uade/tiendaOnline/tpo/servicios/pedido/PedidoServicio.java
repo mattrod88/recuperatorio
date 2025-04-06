@@ -27,7 +27,9 @@ public class PedidoServicio implements IPedidoServicio{
         return pedidoRepositorio.findById(pedidoId);
     }
 
-    public List<Pedido> obtenerPedidoPorCliente(Cliente cliente){
-        return pedidoRepositorio.obtenerPorCliente(cliente.getId());
-    }
+    public List<Pedido> getPedidoPorCliente(Long clienteId) {
+        return pedidoRepositorio.obtenerPorCliente(clienteId);
+    }    
+
+    
 }
