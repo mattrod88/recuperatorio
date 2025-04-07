@@ -3,6 +3,7 @@ package ar.com.uade.tiendaOnline.tpo.controllers;
 import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Cliente;
 import ar.com.uade.tiendaOnline.tpo.entidad.Pedido;
+import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.CategoriaRequest;
 import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.servicios.pedido.IPedidoServicio;
@@ -37,9 +38,7 @@ public class PedidoController {
     @GetMapping("/{pedidoId}")
     public ResponseEntity<Pedido> getPedidoById(@PathVariable Long pedidoId) {
         Optional<Pedido> result = pedidoServicio.getPedidoById(pedidoId);
-            if (result.isPresent())
-                return ResponseEntity.ok(result.get());
-            return ResponseEntity.noContent().build();
+        return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.noContent().build());
     }
 
     @GetMapping("/cliente/{clienteId}")
@@ -53,11 +52,6 @@ public class PedidoController {
         return ResponseEntity.ok(pedidos);
     }
 
-    @PostMapping
-    public ResponseEntity<Object> crearPedido(@RequestBody PedidoRequest pedidoRequest) {
-        Pedido result = pedidoServicio.crearPedido(pedidoRequest.getProductosIds());
-        return ResponseEntity.created(URI.create("/pedidos/" + result.getId())).body(result);
-    }
 
 
 }
