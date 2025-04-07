@@ -1,6 +1,5 @@
 package ar.com.uade.tiendaOnline.tpo.controllers;
 
-import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.servicios.producto.IProductoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class ProductoController {
     }
 
     @GetMapping("/{id}")
-    public Producto obtenerProducto(@PathVariable Long id) {
+    public Producto clickEnUnProducto(@PathVariable Long id) {
 
         return productoServicio.obtenerProductoPorId(id);
 }
