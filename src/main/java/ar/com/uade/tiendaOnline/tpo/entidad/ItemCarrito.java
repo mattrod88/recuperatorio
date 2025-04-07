@@ -24,4 +24,11 @@ public class ItemCarrito {
     private int cantidad;
 
     public ItemCarrito() {}
+
+    public ItemCarrito(Long id, int cantidad, Carrito carrito, Producto producto) {
+        this.id = id;
+        this.cantidad = cantidad;
+        this.carrito = carrito;
+        this.producto = producto;
+    }
 }
