@@ -25,5 +25,13 @@ public class Pedido {
     @JoinColumn(name = "vendedor_id",nullable = false)
     private Vendedor vendedor;
 
+    public Pedido(Long id, Long count, Cliente cliente, Vendedor vendedor) {
+        this.id = id;
+        this.count = count;
+        this.cliente = cliente;
+        this.vendedor = vendedor;
+    }
 
+    public Pedido() {
+    }
 }
