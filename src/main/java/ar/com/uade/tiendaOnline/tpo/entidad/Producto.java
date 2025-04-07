@@ -17,7 +17,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private String imagen;
+    private String imagenURL;
 
     @Column
     private String descripcion;
@@ -33,7 +33,7 @@ public class Producto {
         this.cantidad = cantidad;
         this.categoria = categoria;
         this.descripcion = descripcion;
-        this.imagen = imagen;
+        this.imagenURL = imagen;
         this.id = id;
         this.precio = precio;
         this.nombre = nombre;
