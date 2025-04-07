@@ -30,4 +30,5 @@ public class DetalleDeCompra {
 
     public DetalleDeCompra() {
     }
+
 }
