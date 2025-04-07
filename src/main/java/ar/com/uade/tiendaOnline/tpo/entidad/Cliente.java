@@ -29,4 +29,12 @@ public class Cliente {
     @JoinTable(name = "rol_cliente", joinColumns = @JoinColumn(name = "cliente_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private List<Rol> roles;
 
+    public Cliente(Long id, List<Rol> roles, List<Pedido> pedidos, String apellido, String nombre, String email) {
+        this.id = id;
+        this.roles = roles;
+        this.pedidos = pedidos;
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.email = email;
+    }
 }
