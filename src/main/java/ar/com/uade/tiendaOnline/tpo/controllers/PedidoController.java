@@ -52,6 +52,11 @@ public class PedidoController {
         return ResponseEntity.ok(pedidos);
     }
 
-
+    @PostMapping
+    public ResponseEntity<Object> crearPedido(@RequestBody PedidoRequest pedidoRequest) {
+        Pedido result = pedidoServicio.crearPedido(pedidoRequest.getProductosIds());
+        return ResponseEntity.created(URI.create("/pedidos/" + result.getId())).body(result);
+    }
+    
 
 }
