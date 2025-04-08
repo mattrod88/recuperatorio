@@ -31,6 +31,23 @@ public class PedidoServicio implements IPedidoServicio{
         return pedidoRepositorio.obtenerPorCliente(clienteId);
     }  
 
-
+    public Pedido crearPedido(List<Long> productosIds) {
+        List<Producto> productos = productoRepositorio.findAllById(productosIds); // revisar
+        if (productos.isEmpty()) {
+            throw new IllegalArgumentException("El pedido no contiene productos.");  //revisar
+        }
+    
+        double total = productos.stream()
+                            .mapToDouble(Producto::getPrecio)
+                            .sum();
+    
+        Pedido nuevoPedido = new Pedido(); // revisar
+        nuevoPedido.setProductos(productos);        
+        nuevoPedido.setFecha(LocalDate.now());        
+        nuevoPedido.setEstado("PENDIENTE");          
+        nuevoPedido.setTotal(total);                   
+    
+        return pedidoRepositorio.save(nuevoPedido);
+    }
 
 }
