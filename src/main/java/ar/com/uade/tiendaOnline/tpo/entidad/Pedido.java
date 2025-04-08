@@ -30,6 +30,12 @@ public class Pedido {
     @Column(name = "fecha")
     private LocalDate fecha;
 
+    @Column(name = "estado")
+    private String estado;
+
+    @Column(name = "total")
+    private double total;
+
 
     public Pedido(Long id, Long count, Cliente cliente, Vendedor vendedor) {
         this.id = id;
