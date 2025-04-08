@@ -1,5 +1,7 @@
 package ar.com.uade.tiendaOnline.tpo.entidad;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
 import lombok.Data;
 //puede tener una lista con producto ,su cantidad y precio unitario
@@ -24,6 +26,10 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "vendedor_id",nullable = false)
     private Vendedor vendedor;
+
+    @Column(name = "fecha")
+    private LocalDate fecha;
+
 
     public Pedido(Long id, Long count, Cliente cliente, Vendedor vendedor) {
         this.id = id;

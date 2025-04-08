@@ -15,4 +15,5 @@ public interface IPedidoServicio {
 
     List<Pedido> getPedidoPorCliente(Long clienteId);
 
+    Pedido crearPedido(List<Long> productosIds);
 }
