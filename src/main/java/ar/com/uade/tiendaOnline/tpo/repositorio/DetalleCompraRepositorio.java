@@ -10,6 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DetalleCompraRepositorio extends JpaRepository<Pedido,Long> {
-    @Query(value = "select d from DetalleDeCompra d where d.cliente.id = ?1")
+    @Query(value = "select d from DetalleDeCompra d where d.usuario.id = ?1")
     List<DetalleDeCompra> findByIdCliente(Long id)  ;
 }
