@@ -17,14 +17,14 @@ public class DetalleDeCompra {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
-    private Cliente cliente;
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private Usuario usuario;
 
 
-    public DetalleDeCompra(double montoTotal, long id, Cliente cliente) {
+    public DetalleDeCompra(double montoTotal, long id, Usuario usuario) {
         this.montoTotal = montoTotal;
         this.id = id;
-        this.cliente = cliente;
+        this.usuario = usuario;
 
     }
 
