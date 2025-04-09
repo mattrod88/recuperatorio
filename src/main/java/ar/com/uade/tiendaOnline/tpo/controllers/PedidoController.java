@@ -35,7 +35,7 @@ public class PedidoController {
         return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.noContent().build());
     }
 
-    @GetMapping("/cliente/{clienteId}")
+    @GetMapping("/{clienteId}")
     public ResponseEntity<List<Pedido>> getPedidosPorCliente(@PathVariable Long clienteId) {
         List<Pedido> pedidos = pedidoServicio.getPedidoPorCliente(clienteId);
 
