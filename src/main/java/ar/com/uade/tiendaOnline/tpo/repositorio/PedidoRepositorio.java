@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface PedidoRepositorio extends JpaRepository<Pedido,Long> {
-    @Query(value = "select p from Pedido p where p.cliente.id = ?1")
+    @Query(value = "select p from Pedido p where p.usuario.id = ?1")
     List<Pedido> obtenerPorCliente(Long id);
 }
