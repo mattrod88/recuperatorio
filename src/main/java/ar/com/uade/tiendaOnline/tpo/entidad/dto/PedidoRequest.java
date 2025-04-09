@@ -1,9 +1,5 @@
 package ar.com.uade.tiendaOnline.tpo.entidad.dto;
 
-import ar.com.uade.tiendaOnline.tpo.entidad.Cliente;
-import ar.com.uade.tiendaOnline.tpo.entidad.Vendedor;
-import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 public class PedidoRequest {

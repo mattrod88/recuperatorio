@@ -19,13 +19,13 @@ public class Pedido {
     @Column
     private Long count;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id",nullable = false)
-    private Cliente cliente;
-
-    @ManyToOne
-    @JoinColumn(name = "vendedor_id",nullable = false)
-    private Vendedor vendedor;
+//    @ManyToOne
+//    @JoinColumn(name = "cliente_id",nullable = false)
+//    private Cliente cliente;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "vendedor_id",nullable = false)
+//    private Vendedor vendedor;
 
     @Column(name = "fecha")
     private LocalDate fecha;
@@ -37,12 +37,12 @@ public class Pedido {
     private double total;
 
 
-    public Pedido(Long id, Long count, Cliente cliente, Vendedor vendedor) {
-        this.id = id;
-        this.count = count;
-        this.cliente = cliente;
-        this.vendedor = vendedor;
-    }
+//    public Pedido(Long id, Long count, Cliente cliente, Vendedor vendedor) {
+//        this.id = id;
+//        this.count = count;
+//        this.cliente = cliente;
+//        this.vendedor = vendedor;
+//    }
 
     public Pedido() {
     }

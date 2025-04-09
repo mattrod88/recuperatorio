@@ -1,6 +1,4 @@
 package ar.com.uade.tiendaOnline.tpo.entidad.dto;
-import ar.com.uade.tiendaOnline.tpo.entidad.Cliente;
-import ar.com.uade.tiendaOnline.tpo.entidad.ItemCarrito;
 import lombok.Data;
 
 import java.util.ArrayList;

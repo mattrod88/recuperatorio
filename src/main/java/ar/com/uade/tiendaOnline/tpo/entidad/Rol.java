@@ -17,6 +17,7 @@ public class Rol {
     private String descripcion;
 
 
-    @ManyToMany(mappedBy = "roles")
-    private List<Cliente> usuarios;
+//    @ManyToMany(mappedBy = "roles")
+//    private List<Cliente> usuarios;
+
 }
