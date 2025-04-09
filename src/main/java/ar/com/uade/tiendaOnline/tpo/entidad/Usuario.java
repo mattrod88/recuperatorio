@@ -12,17 +12,15 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(unique = true)
     private String email;
     @Column
     private String nombre;
     @Column
     private String apellido;
+    @Column
+    private String contrasena;
+    @Enumerated(EnumType.STRING)
+    private Roles rol;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<Pedido> pedidos;
-
-    @ManyToMany
-    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
-    private List<Rol> roles;
 }
