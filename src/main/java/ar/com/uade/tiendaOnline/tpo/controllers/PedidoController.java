@@ -5,10 +5,12 @@ import ar.com.uade.tiendaOnline.tpo.entidad.Cliente;
 import ar.com.uade.tiendaOnline.tpo.entidad.Pedido;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.CategoriaRequest;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.PedidoRequest;
 import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.servicios.pedido.IPedidoServicio;
 
-import org.springframework.data.domain.Page; 
+import ar.com.uade.tiendaOnline.tpo.servicios.pedido.PedidoServicio;
+import org.springframework.data.domain.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -53,10 +55,9 @@ public class PedidoController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> crearPedido(@RequestBody PedidoRequest pedidoRequest) {
-        Pedido result = pedidoServicio.crearPedido(pedidoRequest.getProductosIds());
-        return ResponseEntity.created(URI.create("/pedidos/" + result.getId())).body(result);
+    public void crearPedido(@RequestBody Pedido pedido) {
+        pedidoServicio.crearPedido(pedido);
     }
-    
+
 
 }
