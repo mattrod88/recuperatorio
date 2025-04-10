@@ -19,7 +19,13 @@ public class DetalleDeCompra {
     @ManyToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
+    @ManyToOne
+    @JoinColumn(name = "pedido_id")
+    private Pedido pedido;
 
+    @ManyToOne
+    @JoinColumn(name = "producto_id")
+    private Producto producto;
 
     public DetalleDeCompra(double montoTotal, long id, Usuario usuario) {
         this.montoTotal = montoTotal;
@@ -32,3 +38,6 @@ public class DetalleDeCompra {
     }
 
 }
+
+
+
