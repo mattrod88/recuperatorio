@@ -1,6 +1,8 @@
 package ar.com.uade.tiendaOnline.tpo.entidad;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,17 +25,20 @@ public class Pedido {
     @Column(name = "fecha")
     private LocalDate fecha;
 
-    @Column(name = "estado")
-    private String estado;
 
     @Column(name = "total")
     private double total;
 
+    @ManyToMany
+    private List<Producto>productosComprados;
 
-    public Pedido(Long id, Long count,Usuario usuario) {
+    public Pedido(Long id, List<Producto> productosComprados, double total, LocalDate fecha, Usuario usuario, Long count) {
         this.id = id;
+        this.productosComprados = productosComprados;
+        this.total = total;
+        this.fecha = fecha;
+        this.usuario = usuario;
         this.count = count;
-        this.usuario=usuario;
     }
 
     public Pedido() {
