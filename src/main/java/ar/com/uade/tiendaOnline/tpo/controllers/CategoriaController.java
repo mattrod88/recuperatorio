@@ -1,7 +1,7 @@
 package ar.com.uade.tiendaOnline.tpo.controllers;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
-import ar.com.uade.tiendaOnline.tpo.entidad.dto.CategoriaRequest;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.CategoriaDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.servicios.categoria.CategoriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,14 +33,12 @@ public class CategoriaController {
         @GetMapping("/{categoriaId}")
         public ResponseEntity<Categoria> getCategoriaById(@PathVariable Long categoriaId) {
             Optional<Categoria> result = categoriaServicio.getCategoriaById(categoriaId);
-            if (result.isPresent())
-                return ResponseEntity.ok(result.get());
+            return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.noContent().build());
 
-            return ResponseEntity.noContent().build();
         }
 
         @PostMapping
-        public ResponseEntity<Object> crearCategoria(@RequestBody CategoriaRequest categoriaRequest)
+        public ResponseEntity<Object> crearCategoria(@RequestBody CategoriaDTO categoriaRequest)
                 throws CategoriaDuplicateExcepcion {
             Categoria result = categoriaServicio.crearCategoria(categoriaRequest.getDescripcion());
             return ResponseEntity.created(URI.create("/categorias/" + result.getId())).body(result);
