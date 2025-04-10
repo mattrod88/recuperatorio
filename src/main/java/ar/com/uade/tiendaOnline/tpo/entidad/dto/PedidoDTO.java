@@ -1,15 +1,13 @@
 package ar.com.uade.tiendaOnline.tpo.entidad.dto;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Usuario;
+import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
-public class PedidoRequest {
-    private Long id;
-    private Long count;
-    private Usuario usuario;
-    private LocalDate fecha;
-    private String estado;
-    private double total;
+@Data
+public class PedidoDTO {
+   List<ItemPedidoDTO>items;
 
 }
