@@ -1,4 +1,10 @@
 package ar.com.uade.tiendaOnline.tpo.entidad.dto;
 
-public class ItemPedido {
+
+import lombok.Data;
+
+@Data
+public class ItemPedidoDTO {
+    private int cantidad;
+    private Long id;
 }
