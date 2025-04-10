@@ -12,4 +12,6 @@ import java.util.List;
 public interface ProductoRepositorio extends JpaRepository<Producto,Long> {
     @Query(value = "select p from Producto p where p.categoria.descripcion = ?1")
     List<Producto> findByCategoria(String categoria) ;
+
+
 }
