@@ -1,18 +1,21 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.pedido;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Pedido;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ItemPedidoDTO;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.PedidoDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IPedidoServicio {
-    Page<Pedido> getPedidos(PageRequest pageable);
+    void realizarComprar(PedidoDTO pedido);
 
-    Optional<Pedido> getPedidoById(Long pedidoId);
+    List<Producto> mostrarProductosComprados();
 
-    List<Pedido> getPedidoPorCliente(Long clienteId);
-
-    Pedido crearPedido(Pedido pedido);
+    //void hacerPedido(Pedido pedido);
 }
+
+
+
+
+
