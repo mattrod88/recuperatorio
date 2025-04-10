@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class DetalleDeCompraRequest {
+public class DetalleDeCompraDTO {
     private double montoTotal;
     private long id;
     private Date fecha;
