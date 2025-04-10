@@ -1,12 +1,14 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 
-import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
+
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ProductoRepositorio;
-import ar.com.uade.tiendaOnline.tpo.servicios.producto.IProductoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+
+
 
 import java.util.List;
 import java.util.Optional;
