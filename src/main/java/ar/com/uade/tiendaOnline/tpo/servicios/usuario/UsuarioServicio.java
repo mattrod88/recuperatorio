@@ -1,6 +1,7 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.usuario;
 
 
+import ar.com.uade.tiendaOnline.tpo.entidad.Pedido;
 import ar.com.uade.tiendaOnline.tpo.entidad.Roles;
 import ar.com.uade.tiendaOnline.tpo.entidad.Usuario;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.UsuarioDTO;
@@ -51,4 +52,7 @@ public class UsuarioServicio implements IUsuarioServicio{
         }
         return usuariosDto;
     }
+
+
+
 }
