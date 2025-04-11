@@ -16,15 +16,14 @@ public class ProductoController {
 
 
     @GetMapping
-    public List<Producto> listarProductos(@RequestParam(required = false) String categoria) {
-        if (categoria != null) {
+    public List<Producto> obtenerProductosXcategoria(@RequestParam(required = false) String categoria) {
+        if(categoria!=null) {
             return productoServicio.obtenerProductosXCategoria(categoria);
-
-        } else {
-            return productoServicio.obtenerTodosLosProductos();
-
         }
-    }
+            return productoServicio.obtenerTodosLosProductos();
+        }
+
+
 
     @PostMapping
     public void crearProducto(@RequestBody Producto producto) {
@@ -40,9 +39,8 @@ public class ProductoController {
 
 
 
-    @DeleteMapping("delete/productos/{id}")
+    @DeleteMapping("delete/{id}")
     public void eliminarProducto(@RequestBody Producto producto) {
-
         productoServicio.eliminarProducto(producto);
         }
 
