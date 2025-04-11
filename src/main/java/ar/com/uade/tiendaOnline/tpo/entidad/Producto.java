@@ -22,22 +22,7 @@ public class Producto {
     @Column
     private String descripcion;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
-
-    public Producto() {
-    }
-
-    public Producto(int cantidad, Categoria categoria, String descripcion, String imagen, long id, double precio, String nombre) {
-        this.cantidad = cantidad;
-        this.categoria = categoria;
-        this.descripcion = descripcion;
-        this.imagenURL = imagen;
-        this.id = id;
-        this.precio = precio;
-        this.nombre = nombre;
-    }
-
-
 }
