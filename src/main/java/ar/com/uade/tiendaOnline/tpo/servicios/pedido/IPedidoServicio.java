@@ -10,7 +10,6 @@ import java.util.List;
 public interface IPedidoServicio {
     void realizarComprar(PedidoDTO pedido);
 
-    List<Producto> mostrarProductosComprados();
 
     //void hacerPedido(Pedido pedido);
 }
