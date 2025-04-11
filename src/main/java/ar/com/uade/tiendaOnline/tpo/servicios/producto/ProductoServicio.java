@@ -6,10 +6,10 @@ import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 
-
-
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,5 +47,12 @@ public class ProductoServicio implements IProductoServicio {
         //Te ahorras de preguntar si existe o no .
         Optional<Producto> productoBuscado= productoRepositorio.findById(id);
         return productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
+    }
+
+
+    public Producto saveProductWithImage(Producto product, MultipartFile file) throws IOException {
+        product.setImagenNombre(file.getOriginalFilename());
+        product.setImagenData(file.getBytes());
+        return productoRepositorio.save(product);
     }
 }
