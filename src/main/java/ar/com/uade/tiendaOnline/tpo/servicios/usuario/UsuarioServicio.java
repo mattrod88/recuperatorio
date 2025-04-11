@@ -33,10 +33,22 @@ public class UsuarioServicio implements IUsuarioServicio{
 
     }
 
-    @Override
-    public void logearse(Usuario usuario) {
 
-    }
+    //busco usuario por email y si existe el usuario por mail nos fijamos si la contrasena es la misma
+
+//    @Override
+//    public void logearse(Usuario usuario) {
+//        List<Usuario>usuarios =  usuarioRepositorio.findAll();
+//        for(Usuario usuario1: usuarios){
+//            if(usuarioRepositorio.estaEmail(usuario1.getEmail())){
+//                if(usuarioRepositorio.esMismaContrasena(usuario1.getContrasena()){
+//                   // LOGICA PARA DECIR QUE SI SE LOGUEO
+//                }
+//
+//            }}
+//
+//
+//    }
 
     @Override
     public List<UsuarioDTO> obtenerTodosLosUsuarios() {

@@ -9,7 +9,7 @@ import java.util.List;
 public interface IUsuarioServicio {
     void registrarse(Usuario usuario);
 
-    void logearse(Usuario usuario);
+//    void logearse(Usuario usuario);
 
    List<UsuarioDTO> obtenerTodosLosUsuarios();
 }
