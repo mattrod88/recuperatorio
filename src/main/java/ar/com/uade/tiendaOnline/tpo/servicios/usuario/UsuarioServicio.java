@@ -1,22 +1,15 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.usuario;
-
-
-import ar.com.uade.tiendaOnline.tpo.entidad.Pedido;
 import ar.com.uade.tiendaOnline.tpo.entidad.Roles;
 import ar.com.uade.tiendaOnline.tpo.entidad.Usuario;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.UsuarioDTO;
-import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaDuplicateExcepcion;
-import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.excepciones.UsuarioDuplicado;
 import ar.com.uade.tiendaOnline.tpo.repositorio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class UsuarioServicio implements IUsuarioServicio{
