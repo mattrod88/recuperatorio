@@ -20,6 +20,7 @@ public class Usuario {
     private String apellido;
     @Column
     private String contrasena;
+
     @Enumerated(EnumType.STRING)
     private Roles rol;
 
