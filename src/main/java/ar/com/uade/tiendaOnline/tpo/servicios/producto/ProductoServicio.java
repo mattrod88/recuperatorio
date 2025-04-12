@@ -50,9 +50,10 @@ public class ProductoServicio implements IProductoServicio {
     }
 
 
-    public Producto saveProductWithImage(Producto product, MultipartFile file) throws IOException {
-        product.setImagenNombre(file.getOriginalFilename());
-        product.setImagenData(file.getBytes());
-        return productoRepositorio.save(product);
+    public Producto guardarImagen(Producto producto, MultipartFile file) throws IOException {
+        producto.setImagenNombre(file.getOriginalFilename());
+        producto.setImagenData(file.getBytes());
+        return productoRepositorio.save(producto);
+
     }
 }

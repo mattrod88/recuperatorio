@@ -19,5 +19,6 @@ public interface IProductoServicio {
 
     Producto obtenerProductoPorId(Long id);
 
-    Producto saveProductWithImage(Producto producto, MultipartFile file)throws IOException;
+    Producto guardarImagen(Producto producto, MultipartFile file)throws IOException;
+
 }
