@@ -11,6 +11,5 @@ import java.util.Optional;
 
 public interface UsuarioRepositorio extends JpaRepository<Usuario,Long> {
     Optional<Usuario> findByEmail(String mail);
-    Optional<Object> findByContrasena(String contrasena);
 
 }
