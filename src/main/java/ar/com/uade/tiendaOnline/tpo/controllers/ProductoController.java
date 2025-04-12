@@ -27,25 +27,19 @@ public class ProductoController {
             return productoServicio.obtenerProductosXCategoria(categoria);
         }
             return productoServicio.obtenerTodosLosProductos();
-        }
-    @PostMapping("/upload")
-    public ResponseEntity<String> uploadProductWithImage(@ModelAttribute ProductoDTO productDTO,
-                                                         @RequestParam("file") MultipartFile file) {
-        try {
-            Producto producto = new Producto();
-            producto.setNombre(productDTO.getNombre());
-
-            Categoria categoria = new Categoria();
-            categoria.setId(productDTO.getCategoria_id());
-            producto.setCategoria(categoria);
-
-            productoServicio.saveProductWithImage(producto, file);
-            return new ResponseEntity<>("Producto se cargo satisfactoriamente", HttpStatus.OK);
-        } catch (IOException e) {
-            return new ResponseEntity<>("No se pudo cargar el producto", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 
+    @PostMapping("{id}/imagen")
+    public ResponseEntity<String>  subirImagen(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
+        try {
+            Producto producto = new Producto();
+            producto.setId(id);
+            productoServicio.guardarImagen(producto, file);
+            return new ResponseEntity<>("Product uploaded successfully", HttpStatus.OK);
+        } catch (IOException e) {
+            return new ResponseEntity<>("Failed to upload product", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @PostMapping
     public void crearProducto(@RequestBody Producto producto) {
