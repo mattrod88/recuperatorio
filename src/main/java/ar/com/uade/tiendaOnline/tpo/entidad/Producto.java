@@ -20,7 +20,6 @@ public class Producto {
     private String imagenNombre;
 
     @Lob
-    @Column
     private byte[] imagenData;
 
     @Column
