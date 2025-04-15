@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -30,12 +31,14 @@ public class CategoriaController {
             return ResponseEntity.ok(categoriaServicio.getCategorias(PageRequest.of(page, size)));
         }
 
+
         @GetMapping("/{categoriaId}")
         public ResponseEntity<Categoria> getCategoriaById(@PathVariable Long categoriaId) {
             Optional<Categoria> result = categoriaServicio.getCategoriaById(categoriaId);
             return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.noContent().build());
 
         }
+
 
         @PostMapping
         public ResponseEntity<Object> crearCategoria(@RequestBody CategoriaDTO categoriaRequest)
