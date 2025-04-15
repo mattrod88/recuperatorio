@@ -1,6 +1,5 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 
-import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +14,8 @@ public interface IProductoServicio {
 
     List<Producto> obtenerProductosXCategoria(String categoria);
 
-    void eliminarProducto(Producto producto);
+    void eliminarProducto(Long id);
+
 
     Producto obtenerProductoPorId(Long id);
 
