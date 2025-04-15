@@ -16,17 +16,8 @@ public class UsuarioController {
     @Autowired
     private IUsuarioServicio usuarioServicio;
 
-    @PostMapping
-    public void registrarse(@RequestBody Usuario usuario) throws UsuarioDuplicado {
-        usuarioServicio.registrarse(usuario);
 
-    }
 
-    @PostMapping("/login")
-    public void logearse(@RequestBody UsuarioRequest u) {
-        usuarioServicio.logearse(u);
-
-    }
 
     @GetMapping("/registrados")
     public List<UsuarioDTO> verUusarios() {
