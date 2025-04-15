@@ -1,21 +1,20 @@
-package com.uade.tpo.demo.controllers.config;
+package ar.com.uade.tiendaOnline.tpo.controllers.config;
 
+
+import ar.com.uade.tiendaOnline.tpo.entidad.Roles;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Role;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.logout.LogoutHandler;
-
-import com.uade.tpo.demo.entity.Role;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
-
-import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
@@ -29,10 +28,28 @@ public class SecurityConfig {
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
                 http
                                 .csrf(AbstractHttpConfigurer::disable)
-                                .authorizeHttpRequests(req -> req.requestMatchers("/api/v1/auth/**").permitAll()
+                        //de autenticacion
+                                .authorizeHttpRequests(req -> req.requestMatchers("/v1/auth/**").permitAll()
                                                 .requestMatchers("/error/**").permitAll()
-                                                .requestMatchers("/categories/**").hasAnyAuthority(Role.USER.name())
-                                                .anyRequest()
+                                        //de categorias
+                                                .requestMatchers(HttpMethod.GET,"/categorias").permitAll()
+                                                .requestMatchers(("/categorias/{categoriaId}")).permitAll()
+                                                .requestMatchers("/categorias/{id}").permitAll()
+                                                .requestMatchers(HttpMethod.POST,"/categorias").hasAnyAuthority(Roles.ADMIN.name())
+
+                                        //de productos
+                                                .requestMatchers(HttpMethod.GET,"/productos").permitAll()
+                                                .requestMatchers(HttpMethod.POST,"/productos/").hasAnyAuthority(Roles.ADMIN.name())
+                                                .requestMatchers("/productos/{id}/imagen/**").hasAnyAuthority(Roles.ADMIN.name())
+                                                .requestMatchers("/productos/delete/{id}**").hasAnyAuthority(Roles.ADMIN.name())
+                                        //de usuarios
+                                                .requestMatchers("/usuarios/registrados").hasAnyAuthority(Roles.ADMIN.name())
+
+                                        //de pedidos
+                                                .requestMatchers("/pedidos/comprar").hasAnyAuthority(Roles.CLIENTE.name())
+
+
+                                        .anyRequest()
                                                 .authenticated())
                                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                                 .authenticationProvider(authenticationProvider)
