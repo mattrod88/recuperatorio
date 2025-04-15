@@ -35,9 +35,9 @@ public class ProductoController {
             Producto producto = new Producto();
             producto.setId(id);
             productoServicio.guardarImagen(producto, file);
-            return new ResponseEntity<>("Product uploaded successfully", HttpStatus.OK);
+            return new ResponseEntity<>("Producto cargado con exito", HttpStatus.OK);
         } catch (IOException e) {
-            return new ResponseEntity<>("Failed to upload product", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("No se pudo cargar el producto", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -56,9 +56,9 @@ public class ProductoController {
 
 
     @DeleteMapping("delete/{id}")
-    public void eliminarProducto(@RequestBody Producto producto) {
-        productoServicio.eliminarProducto(producto);
-        }
+    public void eliminarProducto(@PathVariable Long id) {
 
+        productoServicio.eliminarProducto(id);
 
+}
 }
