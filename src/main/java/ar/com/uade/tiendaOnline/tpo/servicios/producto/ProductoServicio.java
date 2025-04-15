@@ -6,6 +6,7 @@ import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -20,9 +21,9 @@ public class ProductoServicio implements IProductoServicio {
 
     public List<Producto> obtenerTodosLosProductos(){
 
-        return productoRepositorio.findAll();
+        return productoRepositorio.obtenerProductos();
     }
-
+    @Transactional(rollbackFor = Throwable.class)
     public void crearProducto(Producto producto) {
 
         productoRepositorio.save(producto);
@@ -33,19 +34,19 @@ public class ProductoServicio implements IProductoServicio {
         return productoRepositorio.findByCategoria(categoria);
     }
 
-
-
+    @Transactional
     @Override
-    public void eliminarProducto(Producto producto) {
-        productoRepositorio.delete(producto);
-
+    public void eliminarProducto(Long id) {
+        Optional<Producto> productoBuscado= productoRepositorio.obtenerPoId(id);
+        Producto producto =  productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
+        producto.setEliminado(true);
     }
 
     @Override
     public Producto obtenerProductoPorId(Long id){
         //Objeto opcional envuelve otro,ayuda a que no hayan nullPointerExceptions
         //Te ahorras de preguntar si existe o no .
-        Optional<Producto> productoBuscado= productoRepositorio.findById(id);
+        Optional<Producto> productoBuscado= productoRepositorio.obtenerPoId(id);
         return productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
     }
 
