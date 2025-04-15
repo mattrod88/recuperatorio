@@ -1,9 +1,6 @@
-package ar.com.uade.tiendaOnline.tpo.entidad.dto;
+package ar.com.uade.tiendaOnline.tpo.controllers.auth;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Roles;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
