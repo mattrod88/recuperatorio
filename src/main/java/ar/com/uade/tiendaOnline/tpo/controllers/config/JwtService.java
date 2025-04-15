@@ -1,17 +1,17 @@
-package com.uade.tpo.demo.controllers.config;
+package ar.com.uade.tiendaOnline.tpo.controllers.config;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Date;
-import java.util.function.Function;
-
-import javax.crypto.SecretKey;
-import org.springframework.stereotype.Service;
-
+import ar.com.uade.tiendaOnline.tpo.entidad.Roles;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
+import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+import java.util.function.Function;
 
 @Service
 public class JwtService {
@@ -21,18 +21,19 @@ public class JwtService {
     private long jwtExpiration;
 
     public String generateToken(
-            UserDetails userDetails) {
-        return buildToken(userDetails, jwtExpiration);
+            UserDetails userDetails,Roles rol) {
+        return buildToken(userDetails,jwtExpiration,rol);
     }
 
     private String buildToken(
             UserDetails userDetails,
-            long expiration) {
+            long expiration,
+            Roles rol) {
         return Jwts
                 .builder()
                 .subject(userDetails.getUsername()) // prueba@hotmail.com
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .claim("Gisele", 1234567)
+                .claim("rol",rol.name() )
                 .expiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getSecretKey())
                 .compact();
