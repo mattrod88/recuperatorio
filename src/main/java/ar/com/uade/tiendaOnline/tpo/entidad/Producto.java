@@ -19,6 +19,9 @@ public class Producto {
     @Column
     private String imagenNombre;
 
+    @Column
+    private boolean eliminado;
+
     @Lob
     private byte[] imagenData;
 
