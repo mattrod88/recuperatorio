@@ -16,4 +16,8 @@ public interface ProductoRepositorio extends JpaRepository<Producto,Long> {
 
     @Query(value = "select p from Producto p where p.id = ?1 and p.eliminado=false")
     Optional<Producto> obtenerPoId(Long id);
+
+    @Query("SELECT p FROM Producto p WHERE p.nombre = ?1")
+    List<Producto> findByNombre(String nombre);      
+
 }
