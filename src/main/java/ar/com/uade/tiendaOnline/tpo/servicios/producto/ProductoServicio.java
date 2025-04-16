@@ -2,6 +2,7 @@ package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
+import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,18 @@ public class ProductoServicio implements IProductoServicio {
 
         return productoRepositorio.obtenerProductos();
     }
+    
     @Transactional(rollbackFor = Throwable.class)
-    public void crearProducto(Producto producto) {
+    public void crearProducto(Producto producto) throws ProductoDuplicateExcepcion {
+        List<Producto> productosExistentes = productoRepositorio.findByNombre(producto.getNombre());
 
-        productoRepositorio.save(producto);
+        if (productosExistentes.isEmpty()) {
+            productoRepositorio.save(producto);
+        } else {
+            throw new ProductoDuplicateExcepcion();
+        }
     }
+
 
     @Override
     public List<Producto> obtenerProductosXCategoria(String categoria ) {
