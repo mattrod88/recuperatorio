@@ -3,6 +3,7 @@ package ar.com.uade.tiendaOnline.tpo.controllers;
 import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
+import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.servicios.producto.IProductoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,22 +43,22 @@ public class ProductoController {
     }
 
     @PostMapping
-    public void crearProducto(@RequestBody Producto producto) {
-        productoServicio.crearProducto(producto);
-
+    public ResponseEntity<String> crearProducto(@RequestBody Producto producto) {
+        try {
+            productoServicio.crearProducto(producto); 
+            return new ResponseEntity<>("Producto creado con éxito", HttpStatus.CREATED);
+        } catch (ProductoDuplicateExcepcion e) {
+            return new ResponseEntity<>("El producto que se intenta agregar ya existe", HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/{id}")
     public Producto clickEnUnProducto(@PathVariable Long id) {
-
         return productoServicio.obtenerProductoPorId(id);
 }
 
-
-
     @DeleteMapping("delete/{id}")
     public void eliminarProducto(@PathVariable Long id) {
-
         productoServicio.eliminarProducto(id);
 
 }
