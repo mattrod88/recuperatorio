@@ -11,7 +11,7 @@ import java.util.List;
 public interface IProductoServicio {
     List<Producto> obtenerTodosLosProductos();
 
-    void crearProducto(Producto producto) throws ProductoDuplicateExcepcion;
+    void crearProducto(Producto producto) throws ProductoDuplicateExcepcion;     
 
     List<Producto> obtenerProductosXCategoria(String categoria);
 
