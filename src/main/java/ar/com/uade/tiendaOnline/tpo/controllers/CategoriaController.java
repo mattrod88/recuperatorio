@@ -7,6 +7,7 @@ import ar.com.uade.tiendaOnline.tpo.servicios.categoria.CategoriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -41,10 +42,13 @@ public class CategoriaController {
 
 
         @PostMapping
-        public ResponseEntity<Object> crearCategoria(@RequestBody CategoriaDTO categoriaRequest)
-                throws CategoriaDuplicateExcepcion {
-            Categoria result = categoriaServicio.crearCategoria(categoriaRequest.getDescripcion());
-            return ResponseEntity.created(URI.create("/categorias/" + result.getId())).body(result);
-        }
-    }
+        public ResponseEntity<String> crearCategoria(@RequestBody CategoriaDTO categoriaRequest) {
+            try {
+                categoriaServicio.crearCategoria(categoriaRequest.getDescripcion());
+                return new ResponseEntity<>("Categoría creada con éxito", HttpStatus.CREATED);
+            } catch (CategoriaDuplicateExcepcion e) {
+                return new ResponseEntity<>("La categoría que se intenta agregar ya existe", HttpStatus.BAD_REQUEST);
+            }
+        }        
+}
 
