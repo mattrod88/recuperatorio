@@ -24,6 +24,7 @@ public class CategoriaServicio implements ICategoriaServicio {
         public Optional<Categoria> getCategoriaById(Long categoryId) {
             return categoriaRepositorio.findById(categoryId);
         }
+        
         @Transactional(rollbackFor = Throwable.class)
         public Categoria crearCategoria(String descripcion) throws CategoriaDuplicateExcepcion {
             List<Categoria> categorias = categoriaRepositorio.findByDescripcion(descripcion);
