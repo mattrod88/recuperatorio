@@ -46,5 +46,10 @@ public class CategoriaController {
             Categoria result = categoriaServicio.crearCategoria(categoriaRequest.getDescripcion());
             return ResponseEntity.created(URI.create("/categorias/" + result.getId())).body(result);
         }
+
+
     }
+
+
+
 
