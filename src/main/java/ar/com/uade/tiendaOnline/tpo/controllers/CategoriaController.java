@@ -1,19 +1,26 @@
 package ar.com.uade.tiendaOnline.tpo.controllers;
 
-import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
-import ar.com.uade.tiendaOnline.tpo.entidad.dto.CategoriaDTO;
-import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaDuplicateExcepcion;
-import ar.com.uade.tiendaOnline.tpo.servicios.categoria.CategoriaServicio;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
-import java.util.Optional;
+import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.CategoriaDTO;
+import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaDuplicateExcepcion;
+import ar.com.uade.tiendaOnline.tpo.servicios.categoria.CategoriaServicio;
 
 
 @RestController
@@ -49,6 +56,18 @@ public class CategoriaController {
             } catch (CategoriaDuplicateExcepcion e) {
                 return new ResponseEntity<>("La categoría que se intenta agregar ya existe", HttpStatus.BAD_REQUEST);
             }
-        }        
+        }  
+        @PutMapping("/{categoriaId}")
+        public ResponseEntity<Categoria> actualizarCategoria(@PathVariable Long categoriaId,
+                                                             @RequestBody CategoriaDTO categoriaRequest) {
+            Optional<Categoria> result = categoriaServicio.actualizarCategoria(categoriaId, categoriaRequest.getDescripcion());
+            return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.noContent().build());
+        }
+ 
+        @DeleteMapping("/{categoriaId}")
+        public ResponseEntity<Void> eliminarCategoria(@PathVariable Long categoriaId) {
+            categoriaServicio.eliminarCategoria(categoriaId);
+            return ResponseEntity.noContent().build();
+        }      
 }
 
