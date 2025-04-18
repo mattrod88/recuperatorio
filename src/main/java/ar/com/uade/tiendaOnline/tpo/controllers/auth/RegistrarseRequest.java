@@ -1,15 +1,14 @@
 package ar.com.uade.tiendaOnline.tpo.controllers.auth;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Roles;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class RegistrarseRequest {
     private String email;
     private String nombre;
