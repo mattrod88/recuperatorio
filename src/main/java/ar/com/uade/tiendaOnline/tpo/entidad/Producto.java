@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.Setter;
 import lombok.Getter;
 
+import java.util.List;
+
 @Data
 @Entity
 public class Producto {
@@ -33,4 +35,7 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
+
+    @ManyToMany(mappedBy = "productos")
+    private List<Pedido> pedidos;
 }
