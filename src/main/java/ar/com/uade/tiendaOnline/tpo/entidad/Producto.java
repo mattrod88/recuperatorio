@@ -8,8 +8,6 @@ import lombok.Getter;
 
 @Data
 @Entity
-@Getter
-@Setter
 public class Producto {
     @Column
     private int cantidad;

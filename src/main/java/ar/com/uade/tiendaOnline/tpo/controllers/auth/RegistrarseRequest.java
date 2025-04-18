@@ -7,8 +7,6 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class RegistrarseRequest {
     private String email;
     private String nombre;

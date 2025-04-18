@@ -4,8 +4,7 @@ import lombok.*;
 
 
 @Data
-@Getter
-@Setter
+
 public class CategoriaDTO {
     private Long id;
     private String descripcion;
