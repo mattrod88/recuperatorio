@@ -36,6 +36,10 @@ public class SecurityConfig {
                                                 .requestMatchers(("/categorias/{categoriaId}")).permitAll()
                                                 .requestMatchers("/categorias/{id}").permitAll()
                                                 .requestMatchers(HttpMethod.POST,"/categorias").hasAnyAuthority(Roles.ADMIN.name())
+                                                .requestMatchers(HttpMethod.PUT, "/categorias/{categoriaId}").hasAnyAuthority("ROLE_ADMIN")
+                                                .requestMatchers(HttpMethod.DELETE, "/categorias/{categoriaId}").hasAnyAuthority("ROLE_ADMIN")
+   
+
 
                                         //de productos
                                                 .requestMatchers(HttpMethod.GET,"/productos").permitAll()

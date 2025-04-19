@@ -20,9 +20,6 @@ public class AuthenticationController {
 
     private final AutenticacionServicio service;
 
-    public AuthenticationController(AutenticacionServicio service) {
-        this.service = service;
-    }
 
     @PostMapping("/registrarse")
     public ResponseEntity<?> registrarse(@RequestBody RegistrarseRequest request) { // Usamos ResponseEntity<?> porque el tipo de respuesta puede ser variable
