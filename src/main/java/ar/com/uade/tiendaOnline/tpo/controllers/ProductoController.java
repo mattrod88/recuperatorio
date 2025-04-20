@@ -4,6 +4,7 @@ import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoDuplicateExcepcion;
+import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.servicios.producto.IProductoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,6 +61,17 @@ public class ProductoController {
     @DeleteMapping("delete/{id}")
     public void eliminarProducto(@PathVariable Long id) {
         productoServicio.eliminarProducto(id);
+
+
+    //@PutMapping("/{id}")
+    //public ResponseEntity<Void> actualizarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) {
+    //    try {
+    //        productoServicio.actualizarProducto(id, productoDTO);
+    //        return ResponseEntity.ok().build(); 
+    //    } catch (ProductoInexistenteExcepcion e) {
+    //        return new ResponseEntity<>(HttpStatus.NOT_FOUND);  
+    //    }
+    //}
 
 }
 }
