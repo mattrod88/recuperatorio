@@ -16,6 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
     @Service
     @RequiredArgsConstructor
     public class AutenticacionServicio implements IAutenticacion {
+
+
         private final UsuarioRepositorio repository;
         private final PasswordEncoder passwordEncoder;
         private final JwtService jwtService;
