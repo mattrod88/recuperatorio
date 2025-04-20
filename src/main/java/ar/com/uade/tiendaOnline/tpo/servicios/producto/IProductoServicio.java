@@ -1,7 +1,9 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoDuplicateExcepcion;
+import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,5 +22,7 @@ public interface IProductoServicio {
     Producto obtenerProductoPorId(Long id);
 
     Producto guardarImagen(Producto producto, MultipartFile file)throws IOException;
+
+    void actualizarProducto(Long id, ProductoDTO productoDTO) throws ProductoInexistenteExcepcion;
 
 }
