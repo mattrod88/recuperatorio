@@ -8,7 +8,6 @@ import ar.com.uade.tiendaOnline.tpo.entidad.dto.ItemPedidoDTO;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.PedidoDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
-import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoNoEncontradoExcepcion;
 import ar.com.uade.tiendaOnline.tpo.excepciones.SinStockExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.PedidoRepositorio;
 
@@ -20,9 +19,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -68,7 +65,7 @@ public class PedidoServicio implements IPedidoServicio {
                     throw new SinStockExcepcion();
                 }
             } else {
-                throw new ProductoNoEncontradoExcepcion();
+                throw new ProductoInexistenteExcepcion();
             }
         }
 
