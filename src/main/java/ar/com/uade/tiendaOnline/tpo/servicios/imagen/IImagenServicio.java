@@ -1,4 +1,7 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.imagen;
 
-public class IImagenServicio {
+
+public interface IImagenServicio {
+
+    void delete(Long id);
 }
