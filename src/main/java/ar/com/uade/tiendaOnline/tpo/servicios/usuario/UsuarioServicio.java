@@ -4,19 +4,12 @@ import ar.com.uade.tiendaOnline.tpo.controllers.config.JwtService;
 import ar.com.uade.tiendaOnline.tpo.entidad.Roles;
 import ar.com.uade.tiendaOnline.tpo.entidad.Usuario;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.UsuarioDTO;
-import ar.com.uade.tiendaOnline.tpo.entidad.dto.UsuarioRequest;
-import ar.com.uade.tiendaOnline.tpo.excepciones.DatosIngresadosExcepcion;
-
-import ar.com.uade.tiendaOnline.tpo.excepciones.UsuarioDuplicado;
 import ar.com.uade.tiendaOnline.tpo.repositorio.UsuarioRepositorio;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 
 import java.util.LinkedList;
 import java.util.List;
