@@ -1,8 +1,12 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 
 
+import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
+import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
+import ar.com.uade.tiendaOnline.tpo.repositorio.ImagenRepositorio;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +23,9 @@ import java.util.Optional;
 public class ProductoServicio implements IProductoServicio {
     @Autowired
     private ProductoRepositorio productoRepositorio;
+
+    @Autowired
+    private ImagenRepositorio imagenRepositorio;
 
     public List<Producto> obtenerTodosLosProductos(){
 
@@ -50,11 +58,61 @@ public class ProductoServicio implements IProductoServicio {
         return productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
     }
 
+    @Override
+    public void subirImagen(Producto producto, MultipartFile file) throws IOException {
+        Optional<Producto> productoBuscado= productoRepositorio.obtenerPoId(producto.getId());
+        Producto p = productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
+        Imagen i = new Imagen();
+        i.setProducto(p);
+        i.setImagenNombre(file.getOriginalFilename());
+        i.setImagenData(file.getBytes());
+        imagenRepositorio.save(i);
+    }
+    @Override
+    public ArrayList<Imagen> obtenerImagenes(Long id){
+        return imagenRepositorio.obtenerImagenesDeUnProducto(id);
+    }
 
-    public Producto guardarImagen(Producto producto, MultipartFile file) throws IOException {
-        producto.setImagenNombre(file.getOriginalFilename());
-        producto.setImagenData(file.getBytes());
-        return productoRepositorio.save(producto);
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public void actualizarProducto(Long id, ProductoDTO productoDTO) throws ProductoInexistenteExcepcion {
+
+        if (id == null || productoDTO == null) {
+            throw new IllegalArgumentException("Parámetros inválidos para actualizar producto");
+        }
+
+        Producto productoExistente = productoRepositorio.findById(id)
+                .orElseThrow(ProductoInexistenteExcepcion::new);
+
+        if (productoExistente.isEliminado()) {
+            throw new ProductoInexistenteExcepcion();
+        }
+
+        if (productoDTO.getNombre() != null && !productoDTO.getNombre().trim().isEmpty()
+                && !productoDTO.getNombre().equals(productoExistente.getNombre())) {
+
+            if (existeProductoConNombre(productoDTO.getNombre())) {
+                throw new IllegalArgumentException("Ya existe un producto con el nombre: " + productoDTO.getNombre());
+            }
+            productoExistente.setNombre(productoDTO.getNombre());
+        }
+
+        if (productoDTO.getCategoria_id() != null) {
+            Categoria nuevaCategoria = new Categoria();
+            nuevaCategoria.setId(productoDTO.getCategoria_id());
+            productoExistente.setCategoria(nuevaCategoria);
+        }
+
+        //falta validar cuando ingresa por ejemplo valores negativos y precio 0
+        productoExistente.setCantidad(productoDTO.getCantidad());
+        productoExistente.setPrecio(productoDTO.getPrecio());
 
     }
+
+    private boolean existeProductoConNombre(String nombre) {
+        return !productoRepositorio.findByNombre(nombre).isEmpty();
+    }
+
+
+
 }
