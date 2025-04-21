@@ -1,13 +1,17 @@
 package ar.com.uade.tiendaOnline.tpo.controllers;
 
+import ar.com.uade.tiendaOnline.tpo.entidad.Usuario;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.PedidoDTO;
 
 import ar.com.uade.tiendaOnline.tpo.servicios.pedido.IPedidoServicio;
-import ar.com.uade.tiendaOnline.tpo.servicios.pedido.PedidoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-    @RestController
+import java.security.Principal;
+
+@RestController
     @CrossOrigin
     @RequestMapping("/pedidos")
     public class PedidoController {
@@ -16,8 +20,8 @@ import org.springframework.web.bind.annotation.*;
         private IPedidoServicio pedidoServicio;
 
         @PostMapping("/comprar")
-        public void realizarCompra(@RequestBody PedidoDTO pedido) {
-           pedidoServicio.realizarComprar(pedido);
+        public void realizarCompra(@RequestBody PedidoDTO pedido, @AuthenticationPrincipal Usuario usuarioLogueado) {
+            pedidoServicio.realizarComprar(pedido, usuarioLogueado);
         }
 
 
