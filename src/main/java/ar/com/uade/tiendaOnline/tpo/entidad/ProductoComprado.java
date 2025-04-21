@@ -16,4 +16,6 @@ public class ProductoComprado {
     private Producto producto;
     private int cantidad;
     private Double precioUnitario;
+
+
 }

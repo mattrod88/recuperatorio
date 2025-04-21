@@ -72,7 +72,11 @@
       <li>El usuario podrá eliminar dicho producto.</li>
   </ul>
 </div>
-
+<p>el acceso como admin es:
+//        "nombre":"admin",
+//        "apellido":"admin",
+//        "email":"admin@gmail.com",
+//        "contrasena":"uadeTPO123"</p>
   <h2>Requisitos de entrega</h2>
   <p>El trabajo por realizar es el siguiente:</p>
   <ul>

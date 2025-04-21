@@ -1,10 +1,7 @@
 package ar.com.uade.tiendaOnline.tpo.controllers.auth;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Roles;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
