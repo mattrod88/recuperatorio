@@ -1,9 +1,12 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 
+import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface IProductoServicio {
@@ -19,6 +22,9 @@ public interface IProductoServicio {
 
     Producto obtenerProductoPorId(Long id);
 
-    Producto guardarImagen(Producto producto, MultipartFile file)throws IOException;
+   void subirImagen(Producto producto, MultipartFile file) throws IOException;
 
+    public ArrayList<Imagen> obtenerImagenes(Long id);
+
+    void actualizarProducto(Long id, ProductoDTO productoDTO);
 }
