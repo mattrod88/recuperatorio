@@ -42,10 +42,8 @@ public class PedidoServicio implements IPedidoServicio {
 
     @Override
     @Transactional
-    public void realizarComprar(PedidoDTO pdto) {
+    public void realizarComprar(PedidoDTO pdto, Usuario usuario) {
         Pedido pedido = new Pedido();
-        Usuario usuario = new Usuario();
-        usuario.setId(14L);  //cuando haya autenticacion lo cambiamos
         pedido.setUsuario(usuario);
         pedido.setFecha(LocalDate.now());
         pedidoRepositorio.save(pedido);
