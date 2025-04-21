@@ -10,12 +10,15 @@ public class ProductoComprado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
+    private int cantidad;
+    @Column
+    private Double precioUnitario;
     @ManyToOne
     private Pedido pedido;
     @ManyToOne
     private Producto producto;
-    private int cantidad;
-    private Double precioUnitario;
+
 
 
 }

@@ -28,11 +28,4 @@ public class Pedido {
     @Column(name = "total")
     private double total;
 
-    @ManyToMany
-    @JoinTable(
-            name = "pedido_producto",  // Tabla intermedia
-            joinColumns = @JoinColumn(name = "pedido_id"),
-            inverseJoinColumns = @JoinColumn(name = "producto_id")
-    )
-    private List<Producto> productos = new ArrayList<>();
 }

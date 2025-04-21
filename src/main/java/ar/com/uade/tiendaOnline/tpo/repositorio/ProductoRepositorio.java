@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 public interface ProductoRepositorio extends JpaRepository<Producto,Long> {
-    @Query(value = "select p from Producto p where p.categoria.descripcion = ?1and p.eliminado=false")
+    @Query(value = "select p from Producto p where p.categoria.descripcion = ?1 and p.eliminado=false")
     List<Producto> findByCategoria(String categoria) ;
 
     @Query(value = "select p from Producto p where p.eliminado = false")
