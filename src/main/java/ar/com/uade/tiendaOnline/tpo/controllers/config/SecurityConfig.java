@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
@@ -36,12 +37,19 @@ public class SecurityConfig {
                                                 .requestMatchers(("/categorias/{categoriaId}")).permitAll()
                                                 .requestMatchers("/categorias/{id}").permitAll()
                                                 .requestMatchers(HttpMethod.POST,"/categorias").hasAnyAuthority(Roles.ADMIN.name())
+                                                .requestMatchers(HttpMethod.PUT,"/categorias/{id}").hasAnyAuthority(Roles.ADMIN.name())
 
                                         //de productos
                                                 .requestMatchers(HttpMethod.GET,"/productos").permitAll()
                                                 .requestMatchers(HttpMethod.POST,"/productos/").hasAnyAuthority(Roles.ADMIN.name())
-                                                .requestMatchers("/productos/{id}/imagen/**").hasAnyAuthority(Roles.ADMIN.name())
-                                                .requestMatchers("/productos/delete/{id}**").hasAnyAuthority(Roles.ADMIN.name())
+                                                .requestMatchers(HttpMethod.DELETE,"/productos/{id}").hasAnyAuthority(Roles.ADMIN.name())
+                                                .requestMatchers(HttpMethod.POST,"/productos/{id}/imagen").hasAnyAuthority(Roles.ADMIN.name())
+                                                .requestMatchers(HttpMethod.GET,"/productos/{id}/imagenes").permitAll()
+                                                .requestMatchers(HttpMethod.DELETE,"/imagenes/{id}").hasAnyAuthority(Roles.ADMIN.name())
+                                                .requestMatchers(HttpMethod.PUT,"/productos/{id}").hasAnyAuthority(Roles.ADMIN.name())
+
+
+
                                         //de usuarios
                                                 .requestMatchers("/usuarios/registrados").hasAnyAuthority(Roles.ADMIN.name())
 
