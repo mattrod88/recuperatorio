@@ -17,18 +17,10 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private String imagenNombre;
-
-    @Column
     private boolean eliminado;
-
-    @Lob
-    private byte[] imagenData;
-
-    @Column
-    private String descripcion;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
+
 }
