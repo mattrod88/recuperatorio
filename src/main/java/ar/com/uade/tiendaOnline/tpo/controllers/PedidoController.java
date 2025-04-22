@@ -1,6 +1,7 @@
 package ar.com.uade.tiendaOnline.tpo.controllers;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Usuario;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.DetalleDeCompraDTO;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.PedidoDTO;
 
 import ar.com.uade.tiendaOnline.tpo.servicios.pedido.IPedidoServicio;
@@ -20,8 +21,9 @@ import java.security.Principal;
         private IPedidoServicio pedidoServicio;
 
         @PostMapping("/comprar")
-        public void realizarCompra(@RequestBody PedidoDTO pedido, @AuthenticationPrincipal Usuario usuarioLogueado) {
-            pedidoServicio.realizarComprar(pedido, usuarioLogueado);
+        public DetalleDeCompraDTO realizarCompra(@RequestBody PedidoDTO pedido, @AuthenticationPrincipal Usuario usuarioLogueado) {
+            return  pedidoServicio.realizarComprar(pedido, usuarioLogueado);
+
         }
 
 

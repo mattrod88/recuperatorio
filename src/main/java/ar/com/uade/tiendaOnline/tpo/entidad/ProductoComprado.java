@@ -4,6 +4,8 @@ package ar.com.uade.tiendaOnline.tpo.entidad;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+
 @Entity
 @Data
 public class ProductoComprado {
@@ -18,6 +20,7 @@ public class ProductoComprado {
     private Pedido pedido;
     @ManyToOne
     private Producto producto;
+
 
 
 

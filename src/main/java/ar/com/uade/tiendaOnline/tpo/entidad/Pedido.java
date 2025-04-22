@@ -14,8 +14,6 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private int cantidad;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id",nullable = false)
@@ -25,7 +23,6 @@ public class Pedido {
     @Column(name = "fecha")
     private LocalDate fecha;
 
-    @Column(name = "total")
-    private double total;
+
 
 }
