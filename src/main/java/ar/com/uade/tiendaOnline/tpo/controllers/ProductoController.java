@@ -69,6 +69,13 @@ public class ProductoController {
 
     }
 
+    //@DeleteMapping("/{id}")
+    //public ResponseEntity<String> eliminarProducto(@PathVariable Long id) {
+    //    productoServicio.eliminarProducto(id);
+    //    return ResponseEntity.ok("Producto eliminado correctamente");
+    //}
+    
+
     @PutMapping("/{id}")
     public ResponseEntity<Void> actualizarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) {
         try {
