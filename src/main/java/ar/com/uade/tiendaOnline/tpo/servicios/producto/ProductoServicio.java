@@ -103,6 +103,14 @@ public class ProductoServicio implements IProductoServicio {
             productoExistente.setCategoria(nuevaCategoria);
         }
 
+        //if (productoDTO.getCantidad() < 0) {
+        //    throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+        //}
+        
+        //if (productoDTO.getPrecio() <= 0) {
+        //    throw new IllegalArgumentException("El precio debe ser mayor a 0.");
+        //}
+
         //falta validar cuando ingresa por ejemplo valores negativos y precio 0
         productoExistente.setCantidad(productoDTO.getCantidad());
         productoExistente.setPrecio(productoDTO.getPrecio());
