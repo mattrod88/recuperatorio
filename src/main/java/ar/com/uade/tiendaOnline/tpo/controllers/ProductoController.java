@@ -49,6 +49,14 @@ public class ProductoController {
 
     }
 
+    //@PostMapping
+    //public ResponseEntity<String> crearProducto(@RequestBody Producto producto) {
+    //    productoServicio.crearProducto(producto);
+    //    return ResponseEntity.status(HttpStatus.CREATED).body("Producto creado correctamente");
+    //}
+    
+
+
     @GetMapping("/{id}")
     public Producto clickEnUnProducto(@PathVariable Long id) {
 
