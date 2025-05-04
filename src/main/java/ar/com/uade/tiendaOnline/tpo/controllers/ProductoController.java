@@ -78,4 +78,17 @@ public class ProductoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+
+    //@PutMapping("/{id}")
+    //public ResponseEntity<String> actualizarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) {
+    //    try {
+    //        productoServicio.actualizarProducto(id, productoDTO);
+    //        return ResponseEntity.ok("Producto actualizado correctamente.");
+    //    } catch (ProductoInexistenteExcepcion e) {
+    //        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+    //                .body("El producto con ID " + id + " no existe.");    
+    //    }
+    //}
+    
 }
