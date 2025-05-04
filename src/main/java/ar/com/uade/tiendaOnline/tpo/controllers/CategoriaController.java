@@ -77,6 +77,20 @@ public class CategoriaController {
         }
     }
 
+    //@PutMapping("/{id}")
+    //public ResponseEntity<String> actualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) {
+    //    try {
+    //        categoriaServicio.actualizarCategoria(id, categoriaDTO);
+    //        return ResponseEntity.ok().body("Categoría actualizada correctamente.");
+    //    } catch (ProductoInexistenteExcepcion e) {
+    //        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("La categoría con el ID " + id + " no existe.");
+    //    }
+    //}
+
+
+
+
+
 
     }
 
