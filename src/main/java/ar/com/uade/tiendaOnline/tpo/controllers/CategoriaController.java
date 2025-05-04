@@ -51,6 +51,22 @@ public class CategoriaController {
             return ResponseEntity.created(URI.create("/categorias/" + result.getId())).body(result);
         }
 
+        //@PostMapping
+        //public ResponseEntity<String> crearCategoria(@RequestBody CategoriaDTO categoriaRequest)
+        //    throws CategoriaDuplicateExcepcion {
+        //try {
+        //    Categoria result = categoriaServicio.crearCategoria(categoriaRequest.getDescripcion());
+        //    return ResponseEntity.created(URI.create("/categorias/" + result.getId()))
+        //        .body("Categoría creada exitosamente");
+        //} catch (CategoriaDuplicateExcepcion) {
+        //    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+        //        .body("Ya existe una categoría con esa descripción.");
+        //    }   
+        //}
+
+
+
+
     @PutMapping("/{id}")
     public ResponseEntity<Void> actualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) {
         try {
