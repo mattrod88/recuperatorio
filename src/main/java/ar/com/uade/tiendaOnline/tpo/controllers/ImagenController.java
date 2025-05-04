@@ -16,8 +16,15 @@ public class ImagenController {
     @Autowired
     private IImagenServicio imagenServicio;
 
- @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")
     public void eliminarImagenPorId(@PathVariable Long id) {
-     imagenServicio.delete(id);
+        imagenServicio.delete(id);
     }
+
+    //@DeleteMapping("/{id}")
+    //public ResponseEntity<String> eliminarImagenPorId(@PathVariable Long id) {
+    //    imagenServicio.delete(id);
+    //    return ResponseEntity.ok("Imagen eliminada correctamente");
+    //}
+
 }
