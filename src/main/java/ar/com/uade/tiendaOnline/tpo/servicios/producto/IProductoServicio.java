@@ -13,7 +13,7 @@ public interface IProductoServicio {
     List<Producto> obtenerTodosLosProductos();
 
      void crearProducto(Producto producto) ;
-
+    //void crearProducto(Producto producto) throws ProductoDuplicateExcepcion;
 
     List<Producto> obtenerProductosXCategoria(String categoria);
 
