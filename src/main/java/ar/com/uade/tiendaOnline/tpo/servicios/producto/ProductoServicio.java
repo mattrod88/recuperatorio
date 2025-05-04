@@ -5,6 +5,7 @@ import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
+import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ImagenRepositorio;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ProductoRepositorio;
@@ -31,11 +32,23 @@ public class ProductoServicio implements IProductoServicio {
 
         return productoRepositorio.obtenerProductos();
     }
+
     @Transactional(rollbackFor = Throwable.class)
     public void crearProducto(Producto producto) {
 
         productoRepositorio.save(producto);
     }
+
+    //@Transactional(rollbackFor = Throwable.class)
+    //public void crearProducto(Producto producto) throws ProductoDuplicateExcepcion {
+    //    Optional<Producto> existente = productoRepositorio.findByNombre(producto.getNombre());
+    //    if (existente.isPresent()) {
+    //        throw new ProductoDuplicateExcepcion();
+    //    }
+
+    //    productoRepositorio.save(producto);
+    //}
+
 
     @Override
     public List<Producto> obtenerProductosXCategoria(String categoria ) {
