@@ -5,6 +5,7 @@ import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoResponseDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ImagenRepositorio;
@@ -28,10 +29,28 @@ public class ProductoServicio implements IProductoServicio {
     @Autowired
     private ImagenRepositorio imagenRepositorio;
 
-    public List<Producto> obtenerTodosLosProductos(){
+    //ANTES
+    //public List<Producto> obtenerTodosLosProductos(){
+    //    return productoRepositorio.obtenerProductos();
+    //}
 
-        return productoRepositorio.obtenerProductos();
+    @Override
+    public List<ProductoResponseDTO> obtenerTodosLosProductosDTO() {
+        List<Producto> productos = productoRepositorio.obtenerProductos();
+        List<ProductoResponseDTO> dtos = new ArrayList<>();
+        
+        for (Producto p : productos) {
+            ProductoResponseDTO prdto = new ProductoResponseDTO();
+            prdto.setNombre(p.getNombre());
+            prdto.setCantidad(p.getCantidad());
+            prdto.setPrecio(p.getPrecio());
+            prdto.setCategoria(p.getCategoria().getDescripcion()); 
+            dtos.add(prdto);
+        }
+    
+        return dtos;
     }
+    
 
     @Transactional(rollbackFor = Throwable.class)
     public void crearProducto(Producto producto) {
@@ -50,10 +69,30 @@ public class ProductoServicio implements IProductoServicio {
     //}
 
 
+    //ANTES
+    //@Override
+    //public List<Producto> obtenerProductosXCategoria(String categoria ) {
+    //    return productoRepositorio.findByCategoria(categoria);
+    //}
+
     @Override
-    public List<Producto> obtenerProductosXCategoria(String categoria ) {
-        return productoRepositorio.findByCategoria(categoria);
+    public List<ProductoResponseDTO> obtenerProductosDTOporCategoria(String categoria) {
+        List<Producto> productos = productoRepositorio.findByCategoria(categoria); 
+        List<ProductoResponseDTO> dtos = new ArrayList<>();
+        
+        for (Producto p : productos) {
+            ProductoResponseDTO prdto = new ProductoResponseDTO();
+            prdto.setNombre(p.getNombre());
+            prdto.setCantidad(p.getCantidad());
+            prdto.setPrecio(p.getPrecio());
+            prdto.setCategoria(p.getCategoria().getDescripcion());
+            dtos.add(prdto); 
+        }
+        
+        return dtos;
     }
+    
+    
 
     @Transactional
     @Override
