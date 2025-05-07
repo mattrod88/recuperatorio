@@ -3,6 +3,7 @@ package ar.com.uade.tiendaOnline.tpo.controllers;
 import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoResponseDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.servicios.producto.IProductoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +23,23 @@ public class ProductoController {
     @Autowired
     private IProductoServicio productoServicio;
 
+    //ANTES
+    //@GetMapping
+    //public List<Producto> obtenerProductosXcategoria(@RequestParam(required = false) String categoria) {
+    //    if (categoria != null) {
+    //        return productoServicio.obtenerProductosXCategoria(categoria);
+    //    }
+    //    return productoServicio.obtenerTodosLosProductos();
+    //}
 
     @GetMapping
-    public List<Producto> obtenerProductosXcategoria(@RequestParam(required = false) String categoria) {
+    public List<ProductoResponseDTO> obtenerProductosXcategoria(@RequestParam(required = false) String categoria) {
         if (categoria != null) {
-            return productoServicio.obtenerProductosXCategoria(categoria);
+            return productoServicio.obtenerProductosDTOporCategoria(categoria);
         }
-        return productoServicio.obtenerTodosLosProductos();
+        return productoServicio.obtenerTodosLosProductosDTO();
     }
+
 
     @PostMapping("{id}/imagen")
     public ResponseEntity<String> subirImagen(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
