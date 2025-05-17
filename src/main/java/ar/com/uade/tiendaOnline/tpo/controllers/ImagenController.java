@@ -21,10 +21,6 @@ public class ImagenController {
         imagenServicio.delete(id);
     }
 
-    //@DeleteMapping("/{id}")
-    //public ResponseEntity<String> eliminarImagenPorId(@PathVariable Long id) {
-    //    imagenServicio.delete(id);
-    //    return ResponseEntity.ok("Imagen eliminada correctamente");
-    //}
+
 
 }

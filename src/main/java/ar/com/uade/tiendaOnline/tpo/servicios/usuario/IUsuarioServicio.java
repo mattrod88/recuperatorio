@@ -11,9 +11,7 @@ import ar.com.uade.tiendaOnline.tpo.excepciones.DatosIngresadosExcepcion;
 import java.util.List;
 
 public interface IUsuarioServicio {
-   // AuthenticationResponse registrarse(Usuario usuario);
 
-    //boolean logearse(UsuarioRequest usuario) ;
 
    List<UsuarioDTO> obtenerTodosLosUsuarios();
 }

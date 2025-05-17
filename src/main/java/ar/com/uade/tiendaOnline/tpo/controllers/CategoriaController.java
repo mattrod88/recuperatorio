@@ -51,22 +51,6 @@ public class CategoriaController {
             return ResponseEntity.created(URI.create("/categorias/" + result.getId())).body(result);
         }
 
-        //@PostMapping
-        //public ResponseEntity<String> crearCategoria(@RequestBody CategoriaDTO categoriaRequest)
-        //    throws CategoriaDuplicateExcepcion {
-        //try {
-        //    Categoria result = categoriaServicio.crearCategoria(categoriaRequest.getDescripcion());
-        //    return ResponseEntity.created(URI.create("/categorias/" + result.getId()))
-        //        .body("Categoría creada exitosamente");
-        //} catch (CategoriaDuplicateExcepcion) {
-        //    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-        //        .body("Ya existe una categoría con esa descripción.");
-        //    }   
-        //}
-
-
-
-
     @PutMapping("/{id}")
     public ResponseEntity<Void> actualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) {
         try {
@@ -76,17 +60,6 @@ public class CategoriaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-    //@PutMapping("/{id}")
-    //public ResponseEntity<String> actualizarCategoria(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO) {
-    //    try {
-    //        categoriaServicio.actualizarCategoria(id, categoriaDTO);
-    //        return ResponseEntity.ok().body("Categoría actualizada correctamente.");
-    //    } catch (ProductoInexistenteExcepcion e) {
-    //        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("La categoría con el ID " + id + " no existe.");
-    //    }
-    //}
-
 
 
 

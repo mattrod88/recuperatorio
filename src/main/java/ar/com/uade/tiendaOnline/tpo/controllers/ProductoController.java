@@ -23,14 +23,6 @@ public class ProductoController {
     @Autowired
     private IProductoServicio productoServicio;
 
-    //ANTES
-    //@GetMapping
-    //public List<Producto> obtenerProductosXcategoria(@RequestParam(required = false) String categoria) {
-    //    if (categoria != null) {
-    //        return productoServicio.obtenerProductosXCategoria(categoria);
-    //    }
-    //    return productoServicio.obtenerTodosLosProductos();
-    //}
 
     @GetMapping
     public List<ProductoResponseDTO> obtenerProductosXcategoria(@RequestParam(required = false) String categoria) {
@@ -59,12 +51,7 @@ public class ProductoController {
 
     }
 
-    //@PostMapping
-    //public ResponseEntity<String> crearProducto(@RequestBody Producto producto) {
-    //    productoServicio.crearProducto(producto);
-    //    return ResponseEntity.status(HttpStatus.CREATED).body("Producto creado correctamente");
-    //}
-    
+
 
 
     @GetMapping("/{id}")
@@ -87,12 +74,6 @@ public class ProductoController {
 
     }
 
-    //@DeleteMapping("/{id}")
-    //public ResponseEntity<String> eliminarProducto(@PathVariable Long id) {
-    //    productoServicio.eliminarProducto(id);
-    //    return ResponseEntity.ok("Producto eliminado correctamente");
-    //}
-    
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> actualizarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) {
@@ -105,15 +86,4 @@ public class ProductoController {
     }
 
 
-    //@PutMapping("/{id}")
-    //public ResponseEntity<String> actualizarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) {
-    //    try {
-    //        productoServicio.actualizarProducto(id, productoDTO);
-    //        return ResponseEntity.ok("Producto actualizado correctamente.");
-    //    } catch (ProductoInexistenteExcepcion e) {
-    //        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-    //                .body("El producto con ID " + id + " no existe.");    
-    //    }
-    //}
-    
 }
