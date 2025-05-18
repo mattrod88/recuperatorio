@@ -12,15 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface IProductoServicio {
-    //ANTES
-    //List<Producto> obtenerTodosLosProductos();
+
     List<ProductoResponseDTO> obtenerTodosLosProductosDTO();
 
      void crearProducto(Producto producto) ;
-    //void crearProducto(Producto producto) throws ProductoDuplicateExcepcion;
 
-    //ANTES
-    //List<Producto> obtenerProductosXCategoria(String categoria);
+
+
     List<ProductoResponseDTO> obtenerProductosDTOporCategoria(String categoria);
 
     void eliminarProducto(Long id);

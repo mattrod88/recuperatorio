@@ -29,10 +29,6 @@ public class ProductoServicio implements IProductoServicio {
     @Autowired
     private ImagenRepositorio imagenRepositorio;
 
-    //ANTES
-    //public List<Producto> obtenerTodosLosProductos(){
-    //    return productoRepositorio.obtenerProductos();
-    //}
 
     @Override
     public List<ProductoResponseDTO> obtenerTodosLosProductosDTO() {
@@ -57,23 +53,6 @@ public class ProductoServicio implements IProductoServicio {
 
         productoRepositorio.save(producto);
     }
-
-    //@Transactional(rollbackFor = Throwable.class)
-    //public void crearProducto(Producto producto) throws ProductoDuplicateExcepcion {
-    //    Optional<Producto> existente = productoRepositorio.findByNombre(producto.getNombre());
-    //    if (existente.isPresent()) {
-    //        throw new ProductoDuplicateExcepcion();
-    //    }
-
-    //    productoRepositorio.save(producto);
-    //}
-
-
-    //ANTES
-    //@Override
-    //public List<Producto> obtenerProductosXCategoria(String categoria ) {
-    //    return productoRepositorio.findByCategoria(categoria);
-    //}
 
     @Override
     public List<ProductoResponseDTO> obtenerProductosDTOporCategoria(String categoria) {
@@ -155,15 +134,15 @@ public class ProductoServicio implements IProductoServicio {
             productoExistente.setCategoria(nuevaCategoria);
         }
 
-        //if (productoDTO.getCantidad() < 0) {
-        //    throw new IllegalArgumentException("La cantidad no puede ser negativa.");
-        //}
+        if (productoDTO.getCantidad() < 0) {
+            throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+        }
         
-        //if (productoDTO.getPrecio() <= 0) {
-        //    throw new IllegalArgumentException("El precio debe ser mayor a 0.");
-        //}
+        if (productoDTO.getPrecio() <= 0) {
+            throw new IllegalArgumentException("El precio debe ser mayor a 0.");
+        }
 
-        //falta validar cuando ingresa por ejemplo valores negativos y precio 0
+
         productoExistente.setCantidad(productoDTO.getCantidad());
         productoExistente.setPrecio(productoDTO.getPrecio());
 

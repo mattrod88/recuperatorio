@@ -12,8 +12,6 @@ import java.util.List;
 public interface IPedidoServicio {
     DetalleDeCompraDTO realizarComprar(PedidoDTO pedido, Usuario usuario);
 
-
-    //void hacerPedido(Pedido pedido);
 }
 
 
