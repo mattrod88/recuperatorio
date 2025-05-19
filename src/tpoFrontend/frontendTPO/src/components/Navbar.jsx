@@ -1,7 +1,7 @@
 import Buscador from "./Buscador";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
-import Logo from '../assets/logo.svg'
+
 import Carrito from '../assets/carrito.svg'
 import Usuario from '../assets/usuario.svg'
 
@@ -43,14 +43,19 @@ export default function NavBar() {
 
   return (
     <>
-  
     <nav className="bg-white border-lime-900 shadow-md lime-900:bg-lime-900 fixed top-0 w-full z-50">
+       <div className="bg-lime-900 text-white border-bottom-1px-solid ">
+        <div className="conatiner">
+          <div className="text-center">
+             <p>ENTREGA A DOMICILIO SIN COSTO</p>
+          </div>
+       
+      </div>
+
+    </div>
     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <ul className="flex items-center gap-3">
-        <li className="font-semibold text-lime-900" >
-         
-          <NavLink to="/"> <img className="h-8"  src={Logo}></img></NavLink>
-        </li>
+       
         <li>
           <NavLink to="/"><h1 className="text-lime-900 font-bold">Tienda Saludable Online</h1></NavLink>
         </li>
