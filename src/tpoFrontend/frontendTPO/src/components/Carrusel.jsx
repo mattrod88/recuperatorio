@@ -16,13 +16,13 @@ export default function MainSlider() {
   };
 
   return (
-      <div className="container mt-7 w-full">
+      <div className="container  w-full">
         <div className="flex">
-          <div className="md:w-3/4 w-full my-0">
+          <div className=" w-full ">
           <Slider {...settings}>
             <div>
             <img
-              className="w-full h-[400px] object-cover object-right rounded-lg md:rounded-l-lg md:rounded-r-none"
+              className="w-full h-[400px] object-cover object-right rounded-lg md:rounded-l-lg md:rounded-r-none "
               src="/almendras.jpg"
             />
             </div>
