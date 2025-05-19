@@ -54,26 +54,24 @@ export default function NavBar() {
 
     </div>
     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <ul className="flex items-center gap-3">
+      <div className="flex flex-row items-center gap-3 w-full">
        
-        <li>
+        <div>
           <NavLink to="/"><h1 className="text-lime-900 font-bold">Tienda Saludable Online</h1></NavLink>
-        </li>
-        <li>
+        </div>
+        <div>
           <Dropdown items={items}/>
           
-        </li>
-        <li >
+        </div>
+        <div className="ml-auto flex items-center gap-3" >
           <NavLink to="/resultado"> <Buscador/></NavLink>
-        </li>
-        <li >
          <NavLink to="/carrito"><img className="h-8" src={Carrito}></img></NavLink> 
-        </li>
-        <li >
-         <NavLink to="/iniciarSesionORegistrarse"><img className="h-8"src={Usuario}></img></NavLink>  
-        </li>
-     
-    </ul>
+         <NavLink to="/iniciarSesionORegistrarse"><img className="h-8"src={Usuario}></img></NavLink>
+        </div>  
+        <div>
+          
+          </div>   
+    </div>
     </div>
     </nav>         
     </>
