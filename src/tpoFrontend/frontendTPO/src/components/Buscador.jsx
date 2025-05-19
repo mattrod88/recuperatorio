@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PRODUCTOS } from '../assets/PRODUCTOS';
-import Lupa from '../assets/lupa.svg'
+
 
 function Buscador( ) {
 

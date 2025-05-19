@@ -14,8 +14,8 @@ export default function ListaDeProductos() {
     }, [params]);
 
     return (
-        <div className='flex flex-col items-center mt-20 mb-40'>
-            <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
+        <div className='flex flex-col items-center mt-20 mb-40  min-h-screen"'>
+            <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg '>
                 { productos.length > 0 ? 
                     productos.map( (producto) => <Producto key={producto.id} producto={producto}/>)
                      :

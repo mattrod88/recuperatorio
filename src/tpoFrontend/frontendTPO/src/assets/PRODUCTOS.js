@@ -14,6 +14,7 @@ export const PRODUCTOS = [
     cantidad: "Porción individual tostada, 50g",
     precio: 450,
     categoria: "frutas_Secas",
+    imagen:"/almendras.jpg"
   },
   {
     id: 3,
@@ -21,6 +22,7 @@ export const PRODUCTOS = [
     cantidad: "Snack pack de 40g, sin sal",
     precio: 600,
     categoria: "frutas_Secas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 4,
@@ -28,6 +30,7 @@ export const PRODUCTOS = [
     cantidad: "Pack de 50g",
     precio: 650,
     categoria: "frutas_Secas",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 5,
@@ -35,6 +38,7 @@ export const PRODUCTOS = [
     cantidad: "Nuez, almendra, cajú – 50g",
     precio: 550,
     categoria: "frutas_Secas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 6,
@@ -42,6 +46,7 @@ export const PRODUCTOS = [
     cantidad: "Snack individual (40g)",
     precio: 300,
     categoria: "Frutas",
+    imagen:"/nuez.jpg"
   },
   {
     id: 7,
@@ -49,6 +54,7 @@ export const PRODUCTOS = [
     cantidad: "1 tira envasada al vacío",
     precio: 400,
     categoria: "Frutas",
+    imagen:"/almendras.jpg"
   },
   {
     id: 8,
@@ -56,6 +62,7 @@ export const PRODUCTOS = [
     cantidad: "1 unidad en pack sellado",
     precio: 250,
     categoria: "Frutas",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 9,
@@ -63,6 +70,7 @@ export const PRODUCTOS = [
     cantidad: "Rodaja en pack individual",
     precio: 220,
     categoria: "Frutas",
+     imagen:"/nuez.jpg"
   },
   {
     id: 10,
@@ -70,6 +78,7 @@ export const PRODUCTOS = [
     cantidad: "Sobre de 20g con cierre hermético",
     precio: 500,
     categoria: "Frutas",
+     imagen:"/pistachos.jpg"
   },
   {
     id: 11,
@@ -77,6 +86,7 @@ export const PRODUCTOS = [
     cantidad: "Sobre individual (10g)",
     precio: 150,
     categoria: "Semillas",
+     imagen:"/avellana.jpg"
   },
   {
     id: 12,
@@ -84,6 +94,7 @@ export const PRODUCTOS = [
     cantidad: "Pack por porción (15g)",
     precio: 120,
     categoria: "Semillas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 13,
@@ -91,6 +102,7 @@ export const PRODUCTOS = [
     cantidad: "Sobre individual (10g)",
     precio: 100,
     categoria: "Semillas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 14,
@@ -98,6 +110,7 @@ export const PRODUCTOS = [
     cantidad: "Snack de 15g",
     precio: 180,
     categoria: "Semillas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 15,
@@ -105,6 +118,7 @@ export const PRODUCTOS = [
     cantidad: "Chía, lino, girasol – 20g",
     precio: 180,
     categoria: "Semillas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 16,
@@ -112,6 +126,7 @@ export const PRODUCTOS = [
     cantidad: "A base de avena y miel",
     precio: 350,
     categoria: "Snacks",
+    imagen:"/avellana.jpg"
   },
   {
     id: 17,
@@ -119,6 +134,7 @@ export const PRODUCTOS = [
     cantidad: "Unidad con chía",
     precio: 120,
     categoria: "Snacks",
+    imagen:"/avellana.jpg"
   },
   {
     id: 18,
@@ -126,6 +142,7 @@ export const PRODUCTOS = [
     cantidad: "Dátil, nuez y cacao – 1 unidad",
     precio: 250,
     categoria: "Snacks",
+    imagen:"/avellana.jpg"
   },
   {
     id: 19,
@@ -133,6 +150,7 @@ export const PRODUCTOS = [
     cantidad: "Bolsa individual crocante",
     precio: 500,
     categoria: "Snacks",
+    imagen:"/avellana.jpg"
   },
   {
     id: 20,
@@ -140,6 +158,7 @@ export const PRODUCTOS = [
     cantidad: "Unidad, sin azúcar",
     precio: 400,
     categoria: "Snacks",
+    imagen:"/avellana.jpg"
   },
   {
     id: 21,
@@ -147,6 +166,7 @@ export const PRODUCTOS = [
     cantidad: "Paquete 500g",
     precio: 800,
     categoria: "Harinas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 22,
@@ -154,6 +174,7 @@ export const PRODUCTOS = [
     cantidad: "Bolsa de 250g",
     precio: 1200,
     categoria: "Harinas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 23,
@@ -161,6 +182,7 @@ export const PRODUCTOS = [
     cantidad: "Paquete 1kg",
     precio: 750,
     categoria: "Harinas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 24,
@@ -168,6 +190,7 @@ export const PRODUCTOS = [
     cantidad: "Bolsa de 500g",
     precio: 650,
     categoria: "Harinas",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 25,
@@ -175,6 +198,7 @@ export const PRODUCTOS = [
     cantidad: "Paquete de 500g",
     precio: 700,
     categoria: "Harinas",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 26,
@@ -182,6 +206,7 @@ export const PRODUCTOS = [
     cantidad: "Sin azúcar agregada, 200g",
     precio: 1100,
     categoria: "Mermeladas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 27,
@@ -189,6 +214,7 @@ export const PRODUCTOS = [
     cantidad: "Natural, 200g",
     precio: 1050,
     categoria: "Mermeladas",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 28,
@@ -196,6 +222,7 @@ export const PRODUCTOS = [
     cantidad: "Con stevia, 200g",
     precio: 1200,
     categoria: "Mermeladas",
+    imagen:"/nuez.jpg"
   },
   {
     id: 29,
@@ -203,6 +230,7 @@ export const PRODUCTOS = [
     cantidad: "100% fruta, 200g",
     precio: 1250,
     categoria: "Mermeladas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 30,
@@ -210,6 +238,7 @@ export const PRODUCTOS = [
     cantidad: "Orgánica, 200g",
     precio: 1300,
     categoria: "Mermeladas",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 31,
@@ -217,6 +246,7 @@ export const PRODUCTOS = [
     cantidad: "Frasco 220g",
     precio: 900,
     categoria: "Aderezos",
+     imagen:"/pistachos.jpg"
   },
   {
     id: 32,
@@ -224,6 +254,8 @@ export const PRODUCTOS = [
     cantidad: "Frasco 200g",
     precio: 950,
     categoria: "Aderezos",
+     imagen:"/avellana.jpg"
+
   },
   {
     id: 33,
@@ -231,6 +263,7 @@ export const PRODUCTOS = [
     cantidad: "A base de girasol, 220g",
     precio: 1100,
     categoria: "Aderezos",
+    imagen:"/almendras.jpg"
   },
   {
     id: 34,
@@ -238,6 +271,7 @@ export const PRODUCTOS = [
     cantidad: "Envase 150g",
     precio: 1100,
     categoria: "Aderezos",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 35,
@@ -245,6 +279,7 @@ export const PRODUCTOS = [
     cantidad: "Frasco 200g",
     precio: 1300,
     categoria: "Aderezos",
+    imagen:"/nuez.jpg"
   },
   {
     id: 36,
@@ -252,6 +287,7 @@ export const PRODUCTOS = [
     cantidad: "Botella 330ml",
     precio: 900,
     categoria: "Bebidas",
+    imagen:"/avellana.jpg"
   },
   {
     id: 37,
@@ -259,6 +295,7 @@ export const PRODUCTOS = [
     cantidad: "Botella 500ml",
     precio: 700,
     categoria: "Bebidas",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 38,
@@ -266,6 +303,7 @@ export const PRODUCTOS = [
     cantidad: "Botella 330ml",
     precio: 1100,
     categoria: "Bebidas",
+    imagen:"/almendras.jpg"
   },
   {
     id: 39,
@@ -273,6 +311,7 @@ export const PRODUCTOS = [
     cantidad: "Botella 330ml",
     precio: 1300,
     categoria: "Bebidas",
+    imagen:"/pistachos.jpg"
   },
   {
     id: 40,
@@ -280,5 +319,6 @@ export const PRODUCTOS = [
     cantidad: "Envase 1L",
     precio: 1800,
     categoria: "Bebidas",
+    imagen:"/nuez.jpg"
   },
 ];
