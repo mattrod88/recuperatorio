@@ -56,13 +56,17 @@ function Carrusel() {
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className='w-[1520px] h-full rounded-2xl bg-center bg-cover duration-500'
       >
-        <h1 className="text-green-80">${slides[currentIndex].mensaje}</h1>
-        <button className="border-t-green-900 bg-green-900 text-white">${slides[currentIndex].boton}</button>
+       <div className="w-full absolute top-100 left-0 text-center ">
+      <h2 className="text-4xl font-bold text-white-500 text-center mt-80 py-10 px-4">
+        {slides[currentIndex].mensaje}</h2>
+         <button className="border-green-700 mt-10 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          {slides[currentIndex].boton}</button>
+      
       </div>
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer'>
+      <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer'>
+      <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer'>
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
       <div className='flex top-4 justify-center py-2'>
@@ -76,6 +80,7 @@ function Carrusel() {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }
