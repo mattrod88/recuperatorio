@@ -42,12 +42,17 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="bg-white border-gray-200 shadow-md dark:bg-gray-900 fixed top-0 w-full z-50">
+    <>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <nav className="bg-white border-green-200 shadow-md green:bg-green-900 fixed top-0 w-full z-50">
     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg-green" >
          
           <NavLink to="/"> <img className="h-8"  src={Logo}></img></NavLink>
+        </li>
+        <li>
+          <NavLink to="/"><h1 className="text-green-800">Tienda Saludable Online</h1></NavLink>
         </li>
         <li>
           <Dropdown items={items}/>
@@ -67,6 +72,7 @@ export default function NavBar() {
     </ul>
     </div>
     </nav>         
+    </>
 
   );
 }

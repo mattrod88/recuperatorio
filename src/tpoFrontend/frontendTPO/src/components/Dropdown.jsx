@@ -9,7 +9,8 @@ const Dropdown = ({ items }) => {
   const [abierto, setAbierto] = useState(false);
   const activeStyle = "underline underline-offset-4";
   return (
-    <>
+   <>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div>
         <button
           type="button"

@@ -1,12 +1,12 @@
-import MainSlider from "./Carrusel";
+import Carrusel from "./Carrusel";
 import ListaDeProductos from "./ListaDeProductos";
 
 export default function Home() {
 
     return(
         <>
-        <MainSlider></MainSlider>
-        <ListaDeProductos></ListaDeProductos>
+           <Carrusel></Carrusel>
+            <ListaDeProductos></ListaDeProductos>
         </>
     )
 }

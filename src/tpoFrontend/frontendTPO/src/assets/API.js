@@ -5,5 +5,6 @@ export async function obtenerProductos(params) {
     if (params.nombre_categoria) {
         productos = PRODUCTOS.filter(p => p.categoria === params.nombre_categoria)
     }
+    console.log(productos)
     return productos;
 }

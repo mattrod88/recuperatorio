@@ -3,6 +3,7 @@ export default function ElFooter() {
 
   return (
     <>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <footer className="mt-auto bg-white border  dark:bg-white-900 ">
         <div className=" mx-auto">
           <div className="lg:flex">
