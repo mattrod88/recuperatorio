@@ -5,6 +5,8 @@ export const PRODUCTOS = [
     cantidad: "Bolsa de 50g, sin sal",
     precio: 500,
     categoria: "frutas_Secas",
+    imagen:"/nuez.jpg"
+    
   },
   {
     id: 2,

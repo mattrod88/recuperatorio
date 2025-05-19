@@ -3,7 +3,7 @@ export default function ElFooter() {
 
   return (
     <>
-      <footer className="bg-white border  dark:bg-white-900 mb-0 margin-bottom: 0px  absolute bottom-0">
+      <footer className="mt-auto bg-white border  dark:bg-white-900 ">
         <div className=" mx-auto">
           <div className="lg:flex">
             <div className="w-full -mx-6 lg:w-2/5">

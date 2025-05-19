@@ -12,7 +12,7 @@ export default function Producto(props) {
                 <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5 flex justify-center items-center'>
                     {props.producto.categoriaId}
                 </span>
-                <img src={props.producto.pictureUrl} alt={`${props.producto.nombre}`} className='w-full h-full object-contain rounded-lg' />
+                <img src={props.producto.imagen} alt={`${props.producto.nombre}`} className='md:w-1/2 w-50  object-contain rounded-lg' />
             </figure>
             <p className='flex justify-between px-1'>
                 <span className='text-sm font-light'>
