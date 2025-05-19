@@ -11,7 +11,7 @@ const Dropdown = ({ items }) => {
   return (
    <>
 
-      <div>
+      <div className="relative inline-block">
         <button
           type="button"
           className="w-full rounded-full border border-gray-100 bg-white px-5 py-3 pr-20 text-base shadow-md transition-shadow duration-200 hover:shadow-lg focus:border-gray-300 focus:outline-none"
@@ -37,7 +37,7 @@ const Dropdown = ({ items }) => {
         </button>
       </div>
       <div
-        className="absolute z-10 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+        className="display-none absolute z-10 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"

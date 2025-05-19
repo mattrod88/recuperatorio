@@ -2,8 +2,8 @@ import Buscador from "./Buscador";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import Logo from '../assets/logo.svg'
-import Carrito from '../assets/carrito.svg'
-import Lupa from '../assets/lupa.svg'
+import Carrito from '/carrito.svg'
+import Usuario from '/user.svg'
 
 export default function NavBar() {
   const items = [
@@ -60,6 +60,12 @@ export default function NavBar() {
         </li>
         <li >
           <Buscador/>
+        </li>
+        <li >
+          {Carrito}
+        </li>
+        <li >
+          {Usuario}
         </li>
      
     </ul>

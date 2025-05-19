@@ -21,7 +21,7 @@ function Buscador( ) {
         setSearchResults([])
       } else {
         const results = PRODUCTOS.filter((item) =>
-          item.title.toLowerCase().includes(term.toLowerCase()),
+          item.titulo.toLowerCase().includes(term.toLowerCase()),
         )
         setSearchResults(results)
       }
@@ -81,3 +81,5 @@ function Buscador( ) {
 }
 
 export default Buscador;
+
+//buscar por query para en la barra de navegacion http://localhost:5173/?q=lo que estoy buscando
