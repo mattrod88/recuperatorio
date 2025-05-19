@@ -4,7 +4,8 @@ import Buscador from "./Buscador";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import Logo from '../assets/logo.svg'
-import { Input } from "postcss";
+import Carrito from '../assets/carrito.svg'
+import Lupa from '../assets/lupa.svg'
 
 export default function NavBar() {
   const items = [
@@ -54,12 +55,15 @@ export default function NavBar() {
           <Dropdown items={items}/>
           
         </li>
-        <li>
+        <li >
           <Buscador/>
+        </li>
+        <li>
+           <img className="  w-6"  src={Lupa}></img>
         </li>
 
         <li>
-          <CartWidget />
+          <img className=" top-2 h-6 w-6"  src={Carrito}></img>
         </li>
      
     </ul>

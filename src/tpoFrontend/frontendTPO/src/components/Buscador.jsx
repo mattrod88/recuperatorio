@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PRODUCTOS } from '../assets/PRODUCTOS';
+import Lupa from '../assets/lupa.svg'
 
 function Buscador( ) {
 
@@ -15,13 +16,16 @@ function Buscador( ) {
   };
 
   return (
-   <div>
-   <input className='inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-90 shadow-lg ring-1 ring-black/5 ' 
+   <div >
+
+   <input className='rounded-md bg-white pl-2 py-2 text-sm font-semibold text-gray-90 shadow-lg ring-1 ring-black/5 ' 
         type="texto"
         placeholder="Buscar..."
         value={buscar}
         onChange={handleInputChange}
+        
       />
+  
     </div>
 
   );
