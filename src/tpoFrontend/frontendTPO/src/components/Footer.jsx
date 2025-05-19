@@ -5,8 +5,8 @@ export default function ElFooter() {
 
   return (
     <>
-      <footer className="mt-auto lime-900 border-x-lime-900 ">
-        <div className=" mx-auto">
+      <footer className="mt-8 lime-900 border-x-lime-900 ">
+        <div className=" mx-4">
           <div className="lg:flex">
             <div className="w-full -mx-6 lg:w-2/5">
               <div className="px-60">

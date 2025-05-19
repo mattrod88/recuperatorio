@@ -9,15 +9,16 @@ function Carrusel() {
       url: '/slide3.jpg',
       boton:"Compra ahora"
     },
+   
     {
-    
-      url: '/slide4.jpeg',
+  
+      url: '/especias.jpg',
       boton:"Compra ahora"
    
     },
-    {
+     {
   
-      url: '/slide3.jpg',
+      url: '/imagen1.jpg',
       boton:"Compra ahora"
    
     }
