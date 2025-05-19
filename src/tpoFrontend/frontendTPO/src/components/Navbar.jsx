@@ -1,5 +1,3 @@
-
-import CartWidget from "./CartWidget";
 import Buscador from "./Buscador";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
