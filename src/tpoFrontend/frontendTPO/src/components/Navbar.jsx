@@ -61,13 +61,6 @@ export default function NavBar() {
         <li >
           <Buscador/>
         </li>
-        <li>
-           <img className="  w-6"  src={Lupa}></img>
-        </li>
-
-        <li>
-          <img className=" top-2 h-6 w-6"  src={Carrito}></img>
-        </li>
      
     </ul>
     </div>

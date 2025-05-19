@@ -5,12 +5,12 @@ import { obtenerProductos } from "../assets/API";
 import MainSlider from "./Carrusel";
 
 
-export default function ListaDeProductos() {
+export default function ListaDeProductos(props) {
   const [productos, setProductos] = useState([]);
   const params = useParams();
 
   useEffect(() => {
-    let promesa = obtenerProductos(params);
+    let promesa = obtenerProductos(params, props.filtro);
     promesa.then((productos) => setProductos(productos));
   }, [params]);
 
