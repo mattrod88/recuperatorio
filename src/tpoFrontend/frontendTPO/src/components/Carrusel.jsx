@@ -6,30 +6,21 @@ function Carrusel() {
   const slides = [
     {
       mensaje:"Todos tus productos saludables en un sólo lugar",
-      url: '/pistachos.jpg',
+      url: '/slide3.jpg',
       boton:"Compra ahora"
     },
     {
       mensaje:"Todos tus productos saludables en un sólo lugar",
-      url: '/avellana.jpg',
+      url: '/slide4.jpeg',
       boton:"Compra ahora"
     },
     {
       mensaje:"Todos tus productos saludables en un sólo lugar",
-      url: '/pistachos.jpg',
+      url: '/slide3.jpg',
       boton:"Compra ahora"
-    },
+    }
 
-    {
-      mensaje:"Todos tus productos saludables en un sólo lugar",
-      url: '/almendras.jpg',
-      boton:"Compra ahora"
-    },
-    {
-      mensaje:"Todos tus productos saludables en un sólo lugar",
-      url: '/nuez.jpg',
-      boton:"Compra ahora"
-    },
+    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,13 +42,13 @@ function Carrusel() {
   };
 
   return (
-    <div className='w-full h-[780px]  pb-16 pt-0 '>
+    <div className='w-full h-[700px]  pb-16 pt-0 '>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className='w-[1520px] h-full rounded-2xl bg-center bg-cover duration-500'
       >
-       <div className="w-full absolute top-100 left-0 text-center ">
-      <h2 className="text-4xl font-bold text-white-500 text-center mt-80 py-10 px-4">
+       <div className="w-full absolute top-40 left-10  text-justify-left ">
+      <h2 className="text-4xl font-bold text-white-500 text-left mt-20 py-10 px-4">
         {slides[currentIndex].mensaje}</h2>
          <button className="border-green-700 mt-10 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
           {slides[currentIndex].boton}</button>
