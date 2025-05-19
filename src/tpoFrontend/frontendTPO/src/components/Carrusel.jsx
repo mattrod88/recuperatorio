@@ -5,19 +5,21 @@ import { RxDotFilled } from 'react-icons/rx';
 function Carrusel() {
   const slides = [
     {
-      mensaje:"Todos tus productos saludables en un sólo lugar",
+      
       url: '/slide3.jpg',
       boton:"Compra ahora"
     },
     {
-      mensaje:"Todos tus productos saludables en un sólo lugar",
+    
       url: '/slide4.jpeg',
       boton:"Compra ahora"
+   
     },
     {
-      mensaje:"Todos tus productos saludables en un sólo lugar",
+  
       url: '/slide3.jpg',
       boton:"Compra ahora"
+   
     }
 
     
@@ -48,9 +50,9 @@ function Carrusel() {
         className='w-[1520px] h-full rounded-2xl bg-center bg-cover duration-500'
       >
        <div className="w-full absolute top-40 left-10  text-justify-left ">
-      <h2 className="text-4xl font-bold text-white-500 text-left mt-20 py-10 px-4">
-        {slides[currentIndex].mensaje}</h2>
-         <button className="border-green-700 mt-10 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+      <h2 className="text-4xl font-bold text-lime-900 text-left mt-20 py-10 ">
+        Productos saludables</h2>
+         <button className="border-lime-900 mt-10 bg-lime-900 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded">
           {slides[currentIndex].boton}</button>
       
       </div>

@@ -7,7 +7,7 @@ export default function Producto(props) {
     minimumFractionDigits: 2,
   });
   return (
-    <div className="max-w-sm rounded-lg shadow-lg">
+    <div className="max-w-sm rounded-lg shadow-lg bg-white">
       <NavLink to={`/producto/${props.producto.id}`}>
         <img
           className="rounded-t-lg"
@@ -18,7 +18,7 @@ export default function Producto(props) {
       <div className="p-4">
         <h5 className="text-lg font-semibold mb-2">{props.producto.nombre}</h5>
         <p className="text-gray-700 text-base mb-3">{precio}</p>
-        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">
+        <button className="bg-lime-900 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded ">
           <NavLink to={`/carrito/${props.producto.id}`}>
             Agregar al carrito
           </NavLink>

@@ -2,8 +2,8 @@ import Buscador from "./Buscador";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import Logo from '../assets/logo.svg'
-import Carrito from '/carrito.svg'
-import Usuario from '/user.svg'
+import Carrito from '../assets/carrito.svg'
+import Usuario from '../assets/usuario.svg'
 
 export default function NavBar() {
   const items = [
@@ -43,29 +43,29 @@ export default function NavBar() {
 
   return (
     <>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <nav className="bg-white border-green-200 shadow-md green:bg-green-900 fixed top-0 w-full z-50">
+  
+    <nav className="bg-white border-lime-900 shadow-md lime-900:bg-lime-900 fixed top-0 w-full z-50">
     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <ul className="flex items-center gap-3">
-        <li className="font-semibold text-lg-green" >
+        <li className="font-semibold text-lime-900" >
          
           <NavLink to="/"> <img className="h-8"  src={Logo}></img></NavLink>
         </li>
         <li>
-          <NavLink to="/"><h1 className="text-green-800">Tienda Saludable Online</h1></NavLink>
+          <NavLink to="/"><h1 className="text-lime-900 font-bold">Tienda Saludable Online</h1></NavLink>
         </li>
         <li>
           <Dropdown items={items}/>
           
         </li>
         <li >
-          <Buscador/>
+          <NavLink to="/resultado"> <Buscador/></NavLink>
         </li>
         <li >
-          {Carrito}
+         <NavLink to="/carrito"><img className="h-8" src={Carrito}></img></NavLink> 
         </li>
         <li >
-          {Usuario}
+         <NavLink to="/iniciarSesionORegistrarse"><img className="h-8"src={Usuario}></img></NavLink>  
         </li>
      
     </ul>

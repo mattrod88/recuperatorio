@@ -17,7 +17,7 @@ export default function ListaDeProductos(props) {
   return (
     <>
 
-      <div className='flex flex-col items-center mt-20 mb-40  w-full"'>
+      <div className='flex flex-col items-center mt-20 mb-40  w-full bg-lime-900"'>
         <div className="grid gap-4 grid-cols-4  max-w-screen-lg ">
    
           {productos.length > 0 ? (
