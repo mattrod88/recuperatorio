@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="w-full border-2 border-solid border-lime-800 mt-0 ">
+      <footer className="w-full container mx-auto  border-2 border-solid border-lime-800 mt-0 border-t-stone-400">
         <div >
           <div className="lg:flex">
             <div className="w-full -mx-6 lg:w-2/5">
