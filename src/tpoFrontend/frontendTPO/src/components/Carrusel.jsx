@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
+import { NavLink } from 'react-router-dom';
 
 function Carrusel() {
   const slides = [
@@ -54,8 +55,9 @@ function Carrusel() {
       <h2 className="text-4xl font-bold text-lime-900 text-left mt-20 py-10 ">
         Productos<br/>saludables</h2>
          <button className="border-lime-900 mt-10 bg-lime-900 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded">
+          
           {slides[currentIndex].boton}</button>
-      
+   
       </div>
       <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />

@@ -6,8 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ElFooter from './components/Footer';
-import Home from './components/Home';
-import ListaDeProductos from './components/ListaDeProductos';
+import Home from './views/Home';
+import ListaDeProductos from './components/Catalogo';
 import DetalleProducto from './components/DetalleProducto';
 
 
