@@ -1,17 +1,32 @@
-import Navbar from './components/Navbar'
-import ElFooter from './components/ElFooter'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+
 import './tailwind.css'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import ElFooter from './components/Footer';
+import Home from './components/Home';
+import ListaDeProductos from './components/ListaDeProductos';
+import DetalleProducto from './components/DetalleProducto';
+
+
 
 function App() {
 
   return (
+    <>
       <BrowserRouter>
           <Navbar/>
           <Routes>
+            <Route  path="/" element={<Home/>}></Route>
+            <Route path="/categoria/:nombre_categoria" element={<ListaDeProductos/>}></Route>
+            <Route path="/producto/:id" element={<DetalleProducto/>}></Route>
           </Routes>
           <ElFooter/>
       </BrowserRouter>
+  
+      </>
   )
 }
 

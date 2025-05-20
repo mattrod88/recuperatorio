@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 body {
-    background: #afe0ad;
+    background: #4B5A3B;
     font-size: larger;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .fondo {
-    background: #59b275;
+    background: #4B5A3B;
 }
 
 .fondo2 {
-    background: #33a55b;
+    background: #4B5A3B;
 }
