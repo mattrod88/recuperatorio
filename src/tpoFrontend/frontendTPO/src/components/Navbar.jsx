@@ -4,8 +4,17 @@ import Dropdown from "./Dropdown";
 
 import Carrito from '../assets/carrito.svg'
 import Usuario from '../assets/usuario.svg'
+import React from "react";
 
-export default function NavBar() {
+export default function NavbarDefault() {
+  const [openNav, setOpenNav] = React.useState(false);
+ 
+  React.useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setOpenNav(false),
+    );
+  }, []);
   const items = [
     {
       titulo: "Frutas Secas",
@@ -44,7 +53,7 @@ export default function NavBar() {
   return (
     <>
     <nav className="bg-white border-lime-900 shadow-md lime-900:bg-lime-900 fixed top-0 w-full">
-       <div className="bg-lime-900 text-white border-bottom-1px-solid ">
+       <div className="bg-lime-900 text-white border-bottom-1px-solid hidden lg:block">
         <div className="conatiner">
           <div className="text-center">
              <p>ENTREGA A DOMICILIO SIN COSTO</p>
