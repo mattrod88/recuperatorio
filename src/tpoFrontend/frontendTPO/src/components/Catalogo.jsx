@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Producto from "./Producto";
+import Producto from "./CardProducto";
 import { useParams } from "react-router-dom";
 import { obtenerProductos } from "../assets/API";
 import MainSlider from "./Carrusel";

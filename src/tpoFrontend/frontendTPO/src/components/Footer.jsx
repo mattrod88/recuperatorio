@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import Tiktok from "../assets/Tiktok.svg"
 import Instagram from "../assets/Instagram.svg"
-export default function ElFooter() {
+import NewsLetter from './NewsLetter';
+
+export default function Footer() {
 
   return (
     <>
-      <footer className="w-full border-2 border-solid border-lime-800 mt-0 ">
+      <footer className=" flex-shrink-0 w-full container mx-auto  border-2 border-solid border-lime-800 mt-0 border-t-stone-400 ">
         <div >
           <div className="lg:flex">
             <div className="w-full -mx-6 lg:w-2/5">
@@ -14,7 +16,9 @@ export default function ElFooter() {
                 <div className="max-w-sm  text-white dark:text-white-400 font-lg ">
                   Descubre los mejores productos naturales!
                 </div>
+                 <NewsLetter></NewsLetter>
               </div>
+             
             </div>
             <div className="mt-6 lg:mt-0 lg:flex-1">
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 mt-10 mb-10">
