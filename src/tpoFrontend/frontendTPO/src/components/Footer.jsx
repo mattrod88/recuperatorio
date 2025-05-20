@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import Tiktok from "../assets/Tiktok.svg"
 import Instagram from "../assets/Instagram.svg"
-export default function ElFooter() {
+import NewsLetter from './NewsLetter';
+
+export default function Footer() {
 
   return (
     <>
@@ -14,7 +16,9 @@ export default function ElFooter() {
                 <div className="max-w-sm  text-white dark:text-white-400 font-lg ">
                   Descubre los mejores productos naturales!
                 </div>
+                 <NewsLetter></NewsLetter>
               </div>
+             
             </div>
             <div className="mt-6 lg:mt-0 lg:flex-1">
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 mt-10 mb-10">
