@@ -1,6 +1,6 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import Carrusel from "./Carrusel";
-import ListaDeProductos from "./ListaDeProductos";
+import Carrusel from "../components/Carrusel";
+import ListaDeProductos from "../components/Catalogo";
 
 export default function Home() {
     const [searchParams] = useSearchParams()
@@ -23,6 +23,7 @@ export default function Home() {
                         <h3 className="text-lime-900 font-bold text-3xl  ">Ayuda al planeta</h3>
                         <h3 className="text-lime-900 font-bold text-3xl mt-6">compra alimentos saludables!</h3>
                         <div>
+                            
                             <button className="mt-40 px- bg-lime-900 text-3xl "><p className="px-8 text-white mt-2 mb-4"><b>Comprar<br/>ahora</b></p></button>
                         </div>
                         </div>
