@@ -8,6 +8,9 @@ export default function Home() {
     return(
         <>
            <Carrusel></Carrusel>
+           <div>
+            <h2 className="text-white text-center font-semibold text-6xl font-sans  ">Todos nuestros productos:</h2>
+           </div>
             <ListaDeProductos
                 filtro={searchParams.get('q')}></ListaDeProductos>
             <div className="grid grid-flow-col grid-rows-2 gap-0  bg-stone-300">
@@ -17,10 +20,10 @@ export default function Home() {
                 <div className="row-span-3">
                     <div className="px-0.5 border-box display-block ">
                         <div className=" px-8 text-center my-20">
-                        <h3 className="text-lime-900 font-bold text-3xl  ">Nuestros productos tienen certificación</h3>
-                        <h3 className="text-lime-900 font-bold text-3xl ">y son regulados por el ministerio</h3>
+                        <h3 className="text-lime-900 font-bold text-3xl  ">Ayuda al planeta</h3>
+                        <h3 className="text-lime-900 font-bold text-3xl mt-6">compra alimentos saludables!</h3>
                         <div>
-                            <button className="mt-40 px- bg-lime-900 text-3xl "><p className="px-8 text-white"><b>Comprar<br/>ahora</b></p></button>
+                            <button className="mt-40 px- bg-lime-900 text-3xl "><p className="px-8 text-white mt-2 mb-4"><b>Comprar<br/>ahora</b></p></button>
                         </div>
                         </div>
                     </div>
