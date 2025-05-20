@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import ElFooter from './components/Footer';
 import Home from './components/Home';
 import ListaDeProductos from './components/ListaDeProductos';
+import DetalleProducto from './components/DetalleProducto';
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route  path="/" element={<Home/>}></Route>
             <Route path="/categoria/:nombre_categoria" element={<ListaDeProductos/>}></Route>
+            <Route path="/producto/:id" element={<DetalleProducto/>}></Route>
           </Routes>
           <ElFooter/>
       </BrowserRouter>

@@ -5,19 +5,19 @@ export default function ElFooter() {
 
   return (
     <>
-      <footer className="mt-8 ">
-        <div className=" mx-4">
+      <footer className="w-full border-2 border-solid border-lime-800 mt-0 ">
+        <div >
           <div className="lg:flex">
             <div className="w-full -mx-6 lg:w-2/5">
-              <div className="px-60">
+              <div className="px-60 mt-10 mb-10">
                 
-                <div className="max-w-sm mt-2 text-white dark:text-white-400 font-lg">
+                <div className="max-w-sm  text-white dark:text-white-400 font-lg ">
                   Descubre los mejores productos naturales!
                 </div>
               </div>
             </div>
             <div className="mt-6 lg:mt-0 lg:flex-1">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 mt-10 mb-10">
                 <div>
                     <>
                       <Link
@@ -55,7 +55,7 @@ export default function ElFooter() {
                     </>
                 </div>
                 <div>
-                  <h3 className="text-white uppercase dark:text-white">
+                  <h3 className="text-white uppercase dark:text-white mt-1 mb-10">
                     contáctanos
                   </h3>
                   <span className="block mt-2 text-sm text-white dark:text-gray-400 hover:underline">
@@ -84,7 +84,7 @@ export default function ElFooter() {
             </div>
           </div>
           </div>
-          <div className="font-light text-white bg-stone-400 text-lg ">
+          <div className="font-light text-white bg-stone-400 text-lg w-full">
             <div className="container">
               <div className="row">
                 <p>@2025 Tienda online saludable. Todos los derechos reservados</p>

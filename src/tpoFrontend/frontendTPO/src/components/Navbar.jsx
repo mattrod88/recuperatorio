@@ -43,7 +43,7 @@ export default function NavBar() {
 
   return (
     <>
-    <nav className="bg-white border-lime-900 shadow-md lime-900:bg-lime-900 fixed top-0 w-full z-50">
+    <nav className="bg-white border-lime-900 shadow-md lime-900:bg-lime-900 fixed top-0 w-full">
        <div className="bg-lime-900 text-white border-bottom-1px-solid ">
         <div className="conatiner">
           <div className="text-center">
@@ -53,7 +53,7 @@ export default function NavBar() {
       </div>
 
     </div>
-    <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
       <div className="flex flex-row items-center gap-3 w-full">
        
         <div>
@@ -64,7 +64,7 @@ export default function NavBar() {
           
         </div>
         <div className="ml-auto flex items-center gap-3" >
-          <NavLink to="/resultado"> <Buscador/></NavLink>
+         <Buscador/>
          <NavLink to="/carrito"><img className="h-8" src={Carrito}></img></NavLink> 
          <NavLink to="/iniciarSesionORegistrarse"><img className="h-8"src={Usuario}></img></NavLink>
         </div>  

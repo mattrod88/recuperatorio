@@ -48,9 +48,9 @@ function Carrusel() {
     <div className='w-full h-[700px]  pb-16 pt-0 '>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-[1520px] h-full rounded-2xl bg-center bg-cover duration-500'
+        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
       >
-       <div className="w-full absolute top-40 left-10  text-justify-left ">
+       <div className="absolute top-40 left-10  text-justify-left ">
       <h2 className="text-4xl font-bold text-lime-900 text-left mt-20 py-10 ">
         Productos saludables</h2>
          <button className="border-lime-900 mt-10 bg-lime-900 hover:bg-lime-900 text-white font-bold py-2 px-4 rounded">
