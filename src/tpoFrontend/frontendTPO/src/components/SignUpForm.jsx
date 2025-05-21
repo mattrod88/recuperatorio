@@ -22,7 +22,7 @@ const SignUpForm = () => {
                     value={nombre}
                     onChange={(e) => setNombre(e.target.value)}
                     placeholder="Ingresa tu nombre"
-                    className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                    className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-900"
                 />
             </div>
 
@@ -33,7 +33,7 @@ const SignUpForm = () => {
                     value={apellido}
                     onChange={(e) => setApellido(e.target.value)}
                     placeholder="Ingresa tu apellido"
-                    className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                    className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-900"
                 />
             </div>
 
@@ -44,7 +44,7 @@ const SignUpForm = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Ingresa tu email"
-                    className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                    className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-900"
                 />
             </div>
 
@@ -55,13 +55,13 @@ const SignUpForm = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Ingresa tu contraseña"
-                    className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                    className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-lime-900"
                 />
             </div>
 
             <button
                 onClick={handleClick}
-                className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition w-full"
+                className="bg-lime-900 text-white px-4 py-2 rounded hover:bg-gray-800 transition w-full"
             >
                 Registrarse
             </button>

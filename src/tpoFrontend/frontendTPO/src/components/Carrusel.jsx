@@ -60,10 +60,10 @@ function Carrusel() {
           {slides[currentIndex].boton}</button>
    </Link>
       </div>
-      <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer'>
+      <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-lime-900/20 text-lime-900 cursor-pointer'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
-      <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-black cursor-pointer'>
+      <div className='absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-lime-900/20 text-lime-900 cursor-pointer'>
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
       <div className='flex top-4 justify-center py-2'>
