@@ -10,6 +10,8 @@ import Home from './views/Home';
 import ListaDeProductos from './components/Catalogo';
 import DetalleProducto from './components/DetalleProducto';
 
+import Auth from './components/Auth';  // Importo el componente Auth
+
 
 
 function App() {
@@ -22,6 +24,9 @@ function App() {
             <Route  path="/" element={<Home/>}></Route>
             <Route path="/categoria/:nombre_categoria" element={<ListaDeProductos/>}></Route>
             <Route path="/producto/:id" element={<DetalleProducto/>}></Route>
+
+             <Route path="/iniciarSesionORegistrarse" element={<Auth />} />  {/* Nueva ruta para login/signup */}
+
           </Routes>
           <ElFooter/>
       </BrowserRouter>
