@@ -7,7 +7,6 @@ const LoginForm = () => {
     const handleClick = () => {
         if (email.trim() === "" || password.trim() === "") {
             alert("Los campos no pueden estar vacíos");
-            return;
         }
     };
 

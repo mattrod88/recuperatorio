@@ -10,7 +10,7 @@ import Home from './views/Home';
 import ListaDeProductos from './components/Catalogo';
 import DetalleProducto from './components/DetalleProducto';
 
-import Auth from './components/Auth';  // Importo el componente Auth
+import Auth from './views/Auth';  // Importo el componente Auth
 
 
 

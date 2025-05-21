@@ -1,5 +1,5 @@
-import LoginForm from './LoginForm';
-import SignupForm from './SignUpForm';
+import LoginForm from '../components/LoginForm';
+import SignupForm from '../components/SignUpForm';
 
 const Auth = () => {
     return (
