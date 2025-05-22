@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ContextoCarrito } from '../context/CarritoContexto';
+import { ContextoCarrito } from '../contexts/CarritoContexto';
 import { NavLink } from 'react-router-dom';
 
 export default function Carrito() {

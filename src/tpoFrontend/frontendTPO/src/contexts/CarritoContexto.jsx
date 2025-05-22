@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 export const ContextoCarrito = createContext();
 
-export function ProveedorCarrito({ hijos }) {
+export function ProveedorCarrito({ children }) {
   const [carrito, setCarrito] = useState([]);
 
   const agregarAlCarrito = (producto, cantidad = 1) => {
@@ -27,7 +27,7 @@ export function ProveedorCarrito({ hijos }) {
 
   return (
     <ContextoCarrito.Provider value={{ carrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito }}>
-      {hijos}
+      {children}
     </ContextoCarrito.Provider>
   );
 }
