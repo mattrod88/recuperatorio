@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Tiktok from "../assets/Tiktok.svg"
-import Instagram from "../assets/Instagram.svg"
+import Tiktok from "/Tiktok.svg"
+import Instagram from "/Instagram.svg"
 import NewsLetter from './NewsLetter';
 
 export default function Footer() {

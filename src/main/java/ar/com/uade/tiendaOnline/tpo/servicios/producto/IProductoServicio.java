@@ -2,7 +2,7 @@ package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
-import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoRequestDTO;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoResponseDTO;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -29,5 +29,5 @@ public interface IProductoServicio {
 
     public ArrayList<Imagen> obtenerImagenes(Long id);
 
-    void actualizarProducto(Long id, ProductoDTO productoDTO);
+    void actualizarProducto(Long id, ProductoRequestDTO productoRequestDTO);
 }

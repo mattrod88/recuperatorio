@@ -2,7 +2,7 @@ package ar.com.uade.tiendaOnline.tpo.controllers;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
-import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoRequestDTO;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoResponseDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.servicios.producto.IProductoServicio;
@@ -76,9 +76,9 @@ public class ProductoController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> actualizarProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO) {
+    public ResponseEntity<Void> actualizarProducto(@PathVariable Long id, @RequestBody ProductoRequestDTO productoRequestDTO) {
         try {
-            productoServicio.actualizarProducto(id, productoDTO);
+            productoServicio.actualizarProducto(id, productoRequestDTO);
             return ResponseEntity.ok().build();
         } catch (ProductoInexistenteExcepcion e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

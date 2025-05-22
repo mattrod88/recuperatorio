@@ -2,7 +2,7 @@ package ar.com.uade.tiendaOnline.tpo.controllers;
 
 import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.CategoriaDTO;
-import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
+
 import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.servicios.categoria.CategoriaServicio;
@@ -12,7 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;

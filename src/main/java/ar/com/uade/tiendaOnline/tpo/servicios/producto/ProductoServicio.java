@@ -4,9 +4,8 @@ package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
-import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
+import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoRequestDTO;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoResponseDTO;
-import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ImagenRepositorio;
 import ar.com.uade.tiendaOnline.tpo.repositorio.ProductoRepositorio;
@@ -40,7 +39,8 @@ public class ProductoServicio implements IProductoServicio {
             prdto.setNombre(p.getNombre());
             prdto.setCantidad(p.getCantidad());
             prdto.setPrecio(p.getPrecio());
-            prdto.setCategoria(p.getCategoria().getDescripcion()); 
+            prdto.setCategoria(p.getCategoria().getDescripcion());
+            prdto.setId((p.getId()));
             dtos.add(prdto);
         }
     
@@ -106,9 +106,9 @@ public class ProductoServicio implements IProductoServicio {
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
-    public void actualizarProducto(Long id, ProductoDTO productoDTO) throws ProductoInexistenteExcepcion {
+    public void actualizarProducto(Long id, ProductoRequestDTO productoRequestDTO) throws ProductoInexistenteExcepcion {
 
-        if (id == null || productoDTO == null) {
+        if (id == null || productoRequestDTO == null) {
             throw new IllegalArgumentException("Parámetros inválidos para actualizar producto");
         }
 
@@ -119,32 +119,32 @@ public class ProductoServicio implements IProductoServicio {
             throw new ProductoInexistenteExcepcion();
         }
 
-        if (productoDTO.getNombre() != null && !productoDTO.getNombre().trim().isEmpty()
-                && !productoDTO.getNombre().equals(productoExistente.getNombre())) {
+        if (productoRequestDTO.getNombre() != null && !productoRequestDTO.getNombre().trim().isEmpty()
+                && !productoRequestDTO.getNombre().equals(productoExistente.getNombre())) {
 
-            if (existeProductoConNombre(productoDTO.getNombre())) {
-                throw new IllegalArgumentException("Ya existe un producto con el nombre: " + productoDTO.getNombre());
+            if (existeProductoConNombre(productoRequestDTO.getNombre())) {
+                throw new IllegalArgumentException("Ya existe un producto con el nombre: " + productoRequestDTO.getNombre());
             }
-            productoExistente.setNombre(productoDTO.getNombre());
+            productoExistente.setNombre(productoRequestDTO.getNombre());
         }
 
-        if (productoDTO.getCategoria_id() != null) {
+        if (productoRequestDTO.getCategoria_id() != null) {
             Categoria nuevaCategoria = new Categoria();
-            nuevaCategoria.setId(productoDTO.getCategoria_id());
+            nuevaCategoria.setId(productoRequestDTO.getCategoria_id());
             productoExistente.setCategoria(nuevaCategoria);
         }
 
-        if (productoDTO.getCantidad() < 0) {
+        if (productoRequestDTO.getCantidad() < 0) {
             throw new IllegalArgumentException("La cantidad no puede ser negativa.");
         }
         
-        if (productoDTO.getPrecio() <= 0) {
+        if (productoRequestDTO.getPrecio() <= 0) {
             throw new IllegalArgumentException("El precio debe ser mayor a 0.");
         }
 
 
-        productoExistente.setCantidad(productoDTO.getCantidad());
-        productoExistente.setPrecio(productoDTO.getPrecio());
+        productoExistente.setCantidad(productoRequestDTO.getCantidad());
+        productoExistente.setPrecio(productoRequestDTO.getPrecio());
 
     }
 

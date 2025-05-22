@@ -3,6 +3,7 @@ import lombok.Data;
 
 @Data
 public class ProductoResponseDTO {
+    long id;
     String nombre;
     String categoria; 
     int cantidad;

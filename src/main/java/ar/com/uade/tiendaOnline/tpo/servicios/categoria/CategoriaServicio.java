@@ -1,11 +1,8 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
-import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
 import ar.com.uade.tiendaOnline.tpo.entidad.dto.CategoriaDTO;
-import ar.com.uade.tiendaOnline.tpo.entidad.dto.ProductoDTO;
 import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaDuplicateExcepcion;
 import ar.com.uade.tiendaOnline.tpo.excepciones.CategoriaInexistenteExcepcion;
-import ar.com.uade.tiendaOnline.tpo.excepciones.ProductoInexistenteExcepcion;
 import ar.com.uade.tiendaOnline.tpo.repositorio.CategoriaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

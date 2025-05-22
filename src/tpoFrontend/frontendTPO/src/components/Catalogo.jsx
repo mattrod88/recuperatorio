@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import Producto from "./CardProducto";
+import Producto from "./Producto";
 import { useParams } from "react-router-dom";
-import { obtenerProductos } from "../assets/API";
 import MainSlider from "./Carrusel";
 
 
@@ -10,8 +9,14 @@ export default function ListaDeProductos(props) {
   const params = useParams();
 
   useEffect(() => {
-    let promesa = obtenerProductos(params, props.filtro);
-    promesa.then((productos) => setProductos(productos));
+    fetch("http://localhost:4002/productos")
+    .then((response)=>response.json())
+    .then((productos)=>{
+      setProductos(productos)
+    
+    })
+    // let promesa = obtenerProductos(params, props.filtro);
+    // promesa.then((productos) => setProductos(productos));
   }, [params]);
 
   return (

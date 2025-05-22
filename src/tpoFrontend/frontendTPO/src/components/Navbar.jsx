@@ -2,8 +2,8 @@ import Buscador from "./Buscador";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
-import Carrito from "../assets/carrito.svg";
-import Usuario from "../assets/usuario.svg";
+import Carrito from "/carrito.svg";
+import Usuario from "/usuario.svg";
 import React from "react";
 
 export default function NavbarDefault() {

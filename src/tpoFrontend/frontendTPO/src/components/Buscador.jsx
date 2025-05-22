@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { PRODUCTOS } from '../assets/PRODUCTOS';
 import { Search, Mic } from 'lucide-react'
 
 
