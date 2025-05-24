@@ -18,7 +18,8 @@ public class Producto {
     private long id;
     @Column
     private boolean eliminado;
-
+    @Column
+    private String descripcion;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
