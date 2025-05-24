@@ -1,33 +1,51 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useContext, useState } from "react";
 
-export const ContextoCarrito = createContext();
+export const CarritoContexto = createContext(null);
 
 export function ProveedorCarrito({ children }) {
   const [carrito, setCarrito] = useState([]);
 
   const agregarAlCarrito = (producto, cantidad = 1) => {
-    setCarrito(anterior => {
-      const existe = anterior.find(item => item.producto.id === producto.id);
-      if (existe) {
-        return anterior.map(item =>
-          item.producto.id === producto.id
+    setCarrito((prevCarrito) => {
+      const productoExistente = prevCarrito.find(item => item.id === producto.id);
+
+      if (productoExistente) {
+        return prevCarrito.map(item =>
+          item.id === producto.id
             ? { ...item, cantidad: item.cantidad + cantidad }
             : item
         );
       }
-      return [...anterior, { producto, cantidad }];
+
+      return [...prevCarrito, { ...producto, cantidad }];
     });
   };
 
-  const eliminarDelCarrito = id => {
-    setCarrito(anterior => anterior.filter(item => item.producto.id !== id));
+  const eliminarDelCarrito = (productoId) => {
+    setCarrito((prevCarrito) =>
+      prevCarrito.filter(item => item.id !== productoId)
+    );
   };
 
-  const vaciarCarrito = () => setCarrito([]);
+  const vaciarCarrito = () => {
+    setCarrito([]);
+  };
 
   return (
-    <ContextoCarrito.Provider value={{ carrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito }}>
+    <CarritoContexto.Provider
+      value={{
+        carrito,
+        agregarAlCarrito,
+        eliminarDelCarrito,
+        vaciarCarrito
+      }}
+    >
       {children}
-    </ContextoCarrito.Provider>
+    </CarritoContexto.Provider>
   );
+}
+
+// Custom hook opcional para consumir el contexto
+export function useCarrito() {
+  return useContext(CarritoContexto);
 }

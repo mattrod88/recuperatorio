@@ -13,18 +13,24 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tiendaOnline</name>
 	<description>TPO desarrollo de aplicaciones UADE</description>
-	<url/>
+	<url>https://github.com/tuusuario/tu-repo</url>
 	<licenses>
-		<license/>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<id>tuusuario</id>
+			<name>Tu Nombre</name>
+		</developer>
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:git://github.com/tuusuario/tu-repo.git</connection>
+		<developerConnection>scm:git:ssh://github.com:tuusuario/tu-repo.git</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/tuusuario/tu-repo</url>
 	</scm>
 	<properties>
 		<java.version>17</java.version>
