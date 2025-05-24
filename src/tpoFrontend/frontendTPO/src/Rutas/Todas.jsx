@@ -9,7 +9,9 @@ export const Rutas = () => {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/productos" element={<ListaProductos/>} />
-          <Route path="/productos" element={<ListaProductos/>} />
+          <Route path="/productos/:id" element={<ListaProductos/>} />
+          {/* <Route path="/productos/:categoria" element={<ListaProductos/>} /> */}
+          
         </Routes>
       </BrowserRouter>
     </>
