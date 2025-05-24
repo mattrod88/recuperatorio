@@ -37,7 +37,7 @@ const LoginForm = () => {
 
             <button
                 onClick={handleClick}
-                className="bg-lime-900 text-lime-900 px-4 py-2 rounded hover:bg-gray-800 transition w-full"
+                className="bg-lime-900 text-white px-4 py-2 rounded hover:bg-gray-800 transition w-full"
             >
                 Ingresar
             </button>
