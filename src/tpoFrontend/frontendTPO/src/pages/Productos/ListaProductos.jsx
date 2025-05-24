@@ -12,7 +12,6 @@ export const ListaProductos = () => {
           `http://localhost:4002/productos`
         );
         const data = await response.json();
-        console.log(data)
         setProductos(data);
       }
       fetchProductos();
