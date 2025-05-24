@@ -8,5 +8,5 @@ public class ProductoResponseDTO {
     String categoria; 
     int cantidad;
     double precio;
-    
+    String descripcion;
 }
