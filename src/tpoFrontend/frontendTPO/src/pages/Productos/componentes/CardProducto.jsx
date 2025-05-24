@@ -9,7 +9,7 @@ export default function CardProducto(props) {
 
   return (
     <div className="m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-      <NavLink to="/productos" className="relative">
+      <NavLink to={`productos/${props.producto.id}`} className="relative">
         <span className="absolute top-4 left-2 px-2 bg-lime-900 bg-opacity-90 text-white rounded">
           {props.producto.categoria}
         </span>
@@ -20,7 +20,7 @@ export default function CardProducto(props) {
         ></img>
       </NavLink>
       <div className="p-5">
-        <Link to="/productos">
+        <Link to={`productos/${props.producto.id}`} >
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-lime-900 dark:text-lime">
             {props.producto.nombre}
           </h5>
