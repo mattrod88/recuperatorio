@@ -8,4 +8,5 @@ public class ProductoRequestDTO {
     Long categoria_id;
     int cantidad;
     double precio;
+    String descripcion;
 }
