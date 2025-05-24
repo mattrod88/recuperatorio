@@ -41,6 +41,7 @@ public class ProductoServicio implements IProductoServicio {
             prdto.setPrecio(p.getPrecio());
             prdto.setCategoria(p.getCategoria().getDescripcion());
             prdto.setId((p.getId()));
+            prdto.setDescripcion((p.getDescripcion));
             dtos.add(prdto);
         }
     
