@@ -30,11 +30,11 @@ export default function CardProducto(props) {
         </p>
 
         <p className="flex justify-between items-center">
-          <span className="text-2xl dark:text-gray-200">
+          <span className="text-2xl dark:text-gray-200 mx-2">
             <span>$</span>
             <span>{props.producto.precio}</span>
           </span>
-          <button className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-lime-900 rounded-lg hover:bg-lime-900">
+          <button className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-blue-800">
             <NavLink to={`/carrito/${props.producto.id}`}>
               Agregar al carrito
             </NavLink>

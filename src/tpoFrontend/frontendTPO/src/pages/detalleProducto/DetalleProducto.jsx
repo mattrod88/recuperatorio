@@ -37,7 +37,7 @@ export default function DetalleProducto() {
                 { !producto.conStock && <span className="font-semibold text-rose-700 border bg-slate-100 rounded-lg px-3 py-1 mr-2">OUT OF STOCK</span> }
               </p> */}
               <p className="my-3">
-                <button className={`inline-flex items-center py-2 px-5 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800`}>Agregar al carrito <i className="ml-1 bi bi-plus-lg"></i></button>
+                <button className={`inline-flex items-center py-2 px-5 text-lg font-medium text-center text-white bg-lime-900 rounded-lg hover:bg-lime-800`}>Agregar al carrito <i className="ml-1 bi bi-plus-lg"></i></button>
               </p>
             </div>
           </div>
