@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Fouter() {
+export default function Footer() {
   return (
     <footer className="bg-white dark:bg-lime-900 ">
       <div className="mx-auto w-full max-w-screen ">
