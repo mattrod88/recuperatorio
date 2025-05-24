@@ -9,7 +9,7 @@ export default function Inicio() {
     <main>
 
     <Banner1/>
-    <CardProducto/>
+  
 
 
       

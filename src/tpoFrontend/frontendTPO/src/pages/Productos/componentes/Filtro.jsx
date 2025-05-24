@@ -1,4 +1,5 @@
 export const Filtro = ({setMostrar}) => {
+  
   return (
     <section className="filter">
       <div

@@ -6,12 +6,12 @@ export default function Carrito() {
   const { carrito, eliminarDelCarrito, vaciarCarrito } = useContext(ContextoCarrito);
 
   if (carrito.length === 0) {
-    return <p className="p-4">Tu carrito está vacío.</p>;
+    return <p className="p-4 text-lime-900">Tu carrito está vacío.</p>;
   }
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Tu Carrito</h2>
+      <h2 className="text-2xl font-bold mb-4 text-lime-900">Tu Carrito</h2>
       <ul className="space-y-4">
         {carrito.map(({ producto, cantidad }) => {
           const precio = producto.precio.toLocaleString('es-ar', {
@@ -30,7 +30,7 @@ export default function Carrito() {
                 <p>{precio}</p>
                 <button
                   onClick={() => eliminarDelCarrito(producto.id)}
-                  className="mt-2 text-sm text-red-600 hover:underline"
+                  className="mt-2 text-sm text-lime-600 hover:underline"
                 >Eliminar</button>
               </div>
             </li>
@@ -40,7 +40,7 @@ export default function Carrito() {
       <div className="mt-6 flex justify-between">
         <button
           onClick={vaciarCarrito}
-          className="bg-red-500 text-lime-900 px-4 py-2 rounded hover:bg-red-600"
+          className="bg-lime-900 text-lime-900 px-4 py-2 rounded hover:bg-lime-600"
         >Vaciar carrito</button>
         <NavLink to="/checkout" className="bg-green-600 text-lime-900 px-4 py-2 rounded hover:bg-green-700">
           Finalizar compra

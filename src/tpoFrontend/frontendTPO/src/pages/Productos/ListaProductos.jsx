@@ -1,11 +1,23 @@
-
-;
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardProducto from "./componentes/CardProducto";
 import { Filtro } from "./componentes/Filtro";
 
 export const ListaProductos = () => {
     const [mostrar,setMostrar]= useState(false);
+    const [productos, setProductos] = useState([]);
+    
+    useEffect(() => {
+      async function fetchProductos() {
+        const response = await fetch(
+          `http://localhost:4002/productos`
+        );
+        const data = await response.json();
+        console.log(data)
+        setProductos(data);
+      }
+      fetchProductos();
+  }, []);
+
   return (
     <main>
       <section className="my-5">
@@ -34,10 +46,11 @@ export const ListaProductos = () => {
         </div>
 
         <div className="flex flex-wrap justify-center lg:flex-row">
-          <CardProducto />
-          <CardProducto />
-          <CardProducto />
-          <CardProducto />
+          {productos.length > 0 && productos.map((producto)=>(
+          <CardProducto producto = {producto} />
+          
+          ))}
+          
         </div>
       </section>
 
@@ -45,3 +58,6 @@ export const ListaProductos = () => {
     </main>
   );
 };
+
+
+     
