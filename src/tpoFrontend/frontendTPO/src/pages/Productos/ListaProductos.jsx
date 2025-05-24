@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import CardProducto from "./componentes/CardProducto";
 import { Filtro } from "./componentes/Filtro";
 
