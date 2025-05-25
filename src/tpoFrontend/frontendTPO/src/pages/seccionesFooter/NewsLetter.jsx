@@ -8,7 +8,7 @@ export default function NewsLetter() {
   <div
     className="before:absolute before:w-32 before:h-20 before:right-2"
   >
-    <span className="font-extrabold text-2xl text-lime-600"
+    <span className="font-extrabold text-2xl text-lime-800"
       >Mantente actualizado con novedades...</span>
     <p className="text-neutral-700">
      Regístrate y serás el primero en enterarte .
@@ -25,7 +25,7 @@ export default function NewsLetter() {
       />
     </div>
     <button
-      className="bg-lime-500 text-neutral-50 p-2 rounded-lg hover:bg-lime-400"
+      className="bg-lime-900 text-neutral-50 p-2 rounded-lg hover:bg-lime-800"
     >
       Subscribete
     </button>
