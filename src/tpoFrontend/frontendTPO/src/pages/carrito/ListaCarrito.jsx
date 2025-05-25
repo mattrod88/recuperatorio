@@ -1,7 +1,35 @@
 import React, { useState } from 'react'
+import CardCarrito from './CardCarrito'
 
 export default function ListaCarrito() {
     const lista =[
+        {
+        "id": 3,
+        "nombre": "yogurt de coco",
+        "categoria": "lacteos",
+        "cantidad": 25,
+        "precio": 4200.0,
+        "descripcion": null,
+         "imagen":"/imagen1.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Almendras",
+        "categoria": "sin gluten",
+        "cantidad": 28,
+        "precio": 4200.0,
+        "descripcion": null,
+        "imagen":"/imagen1.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Nueces saladas",
+        "categoria": "sin gluten",
+        "cantidad": 50,
+        "precio": 3000.0,
+        "descripcion": null,
+         "imagen":"/imagen1.jpg"
+    }
 
     ]
 
@@ -15,6 +43,9 @@ export default function ListaCarrito() {
       </section>
       
       <section>
+        {lista.map((producto)=>(
+            <CardCarrito key ={producto.id}producto={producto}/>
+        ))}
       </section>
 
       <section className="max-w-4xl m-auto">
