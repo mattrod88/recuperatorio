@@ -6,7 +6,7 @@ export default function NewsLetter() {
   className="text-neutral-800 py-6 relative mb-10 flex flex-col justify-around w-auto h-auto border border-neutral-500 rounded-lg bg-neutral-50 p-3 px-6"
 >
   <div
-    className="before:absolute before:w-32 before:h-20 before:right-2 before:bg-lime-600 before:-z-10 before:rounded-full before:blur-xl before:-top-12 z-10 after:absolute after:w-24 after:h-24 after:bg-lime-300 after:-z-10 after:rounded-full after:blur after:-top-12 after:-right-6"
+    className="before:absolute before:w-32 before:h-20 before:right-2"
   >
     <span className="font-extrabold text-2xl text-lime-600"
       >Mantente actualizado con novedades...</span>
