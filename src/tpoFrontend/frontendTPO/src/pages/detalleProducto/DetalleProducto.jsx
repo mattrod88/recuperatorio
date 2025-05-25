@@ -38,7 +38,7 @@ export default function DetalleProducto() {
 
 
   return (
-    <main className="flex justify-center p-10 max-w-screen-xl mx-auto">
+    <main className="flex justify-center p-10 max-x-autow-screen-xl m">
       <div className="flex flex-wrap gap-14 bg-white shadow-2xl rounded-xl p-10 min-w-[900px] min-h-[600px]">
         <CarruselProducto imagenes={imagenes} />
         <InformacionProducto

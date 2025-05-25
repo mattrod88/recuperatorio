@@ -23,7 +23,7 @@ export default function CarruselProducto({ imagenes }) {
             <img
                 src={srcImagen}
                 alt={`Imagen ${imagenActual + 1}`}
-                className="w-full h-full object-cover"
+                className="rounded-lg h-full object-cover"
             />
             
             <button
