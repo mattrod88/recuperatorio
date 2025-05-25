@@ -39,7 +39,7 @@ const SignUpForm = () => {
       requestOptions
     );
     const data = await response.json();
-    data.accessToken ? navigate("/productos") : toast.error(data.message);
+    data.access_token ? navigate("/productos") : toast.error(data.message);
   };
 
   return (

@@ -10,7 +10,7 @@ import { Router } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ToastContainer/>
+    <ToastContainer closeButton={false} autoClose={3000} position={'bottom-right'}/>
     <App />
   </StrictMode>,
 )

@@ -1,11 +1,11 @@
 import { useEffect, useState, useTransition } from "react";
 import CardProducto from "./componentes/CardProducto";
 import { Filtro } from "./componentes/Filtro";
+import { useLocation } from "react-router-dom";
 
 export const ListaProductos = () => {
     const [mostrar,setMostrar]= useState(false);
     const [productos, setProductos] = useState([]);
-    
     useEffect(() => {
       async function fetchProductos() {
         const response = await fetch(
