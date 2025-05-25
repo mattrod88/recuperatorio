@@ -1,11 +1,21 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-export default function CardProducto(props) {
-  
-  const params = useParams();
 
+export default function CardProducto(props) {  
+    const [imagenUrl, setImagenUrl] = useState("");
+
+    useEffect(() => {
+          async function fetchImagenes() {
+          const response = await fetch(`http://localhost:4002/productos/${props.producto.id}/imagenes`);
+          const imagenes = await response.json();
+          if (imagenes.length > 0) {
+            setImagenUrl(`data:image/jpeg;base64,${imagenes[0].imagenData}`)
+          }
+        }
+        fetchImagenes()
+    }, [])
 
   return (
     <div className="m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -15,7 +25,7 @@ export default function CardProducto(props) {
         </span>
         <img
           className="rounded-t-lg w-full h-64"
-          src="/imagen1.jpg"
+          src={imagenUrl}
           alt="imagen"
         ></img>
       </NavLink>

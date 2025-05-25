@@ -1,11 +1,15 @@
 import { useEffect, useState, useTransition } from "react";
 import CardProducto from "./componentes/CardProducto";
 import { Filtro } from "./componentes/Filtro";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 
 export const ListaProductos = () => {
+    const { id } = useParams();
     const [mostrar,setMostrar]= useState(false);
     const [productos, setProductos] = useState([]);
+    const [imagen,setImagen]=useState([]);
+
     useEffect(() => {
       async function fetchProductos() {
         const response = await fetch(
@@ -16,6 +20,7 @@ export const ListaProductos = () => {
       }
       fetchProductos();
   }, []);
+
 
   return (
     <main>
