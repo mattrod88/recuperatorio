@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import CardCarrito from './CardCarrito'
+import CheckOut from './checkOut'
+
 
 export default function ListaCarrito() {
     const lista =[
@@ -61,6 +63,7 @@ export default function ListaCarrito() {
           </button>
         </div>
       </section>
+      <CheckOut></CheckOut>
     </>
   )
 }
