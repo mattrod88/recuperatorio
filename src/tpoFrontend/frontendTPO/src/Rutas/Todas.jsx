@@ -4,6 +4,8 @@ import  Inicio  from "../pages/Inicio/Inicio";
 import DetalleProducto from "../pages/detalleProducto/DetalleProducto";
 import { ListaProductos } from "../pages/Productos/ListaProductos";
 import Auth from "../pages/Sesion/Auth";
+import Carrito from "../pages/carrito/carrito";
+
 
 export const Rutas = () => {
   return (
@@ -15,6 +17,7 @@ export const Rutas = () => {
           <Route path="/productos/:id" element={<DetalleProducto/>} />
           <Route path="/productos/:categoria" element={<ListaProductos/>} />
           <Route path="/sesion" element={<Auth/>} />
+          <Route path="/carrito" element={<Carrito/>}/>
           
         </Routes>
       </BrowserRouter>
