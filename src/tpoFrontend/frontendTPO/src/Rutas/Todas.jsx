@@ -8,6 +8,7 @@ import Carrito from "../pages/carrito/Carrito";
 import Nosotros from "../pages/seccionesFooter/nosotros";
 import TrabajaConNosotros from "../pages/seccionesFooter/trabajaConNosotros";
 import Tiendas from "../pages/seccionesFooter/Tiendas";
+import Blog from "../pages/seccionesFooter/Blog";
 
 
 export const Rutas = () => {
@@ -23,6 +24,7 @@ export const Rutas = () => {
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/trabajaConNosotros" element={<TrabajaConNosotros />} />
           <Route path="/tiendas" element={<Tiendas />} />
+          <Route path="/blog" element={<Blog />} />
       </Routes>
     </BrowserRouter>
   );
