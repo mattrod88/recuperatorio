@@ -4,10 +4,10 @@ import ListaCarrito from './ListaCarrito';
 
 
 export default function carrito() {
-    const listaCarritoTamano = 0;
+    const lista = 2;
   return (
      <main>
-        {listaCarritoTamano ? <ListaCarrito/>:<CarritoVacio/> }
+        {lista ? <ListaCarrito/>:<CarritoVacio/> }
     </main>
   )
 }
