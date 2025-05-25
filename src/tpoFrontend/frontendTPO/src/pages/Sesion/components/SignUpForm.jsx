@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import {useNavigate}from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
-    const navigate = useNavigate();
-  
+  const navigate = useNavigate();
+
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
@@ -39,10 +39,7 @@ const SignUpForm = () => {
       requestOptions
     );
     const data = await response.json();
-    data.accessToken?navigate("/productos"):toast.error(data);
-
-
-   
+    data.accessToken ? navigate("/productos") : toast.error(data.message);
   };
 
   return (
