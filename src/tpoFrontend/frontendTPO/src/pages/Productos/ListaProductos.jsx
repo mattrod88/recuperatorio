@@ -1,7 +1,7 @@
 import { useEffect, useState, useTransition } from "react";
 import CardProducto from "./componentes/CardProducto";
 import { Filtro } from "./componentes/Filtro";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 
 
 export const ListaProductos = () => {
@@ -9,18 +9,28 @@ export const ListaProductos = () => {
     const [mostrar,setMostrar]= useState(false);
     const [productos, setProductos] = useState([]);
     const [imagen,setImagen]=useState([]);
+    const location = useLocation()
+    const [queryParams] = useSearchParams();
+    //const buscarTermino = new URLSearchParams(buscar).get("q");
+    
+
 
     useEffect(() => {
-      async function fetchProductos() {
-        const response = await fetch(
-          `http://localhost:4002/productos`
-        );
-        const data = await response.json();
-        setProductos(data);
-      }
-      fetchProductos();
-  }, []);
+        async function fetchProductos() {
+          const response = await fetch(
+            `http://localhost:4002/productos`
+          );
+          const data = await response.json();
+          const filtro = queryParams.get('buscar')
+          let productos = data
+          if (filtro != undefined && filtro !== "") {
+            productos = data.filter((producto) => producto.nombre.toUpperCase().includes(filtro.toUpperCase()))
+          }
 
+          setProductos(productos);
+        }
+        fetchProductos();
+    }, []);
 
   return (
     <main>
