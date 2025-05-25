@@ -7,11 +7,10 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-screen ">
         <div className="mx-20 grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
           <div>
-             
             <h2 className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
-            Tienda Online Saludable
+              Tienda Online Saludable
             </h2>
-          
+
             <ul className="text-gray-500 dark:text-lime-900 font-medium">
               <li className="mb-4">
                 <a href="#" className=" hover:underline">
@@ -92,7 +91,9 @@ export default function Footer() {
           </span>
           <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
             <a
-              href="#"
+              href="https://www.pinterest.com"
+              rel="noopener noreferrer"
+              target="_blank"
               className="text-lime-900 hover:text-lime-900 dark:hover:text-white"
             >
               <svg
@@ -106,7 +107,9 @@ export default function Footer() {
               <span className="sr-only">Pinterest</span>
             </a>
             <a
-              href="#"
+              href="https://instagram.com"
+              rel="noopener noreferrer"
+              target="_blank"
               className="text-lime-900 hover:text-lime-900 dark:hover:text-white"
             >
               <svg
@@ -120,7 +123,9 @@ export default function Footer() {
               <span className="sr-only">Instagram </span>
             </a>
             <a
-              href="#"
+              href="https://www.gmail.com"
+              rel="noopener noreferrer"
+              target="_blank"
               className="text-lime-900 hover:text-lime-900 dark:hover:text-white"
             >
               <svg
