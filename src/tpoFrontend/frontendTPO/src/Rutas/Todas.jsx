@@ -15,17 +15,8 @@ export const Rutas = () => {
         <Route path="/" element={<Inicio />} />
         <Route path="/productos" element={<ListaProductos />} />
         <Route path="/productos/:id" element={<DetalleProducto />} />
-        <Route path="/productos/:categoria" element={<ListaProductos />} />
         <Route path="/sesion" element={<Auth />} />
         <Route path="/carrito" element={<Carrito />} />
-        {/* <Route
-          path="/carrito"
-          element={
-            <RutasProtegidas>
-              <Carrito />
-            </RutasProtegidas>
-          } */}
-      
       </Routes>
     </BrowserRouter>
   );

@@ -46,20 +46,35 @@ export default function DropdownCategoria({ items }) {
             aria-labelledby="dropdownLargeButton"
           >
             <li>
-              {items.map((item, indice) => (
                 <a
+                  href="/productos"
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover:text-lime-900 "
+                  role="menuitem"
+                  tabIndex={-1}
+                  id="menu-item-"
+
+               
+                   
+                >Ver todos</a>
+
+              {items.map((item, indice) => (
+               
+                <a
+                
                   key={indice}
-                  href="#"
+                  href={`/productos?categoria=${item.descripcion}`}
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover:text-lime-900 "
                   role="menuitem"
                   tabIndex="-1"
                   id="menu-item-"
                   indice
-                  onClick={toggle}
+               
                    
                 >
-                  {item.descripcion}
+                    {item.descripcion}
+                  {/* <NavLink to ="/productos"> </NavLink> */}
                 </a>
+                
               ))}
             </li>
           </ul>

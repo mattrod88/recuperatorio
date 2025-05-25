@@ -22,9 +22,13 @@ export const ListaProductos = () => {
           );
           const data = await response.json();
           const filtro = queryParams.get('buscar')
+          const categoria = queryParams.get('categoria')
           let productos = data
+
           if (filtro != undefined && filtro !== "") {
             productos = data.filter((producto) => producto.nombre.toUpperCase().includes(filtro.toUpperCase()))
+          }else if(categoria != undefined && categoria !==""){
+            productos = data.filter((producto)=>producto.categoria.toUpperCase().includes(categoria.toUpperCase()))
           }
 
           setProductos(productos);
