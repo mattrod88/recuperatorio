@@ -4,6 +4,7 @@ import CheckOut from './checkOut'
 
 
 export default function ListaCarrito() {
+    const[checkOut,setCheckOut]=useState(false)
     const lista =[
         {
         "id": 3,
@@ -58,12 +59,12 @@ export default function ListaCarrito() {
           </p>
         </div>
         <div className="text-right my-5">
-          <button  type="button" className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800">
+          <button onClick={() => setCheckOut(true)} type="button" className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800">
             PAGAR <i className="ml-2 bi bi-arrow-right"></i>
           </button>
         </div>
       </section>
-      <CheckOut></CheckOut>
+      { checkOut && <CheckOut setCheckOut = {setCheckOut}/>}
     </>
   )
 }
