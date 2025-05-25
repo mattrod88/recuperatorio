@@ -13,71 +13,71 @@ export default function Footer() {
 
             <ul className="text-gray-500 dark:text-lime-900 font-medium">
               <li className="mb-4">
-                <a href="#" className=" hover:underline">
+                <a href="nosotros" className=" hover:underline">
                   Sobre nosotros
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a  href="/trabajaConNosotros" className="hover:underline">
                   Trabaja con nosostros
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a  href="/tiendas" className="hover:underline">
                   Nuestras tiendas
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a  href="/blog" className="hover:underline">
                   Blog
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h2 className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
+            <a  href="/ayuda" className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
               Ayuda
-            </h2>
+            </a>
             <ul className="text-gray-500 dark:text-lime-900 font-medium">
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a  href="/inicio" className="hover:underline">
                   Inicio
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a  href="/carrito" className="hover:underline">
                   tu carrito de compras
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a  href="/categorias"className="hover:underline">
                   Categorias
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a  href="/contactanos" className="hover:underline">
                   Contactanos
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h2 className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
+            <a  href="/legal" className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
               Legal
-            </h2>
+            </a>
             <ul className="text-gray-500 dark:text-lime-900 font-medium">
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/politicaPrivacidad" className="hover:underline">
                   Politica de privacidad
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/licencia" className="hover:underline">
                   Licencia
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="condiciones" className="hover:underline">
                   Terminos &amp; Condiciones
                 </a>
               </li>
