@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,7 +29,8 @@ const LoginForm = () => {
       "http://localhost:4002/v1/auth/autenticarse",
       requestOptions
     );
-    const data = await response.json();
+     const data = await response.json();
+    data.access_token ? navigate("/productos") : toast.error(data.message);
 }
 
   return (
