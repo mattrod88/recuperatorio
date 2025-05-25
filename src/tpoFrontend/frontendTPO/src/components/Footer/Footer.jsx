@@ -40,7 +40,7 @@ export default function Footer() {
             </a>
             <ul className="text-gray-500 dark:text-lime-900 font-medium">
               <li className="mb-4">
-                <a  href="/inicio" className="hover:underline">
+                <a  href="/" className="hover:underline">
                   Inicio
                 </a>
               </li>

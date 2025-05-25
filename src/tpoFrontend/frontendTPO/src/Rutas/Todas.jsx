@@ -9,6 +9,7 @@ import Nosotros from "../pages/seccionesFooter/nosotros";
 import TrabajaConNosotros from "../pages/seccionesFooter/trabajaConNosotros";
 import Tiendas from "../pages/seccionesFooter/Tiendas";
 import Blog from "../pages/seccionesFooter/Blog";
+import FormularioContacto from "../pages/seccionesFooter/FormularioContacto";
 
 
 export const Rutas = () => {
@@ -25,6 +26,9 @@ export const Rutas = () => {
         <Route path="/trabajaConNosotros" element={<TrabajaConNosotros />} />
           <Route path="/tiendas" element={<Tiendas />} />
           <Route path="/blog" element={<Blog />} />
+           <Route path="/contactanos" element={<FormularioContacto/>} />
+
+          
       </Routes>
     </BrowserRouter>
   );
