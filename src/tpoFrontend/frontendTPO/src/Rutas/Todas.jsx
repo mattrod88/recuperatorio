@@ -6,6 +6,7 @@ import { ListaProductos } from "../pages/Productos/ListaProductos";
 import Auth from "../pages/Sesion/Auth";
 import Carrito from "../pages/carrito/Carrito";
 import Nosotros from "../pages/seccionesFooter/nosotros";
+import TrabajaConNosotros from "../pages/seccionesFooter/trabajaConNosotros";
 
 
 export const Rutas = () => {
@@ -19,6 +20,7 @@ export const Rutas = () => {
         <Route path="/productos/:id" element={<DetalleProducto />} />
         <Route path="/sesion" element={<Auth />} />
         <Route path="/carrito" element={<Carrito />} />
+        <Route path="/trabajaConNosotros" element={<TrabajaConNosotros />} />
       </Routes>
     </BrowserRouter>
   );
