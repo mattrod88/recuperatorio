@@ -10,12 +10,7 @@ export default function SideBar({ items }) {
       link: "/usuarios",
     },
   ];
-  const opcionesPedidos = [
-    {
-      descripcion: "Ver pedidos",
-      link: "/pedidos",
-    },
-  ];
+
   const opcionesCategorias = [
     {
       descripcion: "Crear categoria",
@@ -94,7 +89,7 @@ export default function SideBar({ items }) {
           <div className="overflow-hidden">
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700">
-                <Dropdown titulo="Pedidos" items={opcionesPedidos}></Dropdown>
+                
 
                 <Dropdown
                   titulo="Productos"

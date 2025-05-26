@@ -37,7 +37,7 @@ export default function checkOut({setCheckOut}) {
                         <div className="">
                             <label htmlFor="code" className="   text-lime-900 block mb-2 text-sm font-medium ">Fecha expiración:</label>
                             <input type="number" name="month" id="month" className="inline-block   w-20 bg-gray-50 border border-gray-300 text-lime-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500  p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:value-gray-400 dark:text-white"  />
-                            <input type="number" name="year" id="year" className="inline-block w-20 ml-3 bg-gray-50 border border-gray-300 text-lime-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:value-gray-400 dark:text-white"  />
+                            <input type="number" name="year" id="year" className=" w-20 ml-3 bg-gray-50 border border-gray-300 text-lime-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:value-gray-400 dark:text-white"  />
                         </div>
                         <div>
                             <label htmlFor="code" className="block mb-2 text-sm font-medium text-lime-900 dark:text-gray-300 gap-3" >Código de seguridad:</label>

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
-const LoginForm = ({callbackLogin}) => {
+const LoginForm = ({ callbackLogin }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,8 +14,7 @@ const LoginForm = ({callbackLogin}) => {
       return;
     }
 
-
- const authDetail = {
+    const authDetail = {
       email: email,
       contrasena: password,
     };
@@ -29,17 +29,27 @@ const LoginForm = ({callbackLogin}) => {
       "http://localhost:4002/v1/auth/autenticarse",
       requestOptions
     );
-     const data = await response.json();
-     if (data.access_token) {
-      callbackLogin(data.access_token)
-      navigate("/productos")
-      if(callbackLogin(data.access_token)==="admin"){
-        navigate("/admin")
+    const data = await response.json();
+    if (data.access_token) {
+      const datos = jwtDecode(data.access_token);
+
+      const auth = {
+        rol: datos["rol"],
+        email: datos.sub,
+        accessToken: data.accessToken,
+        logueado: true,
+      };
+
+      callbackLogin(auth);
+      if (auth.rol === "CLIENTE") {
+        navigate("/");
+      } else {
+        navigate("/admin");
       }
-     } else {
-      toast.error(data.message)
-     }
-}
+    } else {
+      toast.error(data.message);
+    }
+  };
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
@@ -67,7 +77,10 @@ const LoginForm = ({callbackLogin}) => {
         />
       </div>
 
-      <button onClick={handleClick} className="bg-lime-900 text-white px-4 py-2 rounded hover:bg-gray-800 transition w-full">
+      <button
+        onClick={handleClick}
+        className="bg-lime-900 text-white px-4 py-2 rounded hover:bg-gray-800 transition w-full"
+      >
         Ingresar
       </button>
     </form>

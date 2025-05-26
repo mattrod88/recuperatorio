@@ -5,26 +5,29 @@ import Header from "./components/Navbar/Header";
 import Footer from "./components/Footer/Footer";
 import { Rutas } from "./Rutas/Todas";
 import { useState } from "react";
-import { Flip, toast } from "react-toastify";
-import { jwtDecode } from "jwt-decode";
 import RutasProtegidas from "./Rutas/RutasProtegidas";
+import { useNavigate } from "react-router-dom";
 
 function App() {
-  const [autenticacion, setAutenticacion] = useState({logueado: false, rol:"",email:"",accessToken:""});
+  const [autenticacion, setAutenticacion] = useState({
+    logueado: false,
+    rol: "",
+    email: "",
+    accessToken: "",
+  });
 
-  const alHacerLogin = (accessToken) => {
-    if (accessToken) {
-      const datos = jwtDecode(accessToken)
-      toast.success("Bienvenido " + datos.sub, {position: "top-right", transition: Flip})
-      setAutenticacion({rol: datos['rol'], email: datos.sub, accessToken: accessToken, logueado: true})
-    }
-    
+  const alHacerLogin = (auth) => {
+    setAutenticacion(auth);
   };
+
   return (
     <div className="App">
-      <Header autenticacion={autenticacion}/>
+      <Header autenticacion={autenticacion} />
       <Rutas autenticacion={autenticacion} callbackLogin={alHacerLogin} />
-      <RutasProtegidas autenticacion={autenticacion} callbackLogin={alHacerLogin} />
+      <RutasProtegidas
+        autenticacion={autenticacion}
+        callbackLogin={alHacerLogin}
+      />
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import FormularioContacto from "../pages/seccionesFooter/FormularioContacto";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth from "../pages/Sesion/Auth";
+import TablaUsuarios from "../admin/TablaUsuarios";
 
 
 export default function RutasProtegidas({ callbackLogin, autenticacion }) {
@@ -18,14 +19,23 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
           path="/contactanos"
           element={<FormularioContacto autenticacion={autenticacion} />}
         />
-        <Route path="/admin" element={<InicioAdmin />} />
         <Route
           path="/carrito"
           element={<Carrito autenticacion={autenticacion} />}
         />
-         <Route
+        <Route
           path="/sesion"
           element={<Auth callbackLogin={callbackLogin} />}
+        />
+    
+
+        <Route
+          path="/admin"
+          element={<InicioAdmin autenticacion={autenticacion} />}
+        />
+         <Route
+          path="/admin/usuarios"
+          element={<TablaUsuarios autenticacion={autenticacion} />}
         />
       </Routes>
     </BrowserRouter>
