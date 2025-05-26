@@ -14,6 +14,7 @@ import Terminos from "../pages/seccionesFooter/Terminos";
 import Licencia from "../pages/seccionesFooter/Licencia";
 import Politicas from "../pages/seccionesFooter/Politicas";
 import { useState } from "react";
+import ListaProductosAdmin from "../Admin/listaProductosAdmin";
 
 export const Rutas = ({callbackLogin,autenticacion}) => {
 
@@ -34,6 +35,7 @@ export const Rutas = ({callbackLogin,autenticacion}) => {
         <Route path="/condiciones" element={<Terminos />} />
         <Route path="/licencia" element={<Licencia />} />
         <Route path="/politicaPrivacidad" element={<Politicas />} />
+        <Route path="/admin" element={<ListaProductosAdmin />} />
       </Routes>
     </BrowserRouter>
   );
