@@ -36,7 +36,7 @@ const LoginForm = ({ callbackLogin }) => {
       const auth = {
         rol: datos["rol"],
         email: datos.sub,
-        accessToken: data.accessToken,
+        accessToken: data.access_token,
         logueado: true,
       };
 

@@ -5,7 +5,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth from "../pages/Sesion/Auth";
 import TablaUsuarios from "../admin/TablaUsuarios";
-
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export default function RutasProtegidas({ callbackLogin, autenticacion }) {
   return (
@@ -13,29 +13,46 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
       <Routes>
         <Route
           path="/carrito"
-          element={<Carrito autenticacion={autenticacion} />}
+          element={
+            <ProtectedRoute autenticacion={autenticacion}>
+              {" "}
+              <Carrito autenticacion={autenticacion}></Carrito>
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/contactanos"
-          element={<FormularioContacto autenticacion={autenticacion} />}
+          element={
+            <ProtectedRoute autenticacion={autenticacion}>
+              {" "}
+              <FormularioContacto
+                autenticacion={autenticacion}
+              ></FormularioContacto>
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/carrito"
-          element={<Carrito autenticacion={autenticacion} />}
+          element={
+            <ProtectedRoute autenticacion={autenticacion}>
+              {" "}
+              <Carrito autenticacion={autenticacion}></Carrito>
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/sesion"
-          element={<Auth callbackLogin={callbackLogin} />}
+          element={<Auth callbackLogin={callbackLogin}></Auth>}
         />
-    
-
         <Route
           path="/admin"
-          element={<InicioAdmin autenticacion={autenticacion} />}
+          element={<InicioAdmin autenticacion={autenticacion}></InicioAdmin>}
         />
-         <Route
+        <Route
           path="/admin/usuarios"
-          element={<TablaUsuarios autenticacion={autenticacion} />}
+          element={
+            <TablaUsuarios autenticacion={autenticacion}></TablaUsuarios>
+          }
         />
       </Routes>
     </BrowserRouter>

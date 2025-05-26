@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import { Rutas } from "./Rutas/Todas";
 import { useState } from "react";
 import RutasProtegidas from "./Rutas/RutasProtegidas";
-import { useNavigate } from "react-router-dom";
+
 
 function App() {
   const [autenticacion, setAutenticacion] = useState({

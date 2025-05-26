@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Dropdown from "./Dropdown";
+import { NavLink } from "react-router-dom";
 
 export default function SideBar({ items }) {
   const [openNav, setOpenNav] = React.useState(false);
@@ -89,27 +90,27 @@ export default function SideBar({ items }) {
           <div className="overflow-hidden">
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700">
-                
-
-                <Dropdown
-                  titulo="Productos"
-                  items={opcionesProductos}
-                ></Dropdown>
-
-                <Dropdown
-                  titulo="Categorias"
-                  items={opcionesCategorias}
-                ></Dropdown>
-                <Dropdown titulo="Usuarios" items={opcionesUsuarios}></Dropdown>
-                <div>
-                  <ul>
-                    <li>
-                      <button>
+                <NavLink to="/admin/productos">
+                  <Dropdown
+                    titulo="Productos"
+                    items={opcionesProductos}
+                  ></Dropdown>
+                </NavLink>
+                <NavLink to="/admin/categorias">
+                  <Dropdown
+                    titulo="Categorias"
+                    items={opcionesCategorias}
+                  ></Dropdown>
+                </NavLink>
+                <NavLink to="/admin/usuarios">
+               <button>
                         <h1 className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover text-lime-900 ">
-                          Perfil
+                          Usuarios
                         </h1>
                       </button>
-                    </li>
+                </NavLink>
+                <div>
+                  <ul>
                     <li>
                       <button>
                         <h1 className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover text-lime-900 ">
