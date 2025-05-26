@@ -2,7 +2,7 @@ import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 
 
-const Auth = () => {
+const Auth = ({callbackLogin}) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4 mt-2 "> 
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-5xl">
@@ -15,7 +15,7 @@ const Auth = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border-r border-gray-300 pr-4">
-            <LoginForm />
+            <LoginForm callbackLogin = {callbackLogin}/>
           </div>
           <div className="pl-4">
             <SignUpForm />

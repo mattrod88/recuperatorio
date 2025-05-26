@@ -13,18 +13,20 @@ import FormularioContacto from "../pages/seccionesFooter/FormularioContacto";
 import Terminos from "../pages/seccionesFooter/Terminos";
 import Licencia from "../pages/seccionesFooter/Licencia";
 import Politicas from "../pages/seccionesFooter/Politicas";
+import { useState } from "react";
 
-export const Rutas = () => {
-  const access_token = true;
+export const Rutas = ({callbackLogin,autenticacion}) => {
+
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/nosotros" element={<Nosotros  />} />
         <Route path="/productos" element={<ListaProductos />} />
         <Route path="/productos/:id" element={<DetalleProducto />} />
-        <Route path="/sesion" element={<Auth />} />
-        <Route path="/carrito" element={<Carrito />} />
+        <Route path="/sesion" element={<Auth callbackLogin = {callbackLogin}/>} />
+        <Route path="/carrito" element={<Carrito autenticacion={autenticacion}/>} />
         <Route path="/trabajaConNosotros" element={<TrabajaConNosotros />} />
         <Route path="/tiendas" element={<Tiendas />} />
         <Route path="/blog" element={<Blog />} />

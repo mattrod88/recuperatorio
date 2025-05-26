@@ -2,14 +2,14 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = ({callbackLogin}) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleClick = async () => {
     if (email.trim() === "" || password.trim() === "") {
-      alert("Los campos no pueden estar vacíos");
+      toast.error("Los campos no pueden estar vacíos");
       return;
     }
 
@@ -30,7 +30,12 @@ const LoginForm = () => {
       requestOptions
     );
      const data = await response.json();
-    data.access_token ? navigate("/productos") : toast.error(data.message);
+     if (data.access_token) {
+      callbackLogin(data.access_token)
+      navigate("/productos")
+     } else {
+      toast.error(data.message)
+     }
 }
 
   return (

@@ -1,13 +1,12 @@
 import { Dropdown } from "flowbite";
-import DropdownCategoria  from "./DropdownCategoria";
+import DropdownCategoria from "./DropdownCategoria";
 import Buscador from "./Buscador";
 import React, { useEffect, useState } from "react";
 
-export default function Header() {
+export default function Header({ autenticacion }) {
   const [openNav, setOpenNav] = React.useState(false);
   const [categorias, setCategorias] = useState();
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
-
 
   useEffect(() => {
     async function fetchCategorias() {
@@ -25,9 +24,9 @@ export default function Header() {
   }, []);
 
   const clickEnBuscar = () => {
-    const mostrar = !mostrarBuscador
-    setMostrarBuscador(mostrar)
-  }
+    const mostrar = !mostrarBuscador;
+    setMostrarBuscador(mostrar);
+  };
 
   return (
     <main>
@@ -86,41 +85,41 @@ export default function Header() {
             id="navbar-dropdown"
           >
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-lime-900 dark:border-gray-700">
-
               <li>
-                
-                  <DropdownCategoria items={categorias}></DropdownCategoria>
-              
+                <DropdownCategoria items={categorias}></DropdownCategoria>
               </li>
 
-             
+              {autenticacion.logueado ? (
+                <li>{autenticacion.email}</li>
+              ) : (
+                <li>
+                  <a href="/sesion">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="50"
+                      fill="currentColor"
+                      className="bi bi-person-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>
+                  </a>
+                </li>
+              )}
+
               <li>
-                <a href="/sesion">
+                <a onClick={clickEnBuscar}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="50"
                     fill="currentColor"
-                    className="bi bi-person-fill"
+                    className="bi bi-search"
                     viewBox="0 0 16 16"
                   >
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                   </svg>
-                </a>
-              </li>
-              <li>
-                <a onClick={clickEnBuscar}>
-                <svg
-                 
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="50"
-                  fill="currentColor"
-                  className="bi bi-search"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg>
                 </a>
               </li>
               <li>
@@ -142,7 +141,7 @@ export default function Header() {
         </div>
       </nav>
 
-      { mostrarBuscador && <Buscador/> }
+      {mostrarBuscador && <Buscador />}
       <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     </main>
   );
