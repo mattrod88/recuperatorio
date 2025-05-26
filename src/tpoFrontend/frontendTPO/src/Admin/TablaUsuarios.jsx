@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardUsuario from "./CardUsuario";
+import SideBar from "./SideBar";
 
 export default function TablaUsuarios({ autenticacion }) {
   const [usuarios, setUsuarios] = useState([]);
@@ -23,6 +24,7 @@ export default function TablaUsuarios({ autenticacion }) {
 
   return (
     <main className="flex-grow items-center">
+      <SideBar></SideBar>
       <div className="shadow-md sm:rounded-lg ml-80 mr-0">
         <table className="w-full text-sm text-right  text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-lime-600 dark:bg-gray-700 dark:text-gray-400 ml-80">

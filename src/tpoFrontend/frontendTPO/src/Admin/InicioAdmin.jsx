@@ -6,7 +6,7 @@ import SideBar from './SideBar'
 export default function InicioAdmin(autenticacion) {
   
   return (
-    <main className="flex-grow">
+    <main >
         <SideBar ></SideBar>
       
     </main>

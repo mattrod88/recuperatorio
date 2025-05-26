@@ -15,7 +15,6 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
           path="/carrito"
           element={
             <ProtectedRoute autenticacion={autenticacion}>
-              {" "}
               <Carrito autenticacion={autenticacion}></Carrito>
             </ProtectedRoute>
           }
@@ -24,7 +23,6 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
           path="/contactanos"
           element={
             <ProtectedRoute autenticacion={autenticacion}>
-              {" "}
               <FormularioContacto
                 autenticacion={autenticacion}
               ></FormularioContacto>
@@ -35,7 +33,6 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
           path="/carrito"
           element={
             <ProtectedRoute autenticacion={autenticacion}>
-              {" "}
               <Carrito autenticacion={autenticacion}></Carrito>
             </ProtectedRoute>
           }
@@ -46,13 +43,13 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
         />
         <Route
           path="/admin"
-          element={<InicioAdmin autenticacion={autenticacion}></InicioAdmin>}
+          element={
+          <ProtectedRoute autenticacion={autenticacion}><InicioAdmin autenticacion={autenticacion}></InicioAdmin></ProtectedRoute>}
         />
         <Route
           path="/admin/usuarios"
           element={
-            <TablaUsuarios autenticacion={autenticacion}></TablaUsuarios>
-          }
+             <ProtectedRoute autenticacion={autenticacion}> <TablaUsuarios autenticacion={autenticacion}></TablaUsuarios></ProtectedRoute>}
         />
       </Routes>
     </BrowserRouter>
