@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-export default function Dropdown({ items }) {
-
-const titulos = ["Pedidos", "Productos", "Categorias", "Usuarios"];
-       titulos.map((titulo) =>
-         <h1 >{titulo} </h1>
-);
-        
+export default function Dropdown({ titulo, items }) {
 
 
   const toggle = (e) => {
@@ -26,8 +20,8 @@ const titulos = ["Pedidos", "Productos", "Categorias", "Usuarios"];
         id="dropdownNavbar"
         className="relative flex items-center justify-between w-full py-2 px-3 text-lime-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-lime-900 md:w-auto dark:text-lime-900 md:dark:hover:text-lime-900 dark:focus:text-lime-900 dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
       >
-        {titulos}
-  
+        {titulo}
+
         <svg
           className="w-2.5 h-2.5 ms-2.5"
           aria-hidden="true"
@@ -54,8 +48,6 @@ const titulos = ["Pedidos", "Productos", "Categorias", "Usuarios"];
             aria-labelledby="dropdownLargeButton"
           >
             <li>
-           
-
               {items.map((item, indice) => (
                 <a
                   key={indice}
@@ -63,7 +55,7 @@ const titulos = ["Pedidos", "Productos", "Categorias", "Usuarios"];
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover:text-lime-900 "
                   role="menuitem"
                   tabIndex="-1"
-                  id="menu-item-"
+                  id={item.id}
                   indice
                 >
                   {item.descripcion}

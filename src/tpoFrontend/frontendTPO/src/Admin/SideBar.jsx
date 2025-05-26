@@ -7,7 +7,9 @@ export default function SideBar({ items }) {
 
 
 const opcionesUsuarios = [
+
     {
+
         descripcion: 'Ver usuarios',
         link:"/admin/usuarios"
     }
@@ -97,12 +99,12 @@ const opcionesProductos = [
           <div className="overflow-hidden">
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700">
-                <Dropdown items={opcionesPedidos}></Dropdown>
+                <Dropdown titulo ="Pedidos" items={opcionesPedidos}></Dropdown>
 
-                <Dropdown items={opcionesProductos}></Dropdown>
+                <Dropdown titulo ="Productos"   items={opcionesProductos}></Dropdown>
 
-                <Dropdown items={opcionesCategorias}></Dropdown>
-                <Dropdown items={opcionesUsuarios}></Dropdown>
+                <Dropdown titulo ="Categorias"   items={opcionesCategorias}></Dropdown>
+                <Dropdown  titulo ="Usuarios"  items={opcionesUsuarios}></Dropdown>
               </nav>
             </div>
           </div>
