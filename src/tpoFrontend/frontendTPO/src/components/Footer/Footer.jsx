@@ -35,7 +35,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <a  href="/ayuda" className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
+            <a   className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
               Ayuda
             </a>
             <ul className="text-gray-500 dark:text-lime-900 font-medium">
@@ -62,7 +62,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <a  href="/legal" className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
+            <a  className="mb-6 text-sm font-semibold text-lime-900 uppercase dark:text-white">
               Legal
             </a>
             <ul className="text-gray-500 dark:text-lime-900 font-medium">
