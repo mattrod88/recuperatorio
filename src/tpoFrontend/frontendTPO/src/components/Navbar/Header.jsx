@@ -1,4 +1,3 @@
-import { Dropdown } from "flowbite";
 import DropdownCategoria from "./DropdownCategoria";
 import Buscador from "./Buscador";
 import React, { useEffect, useState } from "react";

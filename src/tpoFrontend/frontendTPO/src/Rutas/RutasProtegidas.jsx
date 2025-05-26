@@ -1,7 +1,33 @@
-// import React from 'react'
-// import { Navigate } from 'react-router-dom'
+import InicioAdmin from "../admin/InicioAdmin";
+import Carrito from "../pages/carrito/Carrito";
+import FormularioContacto from "../pages/seccionesFooter/FormularioContacto";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Auth from "../pages/Sesion/Auth";
 
-// export const RutasProtegidas = ({children})=> {
-//     const access_token = JSON.parse(sessionStorage.storage.getProducto("access_token"))
-//   return access_token ? children : <Navigate to = "/login"/>
-// }
+
+export default function RutasProtegidas({ callbackLogin, autenticacion }) {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/carrito"
+          element={<Carrito autenticacion={autenticacion} />}
+        />
+        <Route
+          path="/contactanos"
+          element={<FormularioContacto autenticacion={autenticacion} />}
+        />
+        <Route path="/admin" element={<InicioAdmin />} />
+        <Route
+          path="/carrito"
+          element={<Carrito autenticacion={autenticacion} />}
+        />
+         <Route
+          path="/sesion"
+          element={<Auth callbackLogin={callbackLogin} />}
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+}

@@ -33,6 +33,9 @@ const LoginForm = ({callbackLogin}) => {
      if (data.access_token) {
       callbackLogin(data.access_token)
       navigate("/productos")
+      if(callbackLogin(data.access_token)=="admin"){
+        navigate("/admin")
+      }
      } else {
       toast.error(data.message)
      }

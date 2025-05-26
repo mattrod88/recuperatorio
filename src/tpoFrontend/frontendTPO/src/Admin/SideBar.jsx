@@ -1,14 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Dropdown from "./Dropdown";
 
-export default function SideBar() {
+export default function SideBar({ items }) {
+  const [openNav, setOpenNav] = React.useState(false);
+
+
+
+const opcionesUsuarios = [
+    {
+        descripcion: 'Ver usuarios',
+        link:"/admin/usuarios"
+    }
+]
+const opcionesPedidos = [
+    {
+        descripcion: 'Ver pedidos',
+        link:"/admin/pedidos"
+    }
+]
+const opcionesCategorias = [
+     {
+        descripcion: 'Crear categoria',
+        link:"/admin/crearCategoria"
+    },
+    {
+        descripcion: 'Ver categorias',
+        link:"/admin/categorias"
+    }
+]
+const opcionesProductos = [
+     {
+        descripcion: 'Crear Producto',
+        link:"/admin/crearProducto"
+    },
+    {
+        descripcion: 'Ver productos',
+        link:"/admin/productos"
+    }
+  ]
+  
+
   return (
-    <div className="relative flex h-full w-full max-w-[20rem] flex-col rounded-xl bg-white bg-clip-border p-4 text-gray-700 shadow-xl shadow-blue-gray-900/5">
+    <div className="relative flex h-full w-full max-w-[20rem] flex-col rounded-xl bg-white bg-clip-border p-4 text-lime-900 shadow-xl shadow-blue-gray-900/5">
       <div className="p-4 mb-2">
-        <h5 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+        <h5 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-lime-900">
           Menu
         </h5>
       </div>
-      <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
+      <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-lime-700">
         <div className="relative block w-full">
           <div
             role="button"
@@ -58,75 +97,12 @@ export default function SideBar() {
           <div className="overflow-hidden">
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700">
-                <div
-                  role="button"
-                  className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-                >
-                  <div className="grid mr-4 place-items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="3"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                      className="w-5 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  Pedidos
-                </div>
-                <div
-                  role="button"
-                  className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-                >
-                  <div className="grid mr-4 place-items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="3"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                      className="w-5 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  Productos
-                </div>
-                <div
-                  role="button"
-                  className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-                >
-                  <div className="grid mr-4 place-items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="3"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                      className="w-5 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  Usuarios
-                </div>
+                <Dropdown items={opcionesPedidos}></Dropdown>
+
+                <Dropdown items={opcionesProductos}></Dropdown>
+
+                <Dropdown items={opcionesCategorias}></Dropdown>
+                <Dropdown items={opcionesUsuarios}></Dropdown>
               </nav>
             </div>
           </div>
