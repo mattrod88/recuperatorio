@@ -4,43 +4,38 @@ import Dropdown from "./Dropdown";
 export default function SideBar({ items }) {
   const [openNav, setOpenNav] = React.useState(false);
 
-
-
-const opcionesUsuarios = [
-
+  const opcionesUsuarios = [
     {
-
-        descripcion: 'Ver usuarios',
-        link:"/admin/usuarios"
-    }
-]
-const opcionesPedidos = [
+      descripcion: "Ver usuarios",
+      link: "/usuarios",
+    },
+  ];
+  const opcionesPedidos = [
     {
-        descripcion: 'Ver pedidos',
-        link:"/admin/pedidos"
-    }
-]
-const opcionesCategorias = [
-     {
-        descripcion: 'Crear categoria',
-        link:"/admin/crearCategoria"
+      descripcion: "Ver pedidos",
+      link: "/pedidos",
+    },
+  ];
+  const opcionesCategorias = [
+    {
+      descripcion: "Crear categoria",
+      link: "/crearCategoria",
     },
     {
-        descripcion: 'Ver categorias',
-        link:"/admin/categorias"
-    }
-]
-const opcionesProductos = [
-     {
-        descripcion: 'Crear Producto',
-        link:"/admin/crearProducto"
+      descripcion: "Ver categorias",
+      link: "/categorias",
+    },
+  ];
+  const opcionesProductos = [
+    {
+      descripcion: "Crear Producto",
+      link: "/crearProducto",
     },
     {
-        descripcion: 'Ver productos',
-        link:"/admin/productos"
-    }
-  ]
-  
+      descripcion: "Ver productos",
+      link: "/productos",
+    },
+  ];
 
   return (
     <div className="relative flex h-full w-full max-w-[20rem] flex-col rounded-xl bg-white bg-clip-border p-4 text-lime-900 shadow-xl shadow-blue-gray-900/5">
@@ -99,12 +94,44 @@ const opcionesProductos = [
           <div className="overflow-hidden">
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700">
-                <Dropdown titulo ="Pedidos" items={opcionesPedidos}></Dropdown>
+                <Dropdown titulo="Pedidos" items={opcionesPedidos}></Dropdown>
 
-                <Dropdown titulo ="Productos"   items={opcionesProductos}></Dropdown>
+                <Dropdown
+                  titulo="Productos"
+                  items={opcionesProductos}
+                ></Dropdown>
 
-                <Dropdown titulo ="Categorias"   items={opcionesCategorias}></Dropdown>
-                <Dropdown  titulo ="Usuarios"  items={opcionesUsuarios}></Dropdown>
+                <Dropdown
+                  titulo="Categorias"
+                  items={opcionesCategorias}
+                ></Dropdown>
+                <Dropdown titulo="Usuarios" items={opcionesUsuarios}></Dropdown>
+                <div>
+                  <ul>
+                    <li>
+                      <button>
+                        <h1 className="relative flex items-center justify-between w-full py-2 px-3 text-lime-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-lime-900 md:w-auto dark:text-lime-900 md:dark:hover:text-lime-900 dark:focus:text-lime-900 dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                          Perfil
+                        </h1>
+                      </button>
+                    </li>
+                    <li>
+                      <button>
+                        <h1 className="relative flex items-center justify-between w-full py-2 px-3 text-lime-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-lime-900 md:w-auto dark:text-lime-900 md:dark:hover:text-lime-900 dark:focus:text-lime-900 dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                          Settings
+                        </h1>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="submit"
+                        className="w-full text-white bg-lime-700 hover:bg-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-lime-600 dark:hover:bg-lime-700"
+                      >
+                        Cerrar Sesión
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </nav>
             </div>
           </div>
