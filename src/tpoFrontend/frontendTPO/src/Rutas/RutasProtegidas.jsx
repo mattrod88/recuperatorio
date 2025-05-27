@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth from "../pages/Sesion/Auth";
 import TablaUsuarios from "../admin/TablaUsuarios";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { ListaProductosAdmin } from "../admin/ListaProductosAdmin";
+import CrearCategoriaForm from "../admin/CrearCategoriaForm";
 
 export default function RutasProtegidas({ callbackLogin, autenticacion }) {
   return (
@@ -50,6 +52,16 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
           path="/admin/usuarios"
           element={
              <ProtectedRoute autenticacion={autenticacion}> <TablaUsuarios autenticacion={autenticacion}></TablaUsuarios></ProtectedRoute>}
+        />
+        <Route
+          path="/admin/productos"
+          element={
+             <ProtectedRoute autenticacion={autenticacion}> <ListaProductosAdmin autenticacion={autenticacion}></ListaProductosAdmin></ProtectedRoute>}
+        />
+          <Route
+          path="/admin/categorias"
+          element={
+             <ProtectedRoute autenticacion={autenticacion}> <CrearCategoriaForm autenticacion={autenticacion}></CrearCategoriaForm></ProtectedRoute>}
         />
       </Routes>
     </BrowserRouter>
