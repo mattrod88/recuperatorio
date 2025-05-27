@@ -2,39 +2,33 @@ import React, { useEffect, useState } from "react";
 import Dropdown from "./Dropdown";
 import { NavLink } from "react-router-dom";
 
-export default function SideBar({ items }) {
+export default function SideBar( ) {
   const [openNav, setOpenNav] = React.useState(false);
 
-  const opcionesUsuarios = [
-    {
-      descripcion: "Ver usuarios",
-      link: "/usuarios",
-    },
-  ];
 
   const opcionesCategorias = [
     {
       descripcion: "Crear categoria",
-      link: "/crearCategoria",
+      link: "/admin/categorias/nueva",
     },
     {
       descripcion: "Ver categorias",
-      link: "/categorias",
+      link: "/admin/categorias",
     },
   ];
   const opcionesProductos = [
     {
       descripcion: "Crear Producto",
-      link: "/crearProducto",
+      link: "/admin/productos/nuevo",
     },
     {
       descripcion: "Ver productos",
-      link: "/productos",
+      link: "/admin/productos",
     },
   ];
 
   return (
-    <div className="relative flex h-full w-full max-w-[20rem] flex-col rounded-xl bg-white bg-clip-border p-4 text-lime-900 shadow-xl shadow-blue-gray-900/5">
+    <div className="flex h-full w-full max-w-[20rem] flex-col  rounded-xl bg-white bg-clip-border p-4 text-lime-900 shadow-xl shadow-blue-gray-900/5">
       <div className="p-4 mb-2">
         <h5 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-lime-900">
           Menu
@@ -90,18 +84,18 @@ export default function SideBar({ items }) {
           <div className="overflow-hidden">
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700">
-                <NavLink to="/admin/productos">
+                
                   <Dropdown
                     titulo="Productos"
-                    items={opcionesProductos}
-                  ></Dropdown>
-                </NavLink>
-                <NavLink to="/admin/categorias">
+                    items={opcionesProductos}></Dropdown>
+               
+             
+              
                   <Dropdown
                     titulo="Categorias"
                     items={opcionesCategorias}
                   ></Dropdown>
-                </NavLink>
+              
                 <NavLink to="/admin/usuarios">
                <button>
                         <h1 className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover text-lime-900 ">

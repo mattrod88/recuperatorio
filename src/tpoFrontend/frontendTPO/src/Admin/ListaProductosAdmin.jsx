@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CardProductoAdmin from "./CardProductoAdmin";
+import SideBar from "./SideBar";
 
 export const ListaProductosAdmin = ({ autenticacion }) => {
     const [productos, setProductos] = useState([]);
@@ -28,6 +29,9 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
     }
 
     return (
+        <>
+    
+        
         <main>
             <section className="my-5">
                 <h2 className="text-lime-900 text-2xl font-semibold text-center dark:text-lime-900">
@@ -49,5 +53,6 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                 </div>
             </section>
         </main>
+        </>
     );
 };

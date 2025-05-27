@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SideBar from "./SideBar";
 
 
 export default function CrearProductoForm({ autenticacion }) {
@@ -16,7 +17,7 @@ export default function CrearProductoForm({ autenticacion }) {
     }
 
     try {
-      await fetch("http://localhost:4002/categorias", {
+      await fetch("http://localhost:4002/productos", {
         method: "POST",
         headers: {
           Authorization: "Bearer " + autenticacion.accessToken,
@@ -28,17 +29,20 @@ export default function CrearProductoForm({ autenticacion }) {
       setNombre("");
       setDescripcion("");
     } catch (error) {
-      alert("Error al crear la categoría.");
+      alert("Error al crear el producto.");
     }
   }
 
   return (
+    <>
+  
+  
     <form
       onSubmit={handleSubmit}
       className="max-w-md mx-auto p-4 bg-white rounded shadow"
     >
       <h2 className="text-2xl font-semibold mb-4 text-lime-700">
-        Crear Nueva Categoría
+        Crear nuevo producto
       </h2>
 
       <div className="mb-4">
@@ -62,7 +66,7 @@ export default function CrearProductoForm({ autenticacion }) {
           htmlFor="descripcion"
           className="block text-sm font-medium text-gray-700"
         >
-          Descripción
+          Cantidad
         </label>
         <textarea
           id="descripcion"
@@ -72,6 +76,20 @@ export default function CrearProductoForm({ autenticacion }) {
         ></textarea>
       </div>
 
+        <div className="mb-4">
+        <label
+          htmlFor="descripcion"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Precio
+        </label>
+        <textarea
+          id="descripcion"
+          value={descripcion}
+          onChange={(e) => setDescripcion(e.target.value)}
+          className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+        ></textarea>
+      </div>
       <button
         type="submit"
         className="bg-lime-600 text-white px-4 py-2 rounded hover:bg-lime-700"
@@ -79,5 +97,9 @@ export default function CrearProductoForm({ autenticacion }) {
         Crear
       </button>
     </form>
+      </>
   );
 }
+
+
+  

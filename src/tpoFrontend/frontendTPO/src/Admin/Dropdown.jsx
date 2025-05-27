@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-
+import { NavLink } from "react-router-dom";
 
 export default function Dropdown({ titulo, items }) {
-
-
   const toggle = (e) => {
     e.preventDefault();
     setAbierto(!abierto);
@@ -49,17 +47,18 @@ export default function Dropdown({ titulo, items }) {
           >
             <li>
               {items.map((item, indice) => (
-                <a
-                  key={indice}
-                  href={`${item.link}`}
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover:text-lime-900 "
-                  role="menuitem"
-                  tabIndex="-1"
-                  id={item.id}
-                  indice
-                >
-                  {item.descripcion}
-                </a>
+                <NavLink to={item.link}>
+                  <a
+                    key={indice}
+                    // href={`${item.link}`}
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover:text-lime-900 "
+                    role="menuitem"
+                    tabIndex="-1"
+                    id={item.id}
+                  >
+                    {item.descripcion}
+                  </a>
+                </NavLink>
               ))}
             </li>
           </ul>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SideBar from "./SideBar";
 
 export default function FormularioCrearCategoriaAdmin({ autenticacion }) {
     const [nombre, setNombre] = useState("");
@@ -30,6 +31,8 @@ export default function FormularioCrearCategoriaAdmin({ autenticacion }) {
     }
 
     return (
+        <>
+       
         <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 bg-white rounded shadow">
             <h2 className="text-2xl font-semibold mb-4 text-lime-700">Crear Nueva Categoría</h2>
 
@@ -65,5 +68,6 @@ export default function FormularioCrearCategoriaAdmin({ autenticacion }) {
                 Crear
             </button>
         </form>
+        </>
     );
 }
