@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function CrearProductoForm({ autenticacion }) {
   const [nombre, setNombre] = useState("");
@@ -12,27 +13,42 @@ export default function CrearProductoForm({ autenticacion }) {
     e.preventDefault();
 
     if (!nombre.trim() || !descripcion.trim()) {
-      alert("Por favor, completá todos los campos antes de crear el producto.");
+      toast.warn("Por favor, completá todos los campos antes de crear el producto.");
       return;
     }
-    try {
-      await fetch("http://localhost:4002/productos", {
+
+        try {
+      const response = await fetch("http://localhost:4002/productos", {
         method: "POST",
         headers: {
           Authorization: "Bearer " + autenticacion.accessToken,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nombre, descripcion, cantidad, precio, categoria: {id: categoria} }),
+        body: JSON.stringify({
+          nombre,
+          descripcion,
+          cantidad,
+          precio,
+          categoria: { id: categoria },
+        }),
       });
 
-      setNombre("");
-      setDescripcion("");
-      setCantidad("");
-      setPrecio("");
+      if (response.ok) {
+        toast.success("Producto creado con éxito.");
+        setNombre("");
+        setDescripcion("");
+        setCantidad("");
+        setPrecio("");
+        setCategoria("");
+      } else {
+        const data = await response.json();
+        toast.error("Error: No se pudo crear el producto.");
+      }
     } catch (error) {
-      alert("Error al crear el producto.");
+      toast.error("Error de conexión con el servidor.");
     }
   }
+  
   useEffect(() => {
     async function fetchCategorias() {
       const response = await fetch(`http://localhost:4002/categorias`);
