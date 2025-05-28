@@ -9,6 +9,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { ListaProductosAdmin } from "../admin/ListaProductosAdmin";
 import CrearCategoriaForm from "../admin/CrearCategoriaForm";
 import CrearProductoForm from "../admin/CrearProductoForm";
+import TablaCategorias from "../admin/TablaCategorias";
 
 export default function RutasProtegidas({ callbackLogin, autenticacion }) {
   return (
@@ -88,6 +89,16 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
                   <CrearProductoForm
                     autenticacion={autenticacion}
                   ></CrearProductoForm>
+                </ProtectedRoute>
+              }/>
+              
+            <Route
+              path="categorias"
+              element={
+                <ProtectedRoute autenticacion={autenticacion}>
+                  <TablaCategorias
+                    autenticacion={autenticacion}
+                  ></TablaCategorias>
                 </ProtectedRoute>
               }
             />

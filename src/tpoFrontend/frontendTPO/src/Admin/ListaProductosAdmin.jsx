@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import CardProductoAdmin from "./CardProductoAdmin";
-import SideBar from "./SideBar";
+
 
 export const ListaProductosAdmin = ({ autenticacion }) => {
     const [productos, setProductos] = useState([]);
-    const [productoEditar, setProductoEditar] = useState(null); // Nuevo estado
+    const [productoEditar, setProductoEditar] = useState(null); 
 
     useEffect(() => {
         async function fetchProductos() {
@@ -27,7 +27,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
         setProductos(data);
     }
 
-    // Función para guardar cambios
+
     async function guardarEdicion(e) {
         e.preventDefault();
         await fetch(`http://localhost:4002/productos/${productoEditar.id}`, {
@@ -44,7 +44,6 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
         setProductos(data);
     }
 
-    // Formulario de edición inline
     function FormularioEdicion() {
         return (
             <form onSubmit={guardarEdicion} className="p-4 bg-gray-100 rounded shadow mb-4">
