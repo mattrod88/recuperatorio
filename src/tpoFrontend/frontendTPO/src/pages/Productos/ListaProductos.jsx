@@ -62,13 +62,18 @@ export const ListaProductos = () => {
           </span>
         </div>
 
+        {}
+        
         <div className="flex flex-wrap justify-center lg:flex-row">
-          {productos.length > 0 && productos.map((producto)=>(
-          <CardProducto producto = {producto} />
-          
-          ))}
-          
+          {productos.length > 0 ? (
+            productos.map((producto) => (
+              <CardProducto key={producto.id} producto={producto} />
+            ))
+          ) : (
+            <p className="text-center text-gray-500 mt-4">No hay productos para mostrar.</p>
+          )}
         </div>
+
       </section>
 
       {mostrar && <Filtro setMostrar={setMostrar}/>}
