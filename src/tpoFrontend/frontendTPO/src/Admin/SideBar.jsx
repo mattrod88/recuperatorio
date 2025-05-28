@@ -28,7 +28,7 @@ export default function SideBar( ) {
   ];
 
   return (
-    <div className="flex h-full w-full max-w-[20rem] flex-col  rounded-xl bg-white bg-clip-border p-4 text-lime-900 shadow-xl shadow-blue-gray-900/5">
+    <div className="flex h-full w-full max-w-[20rem] flex-col  rounded-xl bg-white bg-clip-border p-4 text-lime-900 shadow-xl shadow-lime-gray-900/5">
       <div className="p-4 mb-2">
         <h5 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-lime-900">
           Menu
@@ -38,11 +38,11 @@ export default function SideBar( ) {
         <div className="relative block w-full">
           <div
             role="button"
-            className="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+            className="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start hover:bg-lime-gray-50 hover:bg-opacity-80 hover:text-lime-gray-900 focus:bg-lime-gray-50 focus:bg-opacity-80 focus:text-lime-gray-900 active:bg-lime-gray-50 active:bg-opacity-80 active:text-lime-gray-900"
           >
             <button
               type="button"
-              className="flex items-center justify-between w-full p-3 font-sans text-xl antialiased font-semibold leading-snug text-left transition-colors border-b-0 select-none border-b-blue-gray-100 text-blue-gray-700 hover:text-blue-gray-900"
+              className="flex items-center justify-between w-full p-3 font-sans text-xl antialiased font-semibold leading-snug text-left transition-colors border-b-0 select-none border-b-lime-gray-100 text-lime-gray-700 hover:text-lime-gray-900"
             >
               <div className="grid mr-4 place-items-center">
                 <svg
@@ -59,7 +59,7 @@ export default function SideBar( ) {
                   ></path>
                 </svg>
               </div>
-              <p className="block mr-auto font-sans text-base antialiased font-normal leading-relaxed text-blue-gray-900">
+              <p className="block mr-auto font-sans text-base antialiased font-normal leading-relaxed text-lime-gray-900">
                 TiendaOnlineSaludable
               </p>
               <span className="ml-4">
@@ -83,7 +83,7 @@ export default function SideBar( ) {
           </div>
           <div className="overflow-hidden">
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700">
-              <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700">
+              <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-lime-gray-700">
                 
                   <Dropdown
                     titulo="Productos"

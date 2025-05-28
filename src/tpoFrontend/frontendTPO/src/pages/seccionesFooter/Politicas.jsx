@@ -16,7 +16,7 @@ export default function Politicas() {
       El sitio web{" "}
       <a
         href="https://www.tiendaonlinesaludable.com"
-        className="text-blue-600 hover:underline"
+        className="text-lime-600 hover:underline"
       >
         www.tiendaonlinesaludable.com
       </a>{" "}

@@ -71,7 +71,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                     placeholder="Descripción"
                     required
                 />
-                <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded mr-2">Guardar</button>
+                <button type="submit" className="bg-lime-600 text-white px-4 py-2 rounded mr-2">Guardar</button>
                 <button type="button" onClick={() => setProductoEditar(null)} className="bg-gray-400 text-white px-4 py-2 rounded">Cancelar</button>
             </form>
         );
