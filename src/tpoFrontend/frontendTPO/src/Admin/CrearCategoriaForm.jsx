@@ -1,5 +1,7 @@
 import { useState } from "react";
 import SideBar from "./SideBar";
+import { toast } from "react-toastify";
+
 
 export default function FormularioCrearCategoriaAdmin({ autenticacion }) {
     const [nombre, setNombre] = useState("");
@@ -9,30 +11,35 @@ export default function FormularioCrearCategoriaAdmin({ autenticacion }) {
         e.preventDefault();
 
         if (!nombre.trim() || !descripcion.trim()) {
-            alert("Por favor, completá todos los campos antes de crear la categoría.");
+            toast.warn("Por favor, completá todos los campos.");
             return;
         }
 
         try {
-            await fetch("http://localhost:4002/categorias", {
+            const response = await fetch("http://localhost:4002/categorias", {
                 method: "POST",
                 headers: {
-                    "Authorization": "Bearer " + autenticacion.accessToken,
+                    Authorization: "Bearer " + autenticacion.accessToken,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ nombre, descripcion }),
             });
 
-        setNombre("");
-        setDescripcion("");
+            if (response.ok) {
+                toast.success("Categoría creada con éxito.");
+                setNombre("");
+                setDescripcion("");
+            } else {
+                const data = await response.json();
+                toast.error("Error: No se pudo crear la categoría.");
+            }
         } catch (error) {
-            alert("Error al crear la categoría.");
+            toast.error("Error de conexión con el servidor.");
         }
     }
 
     return (
         <>
-       
         <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 bg-white rounded shadow">
             <h2 className="text-2xl font-semibold mb-4 text-lime-700">Crear Nueva Categoría</h2>
 
