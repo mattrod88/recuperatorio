@@ -11,6 +11,9 @@ import CrearCategoriaForm from "../admin/CrearCategoriaForm";
 import CrearProductoForm from "../admin/CrearProductoForm";
 import TablaCategorias from "../admin/TablaCategorias";
 
+import Register from "../pages/Sesion/Register";
+
+
 export default function RutasProtegidas({ callbackLogin, autenticacion }) {
   return (
     <BrowserRouter>
@@ -45,6 +48,12 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
           path="/sesion"
           element={<Auth callbackLogin={callbackLogin}></Auth>}
         />
+
+        <Route
+          path="/registro"
+          element={<Register/>}
+        />
+
         <Route
           path="/admin"
           element={
@@ -92,18 +101,18 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
                 </ProtectedRoute>
               }/>
               
-            <Route
-              path="categorias"
-              element={
-                <ProtectedRoute autenticacion={autenticacion}>
-                  <TablaCategorias
-                    autenticacion={autenticacion}
-                  ></TablaCategorias>
-                </ProtectedRoute>
-              }
-            />
+              <Route
+                path="categorias"
+                element={
+                  <ProtectedRoute autenticacion={autenticacion}>
+                    <TablaCategorias autenticacion={autenticacion} />
+                  </ProtectedRoute>
+                }
+              />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
+
+
