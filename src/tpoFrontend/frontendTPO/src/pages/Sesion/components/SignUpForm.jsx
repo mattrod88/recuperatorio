@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
-
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
@@ -18,16 +16,17 @@ const SignUpForm = () => {
       email.trim() === "" ||
       password.trim() === ""
     ) {
-      alert("Todos los campos son obligatorios");
+      toast.error("Todos los campos son obligatorios");
       return;
     }
 
     const authDetail = {
-      nombre: nombre,
-      apellido: apellido,
-      email: email,
+      nombre,
+      apellido,
+      email,
       contrasena: password,
     };
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -45,9 +44,7 @@ const SignUpForm = () => {
   return (
     <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Nombre
-        </label>
+        <label className="block text-sm font-medium text-gray-700">Nombre</label>
         <input
           type="text"
           value={nombre}
@@ -58,9 +55,7 @@ const SignUpForm = () => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Apellido
-        </label>
+        <label className="block text-sm font-medium text-gray-700">Apellido</label>
         <input
           type="text"
           value={apellido}
@@ -82,9 +77,7 @@ const SignUpForm = () => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Contraseña
-        </label>
+        <label className="block text-sm font-medium text-gray-700">Contraseña</label>
         <input
           type="password"
           value={password}
@@ -100,6 +93,13 @@ const SignUpForm = () => {
       >
         Registrarse
       </button>
+
+      <p className="text-sm text-center text-gray-600 mt-4">
+        ¿Ya tenés una cuenta?{" "}
+        <Link to="/sesion" className="text-lime-900 hover:underline">
+          Iniciar sesión
+        </Link>
+      </p>
     </form>
   );
 };
