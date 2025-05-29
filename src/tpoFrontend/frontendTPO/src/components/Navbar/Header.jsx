@@ -1,13 +1,14 @@
 import DropdownCategoria from "./DropdownCategoria";
 import Buscador from "./Buscador";
 import React, { useEffect, useState } from "react";
-import { DropdownUsuarioLogueado } from "./DropdownUsuarioLogueado"; // Importa el nuevo componente
+import { DropdownUsuarioLogueado } from "./DropdownUsuarioLogueado";
 
-export default function Header({ autenticacion, setAuth }) { // Añade setAuth como prop si usas contexto
+export default function Header({ autenticacion, setAuth }) {
   const [openNav, setOpenNav] = React.useState(false);
   const [categorias, setCategorias] = useState();
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
   const [dropdownUsuario, setDropdownUsuario] = useState(false);
+
 
   useEffect(() => {
     async function fetchCategorias() {
@@ -23,6 +24,18 @@ export default function Header({ autenticacion, setAuth }) { // Añade setAuth c
 
     fetchCategorias();
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = () => {
+      if (dropdownUsuario) setDropdownUsuario(false);
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [dropdownUsuario]);
 
   const clickEnBuscar = () => {
     setMostrarBuscador(!mostrarBuscador);
