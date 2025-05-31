@@ -10,34 +10,18 @@ import { ListaProductosAdmin } from "../admin/ListaProductosAdmin";
 import CrearCategoriaForm from "../admin/CrearCategoriaForm";
 import CrearProductoForm from "../admin/CrearProductoForm";
 import TablaCategorias from "../admin/TablaCategorias";
+import ListaCarrito from "../pages/carrito/ListaCarrito";
 
 export default function RutasProtegidas({ callbackLogin, autenticacion }) {
   return (
     <BrowserRouter>
       <Routes>
+      
         <Route
           path="/carrito"
           element={
             <ProtectedRoute autenticacion={autenticacion}>
-              <Carrito autenticacion={autenticacion}></Carrito>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/contactanos"
-          element={
-            <ProtectedRoute autenticacion={autenticacion}>
-              <FormularioContacto
-                autenticacion={autenticacion}
-              ></FormularioContacto>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/carrito"
-          element={
-            <ProtectedRoute autenticacion={autenticacion}>
-              <Carrito autenticacion={autenticacion}></Carrito>
+              <ListaCarrito autenticacion={autenticacion}></ListaCarrito>
             </ProtectedRoute>
           }
         />
@@ -89,6 +73,15 @@ export default function RutasProtegidas({ callbackLogin, autenticacion }) {
                   <CrearProductoForm
                     autenticacion={autenticacion}
                   ></CrearProductoForm>
+                </ProtectedRoute>
+              }/>
+               <Route
+              path="carrito"
+              element={
+                <ProtectedRoute autenticacion={autenticacion}>
+                  <ListaCarrito
+                    autenticacion={autenticacion}
+                  ></ListaCarrito>
                 </ProtectedRoute>
               }/>
               

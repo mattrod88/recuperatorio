@@ -1,18 +1,15 @@
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Inicio from "../pages/Inicio/Inicio";
 import DetalleProducto from "../pages/detalleProducto/DetalleProducto";
 import { ListaProductos } from "../pages/Productos/ListaProductos";
-import Auth from "../pages/Sesion/Auth";
 import Tiendas from "../pages/seccionesFooter/Tiendas";
 import Blog from "../pages/seccionesFooter/Blog";
 import Terminos from "../pages/seccionesFooter/Terminos";
 import Licencia from "../pages/seccionesFooter/Licencia";
 import Politicas from "../pages/seccionesFooter/Politicas";
-import { useState } from "react";
-import ListaProductosAdmin from "../admin/InicioAdmin";
 import Nosotros from "../pages/seccionesFooter/Nosotros";
 import TrabajaConNosotros from "../pages/seccionesFooter/TrabajaConNosotros";
-import InicioAdmin from "../admin/InicioAdmin";
+import FormularioContacto from "../pages/seccionesFooter/FormularioContacto";
 
 export const Rutas = (autenticacion) => {
 
@@ -30,7 +27,7 @@ export const Rutas = (autenticacion) => {
         <Route path="/condiciones" element={<Terminos />} />
         <Route path="/licencia" element={<Licencia />} />
         <Route path="/politicaPrivacidad" element={<Politicas />} />
-       
+        <Route path="/contactanos" element={<FormularioContacto />}/>
       </Routes>
     </BrowserRouter>
   );

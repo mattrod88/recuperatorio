@@ -3,7 +3,7 @@ import CardCarrito from './CardCarrito'
 import CheckOut from './checkOut'
 
 
-export default function ListaCarrito() {
+export default function ListaCarrito({autenticacion}) {
     const[checkOut,setCheckOut]=useState(false)
     const lista =[
         {

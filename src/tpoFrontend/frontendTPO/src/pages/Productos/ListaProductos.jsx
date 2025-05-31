@@ -38,6 +38,7 @@ export const ListaProductos = () => {
 
   return (
     <main>
+      
       <section className="my-5">
         <div className="my-5 flex justify-between">
           <span className="text-lime-900   text-2xl font-semibold text-center dark:text-lime-900 ">
@@ -78,6 +79,7 @@ export const ListaProductos = () => {
 
       {mostrar && <Filtro setMostrar={setMostrar}/>}
     </main>
+    
   );
 };
 
