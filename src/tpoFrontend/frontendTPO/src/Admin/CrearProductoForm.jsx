@@ -86,8 +86,8 @@ export default function CrearProductoForm({ autenticacion }) {
         </div>
         <div className="mb-4">
           <label
-            for="categorias"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            htmlFor="categorias"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Select an option
           </label>

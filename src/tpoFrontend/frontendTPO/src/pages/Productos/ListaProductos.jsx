@@ -71,7 +71,7 @@ export const ListaProductos = () => {
               <CardProducto key={producto.id} producto={producto} />
             ))
           ) : (
-            <p className="text-center text-gray-500 mt-4">No hay productos para mostrar.</p>
+            <p className="text-center text-gray-500 mt-4">No se hallaron resultados para tu búsqueda.</p>
           )}
         </div>
 

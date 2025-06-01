@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import CardProductoAdmin from "./CardProductoAdmin";
+import CardProductoAdmin from "./CardProductoAdmin.jsx";
 
 
 export const ListaProductosAdmin = ({ autenticacion }) => {
     const [productos, setProductos] = useState([]);
     const [productoEditar, setProductoEditar] = useState(null); 
+    const [categorias, setCategorias] = useState([]);
 
     useEffect(() => {
         async function fetchProductos() {
@@ -13,6 +14,16 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
             setProductos(data);
         }
         fetchProductos();
+    }, []);
+
+    useEffect(() => {
+        async function fetchCategorias() {
+            const response = await fetch(`http://localhost:4002/categorias`);
+            const data = await response.json();
+            setCategorias(data.content);
+        }
+    
+        fetchCategorias();
     }, []);
 
     async function eliminarProducto(id) {
@@ -27,47 +38,99 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
         setProductos(data);
     }
 
-
-    async function guardarEdicion(e) {
-        e.preventDefault();
-        await fetch(`http://localhost:4002/productos/${productoEditar.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer " + autenticacion.accessToken,
-            },
-            body: JSON.stringify(productoEditar),
-        });
-        setProductoEditar(null);
-        const response = await fetch("http://localhost:4002/productos");
-        const data = await response.json();
-        setProductos(data);
-    }
-
     function FormularioEdicion() {
+        const [nombre, setNombre] = useState(productoEditar.nombre);
+        const [precio, setPrecio] = useState(productoEditar.precio);
+        const [cantidad, setCantidad] = useState(productoEditar.cantidad);
+        const [categoria, setCategoria] = useState(productoEditar.categoria.id);
+        const [descripcion, setDescripcion] = useState(productoEditar.descripcion);
+
+        async function handleGuardar(e) {
+            e.preventDefault();
+            await fetch(`http://localhost:4002/productos/${productoEditar.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer " + autenticacion.accessToken,
+                },
+                body: JSON.stringify({
+                    id: productoEditar.id,
+                    nombre,
+                    precio,
+                    cantidad,
+                    categoria_id: Number(categoria),
+                    descripcion,
+                }),
+            });
+
+            setProductoEditar(null);
+            const response = await fetch("http://localhost:4002/productos");
+            const data = await response.json();
+            setProductos(data);
+        }
+
         return (
-            <form onSubmit={guardarEdicion} className="p-4 bg-gray-100 rounded shadow mb-4">
+            <form onSubmit={handleGuardar} className="p-4 bg-gray-100 rounded shadow mb-4">
                 <h3 className="mb-2 font-bold">Editar Producto</h3>
+                <label className="block mb-1 font-medium" htmlFor="nombre-input">Nombre</label>
                 <input
+                    id="nombre-input"
                     className="block mb-2 border p-1 w-full"
                     type="text"
-                    value={productoEditar.nombre}
-                    onChange={e => setProductoEditar({ ...productoEditar, nombre: e.target.value })}
+                    value={nombre}
+                    onChange={e => setNombre(e.target.value)}
                     placeholder="Nombre"
                     required
                 />
+                <label className="block mb-1 font-medium" htmlFor="precio-input">Precio</label>
                 <input
+                    id="precio-input"
                     className="block mb-2 border p-1 w-full"
                     type="number"
-                    value={productoEditar.precio}
-                    onChange={e => setProductoEditar({ ...productoEditar, precio: e.target.value })}
+                    value={precio}
+                    onChange={e => setPrecio(e.target.value)}
                     placeholder="Precio"
                     required
                 />
-                <textarea
+                
+                <label className="block mb-1 font-medium" htmlFor="cantidad-input">Cantidad</label>
+                <input
+                    id="cantidad-input"
                     className="block mb-2 border p-1 w-full"
-                    value={productoEditar.descripcion}
-                    onChange={e => setProductoEditar({ ...productoEditar, descripcion: e.target.value })}
+                    type="number"
+                    value={cantidad}
+                    onChange={e => setCantidad(e.target.value)}
+                    placeholder="Cantidad"
+                    required
+                />
+
+                <label className="block mb-1 font-medium" htmlFor="categoria-input">
+                    Categoría
+                </label>
+
+                <select
+                    id="categoria-input"
+                    className="block mb-2 border p-1 w-full"
+                    value={categoria}
+                    onChange={(e) => setCategoria(e.target.value)}
+                    required
+                >
+                    <option value="" disabled>
+                        Seleccioná una categoría
+                    </option>
+                    {categorias.map((cat) => (
+                        <option key={cat.id} value={cat.id}>
+                            {cat.descripcion}
+                        </option>
+                    ))}
+                </select>
+
+                <label className="block mb-1 font-medium" htmlFor="descripcion-input">Descripción</label>
+                <textarea
+                    id="descripcion-input"
+                    className="block mb-2 border p-1 w-full"
+                    value={descripcion}
+                    onChange={e => setDescripcion(e.target.value)}
                     placeholder="Descripción"
                     required
                 />
@@ -98,7 +161,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                             />
                         ))
                     ) : (
-                        <p>No hay productos para mostrar.</p>
+                        <p>No se hallaron resultados para tu búsqueda.</p>
                     )}
                 </div>
             </section>

@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
+import { Link } from "react-router-dom";
+
 const LoginForm = ({ callbackLogin }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -83,6 +85,13 @@ const LoginForm = ({ callbackLogin }) => {
       >
         Ingresar
       </button>
+
+      <p className="text-sm text-center text-gray-600 mt-4">
+        ¿No tenés cuenta?{" "}
+        <Link to="/registro" className="text-lime-900 hover:underline">
+          Registrate acá
+        </Link>
+      </p>
     </form>
   );
 };
