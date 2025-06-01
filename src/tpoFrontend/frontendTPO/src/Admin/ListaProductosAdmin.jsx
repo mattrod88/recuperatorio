@@ -5,6 +5,7 @@ import CardProductoAdmin from "./CardProductoAdmin.jsx";
 export const ListaProductosAdmin = ({ autenticacion }) => {
     const [productos, setProductos] = useState([]);
     const [productoEditar, setProductoEditar] = useState(null); 
+    const [categorias, setCategorias] = useState([]);
 
     useEffect(() => {
         async function fetchProductos() {
@@ -13,6 +14,16 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
             setProductos(data);
         }
         fetchProductos();
+    }, []);
+
+    useEffect(() => {
+        async function fetchCategorias() {
+            const response = await fetch(`http://localhost:4002/categorias`);
+            const data = await response.json();
+            setCategorias(data.content);
+        }
+    
+        fetchCategorias();
     }, []);
 
     async function eliminarProducto(id) {
@@ -30,6 +41,8 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
     function FormularioEdicion() {
         const [nombre, setNombre] = useState(productoEditar.nombre);
         const [precio, setPrecio] = useState(productoEditar.precio);
+        const [cantidad, setCantidad] = useState(productoEditar.cantidad);
+        const [categoria, setCategoria] = useState(productoEditar.categoria.id);
         const [descripcion, setDescripcion] = useState(productoEditar.descripcion);
 
         async function handleGuardar(e) {
@@ -44,11 +57,12 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                     id: productoEditar.id,
                     nombre,
                     precio,
+                    cantidad,
+                    categoria_id: Number(categoria),
                     descripcion,
-                    cantidad: productoEditar.cantidad,
-                    categoria: productoEditar.categoria,
                 }),
             });
+
             setProductoEditar(null);
             const response = await fetch("http://localhost:4002/productos");
             const data = await response.json();
@@ -78,6 +92,39 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                     placeholder="Precio"
                     required
                 />
+                
+                <label className="block mb-1 font-medium" htmlFor="cantidad-input">Cantidad</label>
+                <input
+                    id="cantidad-input"
+                    className="block mb-2 border p-1 w-full"
+                    type="number"
+                    value={cantidad}
+                    onChange={e => setCantidad(e.target.value)}
+                    placeholder="Cantidad"
+                    required
+                />
+
+                <label className="block mb-1 font-medium" htmlFor="categoria-input">
+                    Categoría
+                </label>
+
+                <select
+                    id="categoria-input"
+                    className="block mb-2 border p-1 w-full"
+                    value={categoria}
+                    onChange={(e) => setCategoria(e.target.value)}
+                    required
+                >
+                    <option value="" disabled>
+                        Seleccioná una categoría
+                    </option>
+                    {categorias.map((cat) => (
+                        <option key={cat.id} value={cat.id}>
+                            {cat.descripcion}
+                        </option>
+                    ))}
+                </select>
+
                 <label className="block mb-1 font-medium" htmlFor="descripcion-input">Descripción</label>
                 <textarea
                     id="descripcion-input"
