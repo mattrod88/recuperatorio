@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import Dropdown from "./Dropdown";
 import { NavLink } from "react-router-dom";
 
-export default function SideBar( ) {
+export default function SideBar() {
   const [openNav, setOpenNav] = React.useState(false);
-
 
   const opcionesCategorias = [
     {
@@ -26,6 +25,12 @@ export default function SideBar( ) {
       link: "/admin/productos",
     },
   ];
+
+  function onLogout(event) {
+    event.preventDefault();
+    localStorage.removeItem("token");
+    window.location.href = "/sesion";
+  }
 
   return (
     <div className="flex h-full w-full max-w-[20rem] flex-col  rounded-xl bg-white bg-clip-border p-4 text-lime-900 shadow-xl shadow-lime-gray-900/5">
@@ -84,31 +89,29 @@ export default function SideBar( ) {
           <div className="overflow-hidden">
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-lime-gray-700">
-                
-                  <Dropdown
-                    titulo="Productos"
-                    items={opcionesProductos}></Dropdown>
-               
-             
-              
-                  <Dropdown
-                    titulo="Categorias"
-                    items={opcionesCategorias}
-                  ></Dropdown>
-              
+
+                <Dropdown
+                  titulo="Productos"
+                  items={opcionesProductos}></Dropdown>
+
+                <Dropdown
+                  titulo="Categorias"
+                  items={opcionesCategorias}
+                ></Dropdown>
+
                 <NavLink to="/admin/usuarios">
-               <button>
-                        <h1 className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover text-lime-900 ">
-                          Usuarios
-                        </h1>
-                      </button>
+                  <button>
+                    <h1 className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover text-lime-900 ">
+                      Usuarios
+                    </h1>
+                  </button>
                 </NavLink>
                 <div>
                   <ul>
                     <li>
                       <button
-                        type="submit"
                         className="w-full text-white bg-lime-700 hover:bg-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-lime-600 dark:hover:bg-lime-700"
+                        onClick={onLogout}
                       >
                         Cerrar Sesión
                       </button>
