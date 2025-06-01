@@ -9,11 +9,12 @@ export default function TablaUsuarios({ autenticacion }) {
   useEffect(() => {
     async function fetchUsuarios() {
       const response = await fetch(
-        `http://localhost:4002/usuarios/registrados`, {
-          method: 'GET',
+        `http://localhost:4002/usuarios/registrados`,
+        {
+          method: "GET",
           headers: {
-            "Authorization": "Bearer " + autenticacion.accessToken
-          }
+            Authorization: "Bearer " + autenticacion.accessToken,
+          },
         }
       );
       const data = await response.json();
@@ -23,27 +24,30 @@ export default function TablaUsuarios({ autenticacion }) {
   }, []);
 
   return (
-    <main className="flex-grow items-center">
-      <div className="shadow-md sm:rounded-lg ml-80 mr-0">
-        <table className="w-full text-sm text-right  text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-lime-600 dark:bg-gray-700 dark:text-gray-400 ml-80">
-            <tr>
-              <th scope="col" className="pl-6 py-3">
-                Nombre
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Apellido
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Email
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-          {usuarios.length > 0 &&
-            usuarios.map((usuario) => <CardUsuario usuario={usuario} />)}
+    <main className="flex-grow min-h-screen p-8 flex justify-center">
+      <div className="w-full max-w-5xl bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-x-auto">
+        <div className="max-h-[400px] overflow-y-auto">
+          <table className="w-full text-left text-gray-700 dark:text-gray-300 text-sm">
+            <thead className="bg-lime-600 dark:bg-lime-700 text-white uppercase tracking-wide font-semibold sticky top-0 shadow-md">
+              <tr>
+                <th className="px-6 py-3">Nombre</th>
+                <th className="px-6 py-3">Apellido</th>
+                <th className="px-6 py-3">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {usuarios.length > 0 &&
+                usuarios.map((usuario) => (
+                  <CardUsuario usuario={usuario} />
+                ))}
             </tbody>
-        </table>
+          </table>
+          {usuarios.length === 0 && (
+            <p className="text-center py-8 text-gray-500 italic">
+              No hay usuarios registrados.
+            </p>
+          )}
+        </div>
       </div>
     </main>
   );
