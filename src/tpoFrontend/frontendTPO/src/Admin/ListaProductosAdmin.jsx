@@ -87,12 +87,16 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
         }
 
         return (
-            <form onSubmit={handleGuardar} className="p-4 bg-gray-100 rounded shadow mb-4">
+            <form
+                onSubmit={handleGuardar}
+                className="p-5 bg-white rounded-xl shadow-md border border-gray-200 mb-5 space-y-2"
+            >
                 <h3 className="mb-2 font-bold">Editar Producto</h3>
+                
                 <label className="block mb-1 font-medium" htmlFor="nombre-input">Nombre</label>
                 <input
                     id="nombre-input"
-                    className="block mb-2 border p-1 w-full"
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lime-500"
                     type="text"
                     value={nombre}
                     onChange={e => setNombre(e.target.value)}
@@ -102,7 +106,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                 <label className="block mb-1 font-medium" htmlFor="precio-input">Precio</label>
                 <input
                     id="precio-input"
-                    className="block mb-2 border p-1 w-full"
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lime-500"
                     type="number"
                     value={precio}
                     onChange={e => setPrecio(e.target.value)}
@@ -113,7 +117,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                 <label className="block mb-1 font-medium" htmlFor="cantidad-input">Cantidad</label>
                 <input
                     id="cantidad-input"
-                    className="block mb-2 border p-1 w-full"
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lime-500"
                     type="number"
                     value={cantidad}
                     onChange={e => setCantidad(e.target.value)}
@@ -127,7 +131,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
 
                 <select
                     id="categoria-input"
-                    className="block mb-2 border p-1 w-full"
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lime-500"
                     value={categoria}
                     onChange={(e) => setCategoria(e.target.value)}
                     required
@@ -145,7 +149,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                 <label className="block mb-1 font-medium" htmlFor="descripcion-input">Descripción</label>
                 <textarea
                     id="descripcion-input"
-                    className="block mb-2 border p-1 w-full"
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lime-500"
                     value={descripcion}
                     onChange={e => setDescripcion(e.target.value)}
                     placeholder="Descripción"
@@ -157,11 +161,27 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                     id="imagen-input"
                     type="file"
                     accept="image/*"
+                    className="w-full border border-gray-200 rounded-md px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-lime-500"
                     onChange={(e) => setImagenFile(e.target.files[0])}
                 />
 
-                <button type="submit" className="bg-lime-600 text-white px-4 py-2 rounded mr-2">Guardar</button>
-                <button type="button" onClick={() => setProductoEditar(null)} className="bg-gray-400 text-white px-4 py-2 rounded">Cancelar</button>
+                <div className="flex justify-end space-x-3 pt-4">
+                    <button
+                        type="submit"
+                        className="bg-lime-600 hover:bg-lime-700 text-white font-semibold px-5 py-2 rounded-md transition"
+                    >
+                        Guardar
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => setProductoEditar(null)}
+                        className="bg-gray-400 hover:bg-gray-500 text-white font-semibold px-5 py-2 rounded-md transition"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
             </form>
         );
     }
