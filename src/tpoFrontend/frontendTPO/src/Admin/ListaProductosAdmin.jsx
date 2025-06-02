@@ -33,6 +33,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                 Authorization: "Bearer " + autenticacion.accessToken,
             },
         });
+
         const response = await fetch("http://localhost:4002/productos");
         const data = await response.json();
         setProductos(data);
@@ -44,6 +45,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
         const [cantidad, setCantidad] = useState(productoEditar.cantidad);
         const [categoria, setCategoria] = useState(productoEditar.categoria.id);
         const [descripcion, setDescripcion] = useState(productoEditar.descripcion);
+        const [imagenFile, setImagenFile] = useState(null);
 
         async function handleGuardar(e) {
             e.preventDefault();
@@ -63,7 +65,22 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                 }),
             });
 
+            if (imagenFile) {
+            const formData = new FormData();
+            formData.append("file", imagenFile);
+            formData.append("productoId", productoEditar.id);
+
+            await fetch(`http://localhost:4002/productos/${productoEditar.id}/imagen`, {
+                method: "POST",
+                headers: {
+                    Authorization: "Bearer " + autenticacion.accessToken,
+                },
+                body: formData,
+            });
+        }
+
             setProductoEditar(null);
+            
             const response = await fetch("http://localhost:4002/productos");
             const data = await response.json();
             setProductos(data);
@@ -134,6 +151,15 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                     placeholder="Descripción"
                     required
                 />
+
+                <label className="block mb-1 font-medium" htmlFor="imagen-input">Imagen</label>
+                <input
+                    id="imagen-input"
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setImagenFile(e.target.files[0])}
+                />
+
                 <button type="submit" className="bg-lime-600 text-white px-4 py-2 rounded mr-2">Guardar</button>
                 <button type="button" onClick={() => setProductoEditar(null)} className="bg-gray-400 text-white px-4 py-2 rounded">Cancelar</button>
             </form>
