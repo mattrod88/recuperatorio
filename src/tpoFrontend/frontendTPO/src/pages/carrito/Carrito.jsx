@@ -8,7 +8,7 @@ export default function carrito({autenticacion}) {
     const lista = 2;
   return (
      <main>
-        {lista ? <ListaCarrito/>:<CarritoVacio/> }
+        {lista ? <ListaCarrito autenticacion={autenticacion}/>:<CarritoVacio/> }
     </main>
   )
 }

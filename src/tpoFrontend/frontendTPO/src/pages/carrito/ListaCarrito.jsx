@@ -5,36 +5,37 @@ import CheckOut from './checkOut'
 
 export default function ListaCarrito({autenticacion}) {
     const[checkOut,setCheckOut]=useState(false)
-    const lista =[
-        {
-        "id": 3,
-        "nombre": "yogurt de coco",
-        "categoria": "lacteos",
-        "cantidad": 25,
-        "precio": 4200.0,
-        "descripcion": null,
-         "imagen":"/imagen1.jpg"
-    },
-    {
-        "id": 5,
-        "nombre": "Almendras",
-        "categoria": "sin gluten",
-        "cantidad": 28,
-        "precio": 4200.0,
-        "descripcion": null,
-        "imagen":"/imagen1.jpg"
-    },
-    {
-        "id": 6,
-        "nombre": "Nueces saladas",
-        "categoria": "sin gluten",
-        "cantidad": 50,
-        "precio": 3000.0,
-        "descripcion": null,
-         "imagen":"/imagen1.jpg"
-    }
+    const[producto,productos]=useState("")
+    // const lista =[
+    //     {
+    //     "id": 3,
+    //     "nombre": "yogurt de coco",
+    //     "categoria": "lacteos",
+    //     "cantidad": 25,
+    //     "precio": 4200.0,
+    //     "descripcion": null,
+    //      "imagen":"/imagen1.jpg"
+    // },
+    // {
+    //     "id": 5,
+    //     "nombre": "Almendras",
+    //     "categoria": "sin gluten",
+    //     "cantidad": 28,
+    //     "precio": 4200.0,
+    //     "descripcion": null,
+    //     "imagen":"/imagen1.jpg"
+    // },
+    // {
+    //     "id": 6,
+    //     "nombre": "Nueces saladas",
+    //     "categoria": "sin gluten",
+    //     "cantidad": 50,
+    //     "precio": 3000.0,
+    //     "descripcion": null,
+    //      "imagen":"/imagen1.jpg"
+    // }
 
-    ]
+    // ]
 
   return (
 

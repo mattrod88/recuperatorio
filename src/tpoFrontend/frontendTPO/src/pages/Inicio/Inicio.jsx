@@ -6,7 +6,7 @@ import CardProducto from "../Productos/componentes/CardProducto";
 
 export default function Inicio() {
   return (
-    <main>
+    <main >
 
     <Banner1/>
   

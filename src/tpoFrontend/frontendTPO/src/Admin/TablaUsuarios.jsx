@@ -24,7 +24,7 @@ export default function TablaUsuarios({ autenticacion }) {
   }, []);
 
   return (
-    <main className="flex-grow min-h-screen p-8 flex justify-center">
+    <main className="flex-grow  p-8 flex justify-center">
       <div className="w-full max-w-5xl bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-x-auto">
         <div className="max-h-[400px] overflow-y-auto">
           <table className="w-full text-left text-gray-700 dark:text-gray-300 text-sm">

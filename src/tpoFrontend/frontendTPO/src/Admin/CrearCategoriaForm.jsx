@@ -5,13 +5,13 @@ import { toast } from "react-toastify";
 
 export default function FormularioCrearCategoriaAdmin({ autenticacion }) {
     const [nombre, setNombre] = useState("");
-    const [descripcion, setDescripcion] = useState("");
+
 
     async function handleSubmit(e) {
         e.preventDefault();
 
-        if (!nombre.trim() || !descripcion.trim()) {
-            toast.warn("Por favor, completá todos los campos.");
+        if (!nombre.trim()) {
+            toast.warn("Por favor, completá el campo.");
             return;
         }
 
@@ -22,13 +22,13 @@ export default function FormularioCrearCategoriaAdmin({ autenticacion }) {
                     Authorization: "Bearer " + autenticacion.accessToken,
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ nombre, descripcion }),
+                body: JSON.stringify({ nombre }),
             });
 
             if (response.ok) {
                 toast.success("Categoría creada con éxito.");
                 setNombre("");
-                setDescripcion("");
+                
             } else {
                 const data = await response.json();
                 toast.error("Error: No se pudo crear la categoría.");
@@ -54,18 +54,6 @@ export default function FormularioCrearCategoriaAdmin({ autenticacion }) {
                     onChange={(e) => setNombre(e.target.value)}
                     className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                 />
-            </div>
-
-            <div className="mb-4">
-                <label htmlFor="descripcion" className="block text-sm font-medium text-gray-700">
-                    Descripción
-                </label>
-                <textarea
-                    id="descripcion"
-                    value={descripcion}
-                    onChange={(e) => setDescripcion(e.target.value)}
-                    className="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                ></textarea>
             </div>
 
             <button

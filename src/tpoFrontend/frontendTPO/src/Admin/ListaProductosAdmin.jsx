@@ -42,7 +42,7 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
         const [nombre, setNombre] = useState(productoEditar.nombre);
         const [precio, setPrecio] = useState(productoEditar.precio);
         const [cantidad, setCantidad] = useState(productoEditar.cantidad);
-        const [categoria, setCategoria] = useState(productoEditar.categoria.id);
+        const [categoria, setCategoria] = useState(productoEditar.categoria);
         const [descripcion, setDescripcion] = useState(productoEditar.descripcion);
 
         async function handleGuardar(e) {
