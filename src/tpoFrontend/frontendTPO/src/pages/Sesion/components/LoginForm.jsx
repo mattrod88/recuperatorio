@@ -43,6 +43,9 @@ const LoginForm = ({ callbackLogin }) => {
       };
 
       callbackLogin(auth);
+
+      toast.success("Inicio de sesión exitoso");
+      
       if (auth.rol === "CLIENTE") {
         navigate("/");
       } else {
