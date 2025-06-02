@@ -38,7 +38,14 @@ const SignUpForm = () => {
       requestOptions
     );
     const data = await response.json();
-    data.access_token ? navigate("/productos") : toast.error(data.message);
+
+    if (data.access_token) {
+        toast.success("Registro exitoso");
+        navigate("/productos");
+    } else {
+        toast.error(data.message);
+    }
+    
   };
 
   return (
