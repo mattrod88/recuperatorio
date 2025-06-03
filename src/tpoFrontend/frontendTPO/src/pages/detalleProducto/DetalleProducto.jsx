@@ -33,7 +33,7 @@ export default function DetalleProducto({carrito}) {
   const agregarAlCarrito = () => {
     if (producto) {
       carrito.agregar(cantidad, producto)
-      toast(`${producto.nombre} ha sido agregado a tu carrito`)
+      toast.success(`${producto.nombre} ha sido agregado a tu carrito`)
       navigate('/carrito')
     }
   };
