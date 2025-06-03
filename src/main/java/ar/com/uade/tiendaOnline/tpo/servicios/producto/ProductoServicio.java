@@ -1,6 +1,5 @@
 package ar.com.uade.tiendaOnline.tpo.servicios.producto;
 
-
 import ar.com.uade.tiendaOnline.tpo.entidad.Categoria;
 import ar.com.uade.tiendaOnline.tpo.entidad.Imagen;
 import ar.com.uade.tiendaOnline.tpo.entidad.Producto;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,12 +26,11 @@ public class ProductoServicio implements IProductoServicio {
     @Autowired
     private ImagenRepositorio imagenRepositorio;
 
-
     @Override
     public List<ProductoResponseDTO> obtenerTodosLosProductosDTO() {
         List<Producto> productos = productoRepositorio.obtenerProductos();
         List<ProductoResponseDTO> dtos = new ArrayList<>();
-        
+
         for (Producto p : productos) {
             ProductoResponseDTO prdto = new ProductoResponseDTO();
             prdto.setNombre(p.getNombre());
@@ -44,10 +41,9 @@ public class ProductoServicio implements IProductoServicio {
             prdto.setDescripcion((p.getDescripcion()));
             dtos.add(prdto);
         }
-    
+
         return dtos;
     }
-    
 
     @Transactional(rollbackFor = Throwable.class)
     public void crearProducto(Producto producto) {
@@ -57,42 +53,40 @@ public class ProductoServicio implements IProductoServicio {
 
     @Override
     public List<ProductoResponseDTO> obtenerProductosDTOporCategoria(String categoria) {
-        List<Producto> productos = productoRepositorio.findByCategoria(categoria); 
+        List<Producto> productos = productoRepositorio.findByCategoria(categoria);
         List<ProductoResponseDTO> dtos = new ArrayList<>();
-        
+
         for (Producto p : productos) {
             ProductoResponseDTO prdto = new ProductoResponseDTO();
             prdto.setNombre(p.getNombre());
             prdto.setCantidad(p.getCantidad());
             prdto.setPrecio(p.getPrecio());
             prdto.setCategoria(p.getCategoria().getDescripcion());
-            dtos.add(prdto); 
+            dtos.add(prdto);
         }
-        
+
         return dtos;
     }
-    
-    
 
     @Transactional
     @Override
     public void eliminarProducto(Long id) {
-        Optional<Producto> productoBuscado= productoRepositorio.obtenerPoId(id);
-        Producto producto =  productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
+        Optional<Producto> productoBuscado = productoRepositorio.obtenerPoId(id);
+        Producto producto = productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
         producto.setEliminado(true);
     }
 
     @Override
-    public Producto obtenerProductoPorId(Long id){
-        //Objeto opcional envuelve otro,ayuda a que no hayan nullPointerExceptions
-        //Te ahorras de preguntar si existe o no .
-        Optional<Producto> productoBuscado= productoRepositorio.obtenerPoId(id);
+    public Producto obtenerProductoPorId(Long id) {
+        // Objeto opcional envuelve otro,ayuda a que no hayan nullPointerExceptions
+        // Te ahorras de preguntar si existe o no .
+        Optional<Producto> productoBuscado = productoRepositorio.obtenerPoId(id);
         return productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
     }
 
     @Override
     public void subirImagen(Producto producto, MultipartFile file) throws IOException {
-        Optional<Producto> productoBuscado= productoRepositorio.obtenerPoId(producto.getId());
+        Optional<Producto> productoBuscado = productoRepositorio.obtenerPoId(producto.getId());
         Producto p = productoBuscado.orElseThrow(ProductoInexistenteExcepcion::new);
         Imagen i = new Imagen();
         i.setProducto(p);
@@ -100,8 +94,9 @@ public class ProductoServicio implements IProductoServicio {
         i.setImagenData(file.getBytes());
         imagenRepositorio.save(i);
     }
+
     @Override
-    public ArrayList<Imagen> obtenerImagenes(Long id){
+    public ArrayList<Imagen> obtenerImagenes(Long id) {
         return imagenRepositorio.obtenerImagenesDeUnProducto(id);
     }
 
@@ -124,7 +119,8 @@ public class ProductoServicio implements IProductoServicio {
                 && !productoRequestDTO.getNombre().equals(productoExistente.getNombre())) {
 
             if (existeProductoConNombre(productoRequestDTO.getNombre())) {
-                throw new IllegalArgumentException("Ya existe un producto con el nombre: " + productoRequestDTO.getNombre());
+                throw new IllegalArgumentException(
+                        "Ya existe un producto con el nombre: " + productoRequestDTO.getNombre());
             }
             productoExistente.setNombre(productoRequestDTO.getNombre());
         }
@@ -138,11 +134,14 @@ public class ProductoServicio implements IProductoServicio {
         if (productoRequestDTO.getCantidad() < 0) {
             throw new IllegalArgumentException("La cantidad no puede ser negativa.");
         }
-        
+
         if (productoRequestDTO.getPrecio() <= 0) {
             throw new IllegalArgumentException("El precio debe ser mayor a 0.");
         }
 
+        if (productoRequestDTO.getDescripcion() != null) {
+            productoExistente.setDescripcion(productoRequestDTO.getDescripcion());
+        }
 
         productoExistente.setCantidad(productoRequestDTO.getCantidad());
         productoExistente.setPrecio(productoRequestDTO.getPrecio());
@@ -152,7 +151,5 @@ public class ProductoServicio implements IProductoServicio {
     private boolean existeProductoConNombre(String nombre) {
         return !productoRepositorio.findByNombre(nombre).isEmpty();
     }
-
-
 
 }
