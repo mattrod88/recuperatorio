@@ -1,87 +1,61 @@
 import { useEffect, useState, useTransition } from "react";
 import CardProducto from "./componentes/CardProducto";
-import { Filtro } from "./componentes/Filtro";
 import { useLocation, useParams, useSearchParams } from "react-router-dom";
 
-
 export const ListaProductos = () => {
-    const { id } = useParams();
-    const [mostrar,setMostrar]= useState(false);
-    const [productos, setProductos] = useState([]);
-    const [imagen,setImagen]=useState([]);
-    const location = useLocation()
-    const [queryParams] = useSearchParams();
-    //const buscarTermino = new URLSearchParams(buscar).get("q");
-    
+  const { id } = useParams();
+  const [mostrar, setMostrar] = useState(false);
+  const [productos, setProductos] = useState([]);
+  const [imagen, setImagen] = useState([]);
+  const location = useLocation();
+  const [queryParams] = useSearchParams();
 
+  useEffect(() => {
+    async function fetchProductos() {
+      const response = await fetch(`http://localhost:4002/productos`);
+      const data = await response.json();
+      const filtro = queryParams.get("buscar");
+      const categoria = queryParams.get("categoria");
+      let productos = data;
 
-    useEffect(() => {
-        async function fetchProductos() {
-          const response = await fetch(
-            `http://localhost:4002/productos`
-          );
-          const data = await response.json();
-          const filtro = queryParams.get('buscar')
-          const categoria = queryParams.get('categoria')
-          let productos = data
+      if (filtro != undefined && filtro !== "") {
+        productos = data.filter((producto) =>
+          producto.nombre.toUpperCase().includes(filtro.toUpperCase())
+        );
+      } else if (categoria != undefined && categoria !== "") {
+        productos = data.filter((producto) =>
+          producto.categoria.toUpperCase().includes(categoria.toUpperCase())
+        );
+      }
 
-          if (filtro != undefined && filtro !== "") {
-            productos = data.filter((producto) => producto.nombre.toUpperCase().includes(filtro.toUpperCase()))
-          }else if(categoria != undefined && categoria !==""){
-            productos = data.filter((producto)=>producto.categoria.toUpperCase().includes(categoria.toUpperCase()))
-          }
-
-          setProductos(productos);
-        }
-        fetchProductos();
-    }, []);
+      setProductos(productos);
+    }
+    fetchProductos();
+  }, []);
 
   return (
     <main>
-      
-      <section className="my-5">
+      <section className="flex flex-col h-screen my-5">
         <div className="my-5 flex justify-between">
           <span className="text-lime-900   text-2xl font-semibold text-center dark:text-lime-900 ">
             Nuestros Productos
           </span>
-          <span>
-            <button onClick={()=>setMostrar(!mostrar)}
-              id="dropdownMenuIconButton"
-              className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-700"
-              type="button"
-            >
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
-              </svg>
-            </button>
-          </span>
+          <span className="flex-1 "></span>
         </div>
-
-        {}
-        
         <div className="flex flex-wrap justify-center lg:flex-row">
           {productos.length > 0 ? (
             productos.map((producto) => (
               <CardProducto key={producto.id} producto={producto} />
             ))
           ) : (
-            <p className="text-center text-gray-500 mt-4">No se hallaron resultados para tu búsqueda.</p>
+            <p className="text-center text-gray-500 mt-4">
+              No se hallaron resultados para tu búsqueda.
+            </p>
           )}
         </div>
-
       </section>
 
-      {mostrar && <Filtro setMostrar={setMostrar}/>}
+      {mostrar}
     </main>
-    
   );
 };
-
-
-     
