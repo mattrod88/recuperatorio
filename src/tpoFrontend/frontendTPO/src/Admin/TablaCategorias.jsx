@@ -21,18 +21,6 @@ export default function TablaCategorias({ autenticacion }) {
     fetchCategorias();
   }, []);
 
-  // Función para eliminar una categoría
-  async function eliminarCategoria(id) {
-    if (!window.confirm("¿Seguro que deseas eliminar esta categoría?")) return;
-    await fetch(`http://localhost:4002/categorias/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + autenticacion.accessToken,
-      },
-    });
-    setCategorias((prev) => prev.filter((cat) => cat.id !== id));
-  }
-
   return (
     <main className="flex-grow  p-8 flex justify-center">
       <div className="w-full max-w-5xl dark:bg-gray-800 shadow-md overflow-x-auto">
@@ -42,7 +30,6 @@ export default function TablaCategorias({ autenticacion }) {
               <tr>
                 <th className="px-6 py-3">ID</th>
                 <th className="px-6 py-3">Nombre</th>
-                <th className="px-6 py-3">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -54,14 +41,6 @@ export default function TablaCategorias({ autenticacion }) {
                   >
                     <td className="px-6 py-3">{categoria.id}</td>
                     <td className="px-6 py-3">{categoria.descripcion}</td>
-                    <td className="px-6 py-3">
-                      <button
-                        onClick={() => eliminarCategoria(categoria.id)}
-                        className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
-                      >
-                        Eliminar
-                      </button>
-                    </td>
                   </tr>
                 ))}
             </tbody>
