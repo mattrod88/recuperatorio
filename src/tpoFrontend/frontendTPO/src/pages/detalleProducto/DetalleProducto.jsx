@@ -9,7 +9,7 @@ export default function DetalleProducto({carrito}) {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [imagenes, setImagenes] = useState([]);
-  const [cantidad, setCantidad] = useState(1);
+  const [cantidad, setCantidad] = useState(0);
 
   useEffect(() => {
     async function fetchProducto() {
@@ -31,12 +31,17 @@ export default function DetalleProducto({carrito}) {
   if (!producto) return <p>Cargando producto...</p>;
 
   const agregarAlCarrito = () => {
-    if (producto) {
-      carrito.agregar(cantidad, producto)
-      toast.success(`${producto.nombre} ha sido agregado a tu carrito`)
-      navigate('/carrito')
-    }
-  };
+  if (cantidad === 0) {
+    toast.warning("Debes seleccionar al menos 1 unidad para agregar al carrito.");
+    return;
+  }
+  
+  if (producto) {
+    carrito.agregar(cantidad, producto)
+    toast.success(`${producto.nombre} ha sido agregado a tu carrito`)
+    navigate('/carrito')
+  }
+};
 
 
   return (

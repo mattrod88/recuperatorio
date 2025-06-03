@@ -22,6 +22,8 @@ export default function CardProducto(props) {
       navigate(`/productos/${props.producto.id}`)      
     }
 
+    const sinStock = props.producto.cantidad === 0;
+
   return ( 
     <div className="pb-4 m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
       <NavLink to={`/productos/${props.producto.id}`} className="relative">
@@ -49,15 +51,25 @@ export default function CardProducto(props) {
             <span>$</span>
             <span>{props.producto.precio}</span>
           </span>
-          <button 
-className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800">
-            <button type="button" onClick={agregarAlCarrito}>
-              Agregar al carrito
-            </button>
 
-            <i className="ml-1 bi bi-plus-lg"></i>
-          </button>
-        </p>
+          {sinStock ? (
+            <button 
+              type="button"
+              disabled
+              className="text-white font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 bg-gray-400 cursor-not-allowed"
+            >
+              No hay stock disponible
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={agregarAlCarrito}
+              className="text-white font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800"
+            >
+              Agregar al carrito <i className="ml-1 bi bi-plus-lg"></i>
+            </button>
+          )}
+        </p>    
       </div>
     </div>
   );

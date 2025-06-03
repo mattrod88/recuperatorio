@@ -16,7 +16,7 @@ export default function InformacionProducto({
   };
 
   const decrementar = () => {
-    if (cantidad > 1) {
+    if (cantidad > 0) {
       setCantidad((valor) => valor - 1);
     }
   };
@@ -57,12 +57,21 @@ export default function InformacionProducto({
                 </button>
             </div>
 
-            <button
-                onClick={agregarAlCarrito}
-                className="bg-lime-700 hover:bg-lime-800 text-white font-semibold rounded-lg px-6 py-3 sm:px-8 sm:py-4 text-xl sm:text-2xl transition"
-            >
-                Agregar al carrito
-            </button>
+            {producto.cantidad > 0 ? (
+                <button
+                    onClick={agregarAlCarrito}
+                    className="bg-lime-700 hover:bg-lime-800 text-white font-semibold rounded-lg px-6 py-3 sm:px-8 sm:py-4 text-xl sm:text-2xl transition"
+                >
+                    Agregar al carrito
+                </button>
+                ) : (
+                <button
+                    disabled
+                    className="bg-gray-400 text-white font-semibold rounded-lg px-6 py-3 sm:px-8 sm:py-4 text-xl sm:text-2xl cursor-not-allowed"
+                >
+                    No hay stock disponible
+                </button>
+            )}
         </section>
 
     );
