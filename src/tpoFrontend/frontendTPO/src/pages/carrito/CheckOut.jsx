@@ -1,9 +1,23 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from 'react-toastify';
 
 export default function checkOut({setCheckOut}) {
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        toast.success("Compra realizada con éxito", {
+            position: "top-center",
+            autoClose: 2000,
+        });
+
+        setTimeout(() => {
+            setCheckOut(false);   
+            navigate("/productos"); 
+    }, 2200); 
+};
 
   return (
     <section>
@@ -21,7 +35,7 @@ export default function checkOut({setCheckOut}) {
                     <h3 className="mb-4 text-xl  lime-gray-900 text-lime-600 font-bold">
                     <i className="bi bi-credit-card mr-2"></i>Sólo aceptamos pago con tarjeta
                     </h3>
-                    <form  className="space-y-6" >
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
                             <label htmlFor="name" className="block mb-2 text-sm font-medium text-lime-900 ">Nombre:</label>
                             <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-lime-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:value-gray-400 dark:text-white"  />
