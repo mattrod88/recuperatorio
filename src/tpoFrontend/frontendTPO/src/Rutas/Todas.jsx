@@ -21,7 +21,7 @@ export const Rutas = ({autenticacion, carrito}) => {
         <Route path="/" element={<Inicio />} />
         <Route path="/nosotros" element={<Nosotros  />} />
         <Route path="/productos" element={<ListaProductos carrito={carrito} />} />
-        <Route path="/productos/:id" element={<DetalleProducto />} /> 
+        <Route path="/productos/:id" element={<DetalleProducto carrito={carrito} />} /> 
         <Route path="/trabajaConNosotros" element={<TrabajaConNosotros />} />
         <Route path="/tiendas" element={<Tiendas />} />
         <Route path="/blog" element={<Blog />} /> 

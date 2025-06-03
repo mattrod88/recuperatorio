@@ -19,8 +19,7 @@ export default function CardProducto(props) {
     }, [])
 
     function agregarAlCarrito() {
-      props.carrito.agregar(props.producto)
-      navigate('/carrito')      
+      navigate(`/productos/${props.producto.id}`)      
     }
 
   return (
@@ -52,9 +51,6 @@ export default function CardProducto(props) {
           </span>
           <button 
 className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800">
-            {/* <Link to="/carrito">
-              Agregar al carrito
-            </Link> */}
             <button type="button" onClick={agregarAlCarrito}>
               Agregar al carrito
             </button>

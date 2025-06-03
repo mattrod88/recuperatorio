@@ -7,18 +7,28 @@ import { Rutas } from "./Rutas/Todas";
 import { useState } from "react";
 import RutasProtegidas from "./Rutas/RutasProtegidas";
 
+let itemCarrito = {
+  cantidad:0,
+  producto:{}
+}
+
 let carritoInicial = {
   productos: [],
-  agregar: function(producto) {
-    this.productos.push(producto)
-     this.cuandoSeAgregaUnProducto(producto)
+  agregar: function(cantidad, producto) {
+    this.productos.push({cantidad: cantidad, producto: producto})
+     this.cuandoSeAgregaUnProducto()
   },
-  cuandoSeAgregaUnProducto: function (producto){},
+  cuandoSeAgregaUnProducto: function (){},
+  cuandoSeEliminaUnProducto: function (){},
   calcularTotal: function() {
-    const total = this.productos.reduce((acumulado, producto) => {
-      return acumulado + producto.precio
+    const total = this.productos.reduce((acumulado, item) => {
+      return acumulado + (item.producto.precio * item.cantidad)
     }, 0)
     return total
+  },
+  eliminarPorId: function(id) {
+    this.productos = this.productos.filter(item => item.producto.id !== id);
+    this.cuandoSeEliminaUnProducto()  
   }
 };
 
@@ -32,17 +42,19 @@ function App() {
   const [carrito, setCarrito] = useState(carritoInicial)
 
   carrito.cuandoSeAgregaUnProducto = productoAgregado
+  carrito.cuandoSeEliminaUnProducto = productoEliminado
 
   const alHacerLogin = (auth) => {
     setAutenticacion(auth);
   };
 
-  function productoAgregado(producto) {
-    console.log("Se agrego el producto:", producto)
-    console.log(carrito)
-    setCarrito(carrito)
+  function productoAgregado() {
+    setCarrito({...carrito})
   }
 
+    function productoEliminado() {
+      setCarrito({...carrito})
+  }
 
   return (
     <div className="App">

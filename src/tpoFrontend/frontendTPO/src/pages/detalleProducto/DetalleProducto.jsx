@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import CarruselProducto from './componentes/CarrouselProducto';
 import InformacionProducto from './componentes//InformacionProducto';
 import { toast } from 'react-toastify';
 
-export default function DetalleProducto() {
- 
+export default function DetalleProducto({carrito}) {
+  const navigate = useNavigate()
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [imagenes, setImagenes] = useState([]);
@@ -32,7 +32,9 @@ export default function DetalleProducto() {
 
   const agregarAlCarrito = () => {
     if (producto) {
-     toast(`${producto.nombre} ha sido agregado a tu carrito`)
+      carrito.agregar(cantidad, producto)
+      toast(`${producto.nombre} ha sido agregado a tu carrito`)
+      navigate('/carrito')
     }
   };
 

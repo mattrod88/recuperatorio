@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 
 
 export default function CardCarrito(props) {
+
+function eliminarProducto() { 
+  props.carrito.eliminarPorId(props.producto.id)
+}
+
   return (
     <div className="flex flex-wrap justify-between border-b dark:border-slate-700 max-w-4xl m-auto p-2 mb-5 ">
       <div className="flex">
@@ -16,10 +21,10 @@ export default function CardCarrito(props) {
         <div className="">
           <Link to={`productos/${props.producto.id}`}>
             <p className="text-lg ml-2 dark:text-slate-200">
-              {props.producto.nombre}
+              {props.producto.nombre} x {props.cantidad}
             </p>
           </Link>
-          <button className="text-base ml-2 text-red-400">
+          <button onClick={eliminarProducto} className="text-base ml-2 text-red-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -34,7 +39,8 @@ export default function CardCarrito(props) {
         </div>
       </div>
       <div className="text-lg m-2 dark:text-slate-200">
-        <span>${props.producto.precio}</span>
+        <span>(precio unitario: ${props.producto.precio}) - </span>
+        <span>${props.producto.precio * props.cantidad}</span>
       </div>
     </div>
   );

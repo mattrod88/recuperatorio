@@ -7,8 +7,7 @@ export default function ListaCarrito({ autenticacion, carrito }) {
   const navigate = useNavigate()
   
   const [checkOut, setCheckOut] = useState(false);
-  const [producto, productos] = useState("");
-  const [lista, setLista] = useState(carrito.productos)
+
   return (
     <>
       <section>
@@ -18,8 +17,8 @@ export default function ListaCarrito({ autenticacion, carrito }) {
       </section>
 
       <section>
-        {lista.length > 0 && lista.map((producto) => (
-          <CardCarrito key={producto.id} producto={producto} />
+        {carrito.productos.length > 0 && carrito.productos.map((item) => (
+          <CardCarrito key={item.producto.id} producto={item.producto} cantidad={item.cantidad} carrito={carrito}/>
         ))}
       </section>
 
