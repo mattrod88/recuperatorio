@@ -9,7 +9,6 @@ export default function Header({ autenticacion }) {
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
   const [dropdownUsuario, setDropdownUsuario] = useState(false);
 
-  // Fetch categorías y manejo de resize
   useEffect(() => {
     async function fetchCategorias() {
       const response = await fetch(`http://localhost:4002/categorias`);
@@ -29,16 +28,16 @@ export default function Header({ autenticacion }) {
     };
   }, []);
 
-  // Cerrar dropdowns al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (e) => {
-      // Cerrar dropdown de usuario
       const usuarioDropdown = document.querySelector(".dropdown-usuario");
-      if (dropdownUsuario && usuarioDropdown && !usuarioDropdown.contains(e.target)) {
+      if (
+        dropdownUsuario &&
+        usuarioDropdown &&
+        !usuarioDropdown.contains(e.target)
+      ) {
         setDropdownUsuario(false);
       }
-
-      // Cerrar dropdown de categorías (manejado internamente en su componente)
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -65,7 +64,10 @@ export default function Header({ autenticacion }) {
     <main>
       <nav className="bg-white border-gray-500 dark:bg-lime-900 dark:border-gray-700 text-lime-900">
         <div className="mx-auto flex flex-wrap items-center justify-between p-4">
-          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <a
+            href="/"
+            className="flex items-center space-x-3 rtl:space-x-reverse"
+          >
             <svg
               className="w-6 h-6 text-lime-900 dark:text-white"
               aria-hidden="true"
@@ -109,7 +111,10 @@ export default function Header({ autenticacion }) {
             </svg>
           </button>
 
-          <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+          <div
+            className="hidden w-full md:block md:w-auto"
+            id="navbar-dropdown"
+          >
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-lime-900 dark:border-gray-700">
               <li>
                 <DropdownCategoria items={categorias} />
@@ -123,7 +128,9 @@ export default function Header({ autenticacion }) {
                   >
                     {autenticacion.email}
                     <svg
-                      className={`w-2.5 h-2.5 ms-2.5 transition-transform ${dropdownUsuario ? "rotate-180" : ""}`}
+                      className={`w-2.5 h-2.5 ms-2.5 transition-transform ${
+                        dropdownUsuario ? "rotate-180" : ""
+                      }`}
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
