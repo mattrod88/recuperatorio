@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 export default function InformacionProducto({
   producto,
   cantidad,
@@ -5,7 +7,12 @@ export default function InformacionProducto({
   agregarAlCarrito,
 }) {
   const incrementar = () => {
-    setCantidad((valor) => valor + 1);
+    if (cantidad < producto.cantidad) {
+        setCantidad((valor) => valor + 1);
+    }
+    else {
+        toast.info(`Solo hay ${producto.cantidad} unidades disponibles.`);
+    }
   };
 
   const decrementar = () => {
