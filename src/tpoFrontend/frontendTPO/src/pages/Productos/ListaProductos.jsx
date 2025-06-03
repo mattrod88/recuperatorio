@@ -9,9 +9,11 @@ export const ListaProductos = ({carrito}) => {
   const [imagen, setImagen] = useState([]);
   const location = useLocation();
   const [queryParams] = useSearchParams();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchProductos() {
+      setLoading(true);
       const response = await fetch(`http://localhost:4002/productos`);
       const data = await response.json();
       const filtro = queryParams.get("buscar");
@@ -27,15 +29,22 @@ export const ListaProductos = ({carrito}) => {
           producto.categoria.toUpperCase().includes(categoria.toUpperCase())
         );
       }
+      
 
       setProductos(productos);
     }
     fetchProductos();
+    setLoading(false);
+  
   }, []);
+
+   if (loading) {
+    return <p className="text-lime-950 font-bold">Cargando...</p>;
+  }
 
   return (
     <main>
-      <section className=" h-screen my-5">
+      <section className=" flex flex-col min-h-screen my-5">
         <div className="my-5 flex justify-between">
           <span className="text-lime-900   text-2xl font-semibold text-center dark:text-lime-900 ">
             Nuestros Productos

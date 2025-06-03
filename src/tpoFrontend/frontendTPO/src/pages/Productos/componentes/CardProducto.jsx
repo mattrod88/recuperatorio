@@ -22,8 +22,8 @@ export default function CardProducto(props) {
       navigate(`/productos/${props.producto.id}`)      
     }
 
-  return (
-    <div className="m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+  return ( 
+    <div className="pb-4 m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
       <NavLink to={`/productos/${props.producto.id}`} className="relative">
         <span className="absolute top-4 left-2 px-2 bg-lime-900 bg-opacity-90 text-white rounded">
           {props.producto.categoria}
