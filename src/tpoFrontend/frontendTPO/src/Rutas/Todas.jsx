@@ -10,8 +10,9 @@ import Politicas from "../pages/seccionesFooter/Politicas";
 import Nosotros from "../pages/seccionesFooter/Nosotros";
 import TrabajaConNosotros from "../pages/seccionesFooter/TrabajaConNosotros";
 import FormularioContacto from "../pages/seccionesFooter/FormularioContacto";
+import ListaCarrito from "../pages/carrito/ListaCarrito";
 
-export const Rutas = (autenticacion) => {
+export const Rutas = ({autenticacion, carrito}) => {
 
 
   return (
@@ -19,7 +20,7 @@ export const Rutas = (autenticacion) => {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/nosotros" element={<Nosotros  />} />
-        <Route path="/productos" element={<ListaProductos />} />
+        <Route path="/productos" element={<ListaProductos carrito={carrito} />} />
         <Route path="/productos/:id" element={<DetalleProducto />} /> 
         <Route path="/trabajaConNosotros" element={<TrabajaConNosotros />} />
         <Route path="/tiendas" element={<Tiendas />} />
@@ -28,6 +29,14 @@ export const Rutas = (autenticacion) => {
         <Route path="/licencia" element={<Licencia />} />
         <Route path="/politicaPrivacidad" element={<Politicas />} />
         <Route path="/contactanos" element={<FormularioContacto />}/>
+        <Route
+          path="/carrito"
+          element={
+            // <ProtectedRoute autenticacion={autenticacion}>
+              <ListaCarrito autenticacion={autenticacion} carrito={carrito}/>
+            // </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

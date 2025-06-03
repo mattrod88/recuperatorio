@@ -2,7 +2,7 @@ import { useEffect, useState, useTransition } from "react";
 import CardProducto from "./componentes/CardProducto";
 import { useLocation, useParams, useSearchParams } from "react-router-dom";
 
-export const ListaProductos = () => {
+export const ListaProductos = ({carrito}) => {
   const { id } = useParams();
   const [mostrar, setMostrar] = useState(false);
   const [productos, setProductos] = useState([]);
@@ -45,7 +45,7 @@ export const ListaProductos = () => {
         <div className="flex flex-wrap justify-center lg:flex-row">
           {productos.length > 0 ? (
             productos.map((producto) => (
-              <CardProducto key={producto.id} producto={producto} />
+              <CardProducto key={producto.id} producto={producto} carrito={carrito} />
             ))
           ) : (
             <p className="text-center text-gray-500 mt-4">

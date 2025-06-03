@@ -1,10 +1,11 @@
-import { Link, } from "react-router-dom";
+import { Link, useNavigate, } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 
 export default function CardProducto(props) {  
     const [imagenUrl, setImagenUrl] = useState("");
+    const navigate = useNavigate()
 
     useEffect(() => {
           async function fetchImagenes() {
@@ -16,6 +17,11 @@ export default function CardProducto(props) {
         }
         fetchImagenes()
     }, [])
+
+    function agregarAlCarrito() {
+      props.carrito.agregar(props.producto)
+      navigate('/carrito')      
+    }
 
   return (
     <div className="m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -46,9 +52,12 @@ export default function CardProducto(props) {
           </span>
           <button 
 className="text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800">
-            <NavLink to={`/carrito/${props.producto.id}`}>
+            {/* <Link to="/carrito">
               Agregar al carrito
-            </NavLink>
+            </Link> */}
+            <button type="button" onClick={agregarAlCarrito}>
+              Agregar al carrito
+            </button>
 
             <i className="ml-1 bi bi-plus-lg"></i>
           </button>
