@@ -46,7 +46,7 @@ export default function Footer() {
               </li>
               <li className="mb-4">
                 <a  href="/carrito" className="hover:underline">
-                  tu carrito de compras
+                  Tu carrito de compras
                 </a>
               </li>
               <li className="mb-4">
