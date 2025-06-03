@@ -31,6 +31,18 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
         const [nombre, setNombre] = useState(productoEditar.nombre);
         const [precio, setPrecio] = useState(productoEditar.precio);
         const [descripcion, setDescripcion] = useState(productoEditar.descripcion);
+        const [cantidad, setCantidad] = useState(productoEditar.cantidad);
+        const [categoria, setCategoria] = useState(productoEditar.categoria);
+        const [categorias, setCategorias] = useState([]);
+
+        useEffect(() => {
+            async function fetchCategorias() {
+                const response = await fetch("http://localhost:4002/categorias");
+                const data = await response.json();
+                setCategorias(data.content || data); // Ajusta según tu backend
+            }
+            fetchCategorias();
+        }, []);
 
         async function handleGuardar(e) {
             e.preventDefault();
@@ -45,8 +57,8 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                     nombre,
                     precio,
                     descripcion,
-                    cantidad: productoEditar.cantidad,
-                    categoria: productoEditar.categoria,
+                    cantidad,
+                    categoria_id: categoria.id, 
                 }),
             });
             setProductoEditar(null);
@@ -87,6 +99,32 @@ export const ListaProductosAdmin = ({ autenticacion }) => {
                     placeholder="Descripción"
                     required
                 />
+                <label className="block mb-1 font-medium" htmlFor="cantidad-input">Stock</label>
+                <input
+                    id="cantidad-input"
+                    className="block mb-2 border p-1 w-full"
+                    type="number"
+                    value={cantidad}
+                    onChange={e => setCantidad(Number(e.target.value))}
+                    placeholder="Stock"
+                    required
+                />
+                <label className="block mb-1 font-medium" htmlFor="categoria-input">Categoría</label>
+                <select
+                    id="categoria-input"
+                    className="block mb-2 border p-1 w-full"
+                    value={categoria.id}
+                    onChange={e => {
+                        const cat = categorias.find(c => c.id === Number(e.target.value));
+                        setCategoria(cat);
+                    }}
+                    required
+                >
+                    <option value="">Selecciona una categoría</option>
+                    {categorias.map(cat => (
+                        <option key={cat.id} value={cat.id}>{cat.descripcion}</option>
+                    ))}
+                </select>
                 <button type="submit" className="bg-lime-600 text-white px-4 py-2 rounded mr-2">Guardar</button>
                 <button type="button" onClick={() => setProductoEditar(null)} className="bg-gray-400 text-white px-4 py-2 rounded">Cancelar</button>
             </form>
