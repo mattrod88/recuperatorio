@@ -68,7 +68,7 @@ export default function Dropdown({ titulo, items }) {
                   <span
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:green-lime-900 dark:hover:text-lime-900"
                     role="menuitem"
-                    tabIndex="-1"
+                    tabIndex={-1}
                     id={item.id}
                   >
                     {item.descripcion}
