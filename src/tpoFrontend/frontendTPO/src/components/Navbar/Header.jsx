@@ -3,7 +3,7 @@ import Buscador from "./Buscador";
 import React, { useEffect, useState } from "react";
 import { DropdownUsuarioLogueado } from "./DropdownUsuarioLogueado";
 
-export default function Header({ autenticacion, setAuth }) {
+export default function Header({ autenticacion }) {
   const [openNav, setOpenNav] = useState(false);
   const [categorias, setCategorias] = useState();
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
@@ -56,9 +56,8 @@ export default function Header({ autenticacion, setAuth }) {
   };
 
   const cerrarSesion = () => {
-    localStorage.removeItem("authToken");
-    setAuth({ logueado: false, email: "" });
-    setDropdownUsuario(false);
+    //setAuth({ logueado: false, email: "" });
+    //setDropdownUsuario(false);
     window.location.href = "/";
   };
 

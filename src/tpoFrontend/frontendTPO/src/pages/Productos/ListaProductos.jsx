@@ -35,12 +35,12 @@ export const ListaProductos = () => {
 
   return (
     <main>
-      <section className="flex flex-col h-screen my-5">
+      <section className=" h-screen my-5">
         <div className="my-5 flex justify-between">
           <span className="text-lime-900   text-2xl font-semibold text-center dark:text-lime-900 ">
             Nuestros Productos
           </span>
-          <span className="flex-1 "></span>
+         
         </div>
         <div className="flex flex-wrap justify-center lg:flex-row">
           {productos.length > 0 ? (
