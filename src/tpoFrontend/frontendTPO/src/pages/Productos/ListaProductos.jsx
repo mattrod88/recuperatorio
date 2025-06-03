@@ -35,7 +35,7 @@ export const ListaProductos = ({carrito}) => {
 
   return (
     <main>
-      <section className=" h-screen my-5">
+      <section className=" flex flex-col min-h-screen my-5">
         <div className="my-5 flex justify-between">
           <span className="text-lime-900   text-2xl font-semibold text-center dark:text-lime-900 ">
             Nuestros Productos
