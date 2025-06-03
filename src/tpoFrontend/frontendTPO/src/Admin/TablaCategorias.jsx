@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 
 export default function TablaCategorias({ autenticacion }) {
   const [categorias, setCategorias] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   console.log(autenticacion);
 
   useEffect(() => {
     async function fetchCategorias() {
+      setLoading(true);
       const response = await fetch(
         `http://localhost:4002/categorias`,
         {
@@ -17,9 +20,18 @@ export default function TablaCategorias({ autenticacion }) {
       );
       const data = await response.json();
       setCategorias(data.content);
+      setLoading(false);
     }
     fetchCategorias();
   }, []);
+
+if (loading) {
+  return (
+    <p className="text-lime-950 font-bold text-center my-10">
+      Cargando...
+    </p>
+  );
+}
 
   return (
     <main className="flex-grow  p-8 flex justify-center">
