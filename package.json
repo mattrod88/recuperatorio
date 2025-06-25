@@ -1,0 +1,20 @@
+{
+  "name": "tiendaonlinesaludable-tpo",
+  "version": "1.0.0",
+  "description": "<h1>Trabajo práctico obligatorio </h1>\r <h2>Desarrollo de una Plataforma de E-commerce</h2>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dggtn/tiendaOnlineSaludable-TPO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dggtn/tiendaOnlineSaludable-TPO/issues"
+  },
+  "homepage": "https://github.com/dggtn/tiendaOnlineSaludable-TPO#readme"
+}
